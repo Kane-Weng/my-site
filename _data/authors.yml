@@ -1,0 +1,14 @@
+kane:
+  name: "Kane Weng"
+  bio: "Undergraduate student at the University of Michigan | Robotics, AI, Embedded Systems"
+  avatar: "/assets/images/headshot.jpg"
+  location: "Michigan, USA"
+  email: "kaichi@umich.edu"
+
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/Kane-Weng"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in//kai-chi-weng/"
