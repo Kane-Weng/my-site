@@ -15,10 +15,10 @@ $um-maize: #ffcb05;
 
 .page__hero--overlay .wrapper p.page__lead {
   color: #bdc3c7 !important; 
-  font-size: 0.9rem !important;
+  font-size: 1rem !important;
   font-weight: 200 !important;
   opacity: 1 !important;
-  margin-bottom: 3rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .page__hero--overlay .btn--light-outline {
@@ -119,6 +119,33 @@ $um-maize: #ffcb05;
   }
 }
 
+/* Sidebar CV Button Styling */
+.cv-button-container {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-cv {
+  display: inline-block;
+  background-color: $um-maize !important;
+  color: $um-blue !important;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $um-blue !important;
+    color: #fff !important;
+    transform: scale(1.05);
+  }
+}
+
 /* --- Social Links (Left-Align) --- */
 .author__urls-wrapper {
   width: 100%;
@@ -197,49 +224,49 @@ $um-maize: #ffcb05;
   }
 }
 
-/* --- Experience Card Layout --- */
+/* --- Experience Card with Banner --- */
+/* --- The Wrapper (Forces horizontal layout) --- */
 .exp-container {
   display: flex;
-  gap: 20px;
+  flex-direction: row;
+  gap: 20px;     
   margin-top: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: wrap;     
+  align-items: stretch;
 }
 
+/* --- The Card (Internal vertical stack) --- */
 .exp-card {
-  flex: 1;
-  min-width: 300px;
-  padding: 1.5rem;
+  flex: 1;          
+  min-width: 320px;   
   background: #fff;
-  border-top: 4px solid $um-blue;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
 
   &:hover {
-    transform: translateY(-5px);
-    border-top-color: $um-maize;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
   }
+}
 
-  h3 {
-    margin-top: 0;
-    color: $um-blue;
-    font-size: 1.1rem;
+.exp-banner-img {
+  width: 100%;
+  height: 180px; 
+  object-fit: cover;
+  border-bottom: 4px solid $um-blue;
+  
+  .exp-card:hover & {
+    border-bottom-color: $um-maize;
   }
+}
 
-  .role-date {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 0;
-  }
+.exp-card-content {
+  padding: 1.5rem;
+  flex-grow: 1; /* Ensures the content area fills the card */
 }
 
 /* --- Custom Branded Divider --- */
@@ -250,4 +277,64 @@ $um-maize: #ffcb05;
   border-radius: 2px;
   margin: 3rem 0;
   opacity: 0.8;
+}
+
+/* --- Learning Course Grid --- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+.course-card {
+  padding: 1.2rem;
+  background: #f8f9fa; 
+  border-left: 5px solid $um-blue;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border-left-color: $um-maize;
+    transform: translateX(5px);
+  }
+
+  .course-number {
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: $um-blue;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.05rem;
+    color: #333;
+  }
+}
+
+.topic-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  margin: 2px 2px;
+  background: rgba($um-blue, 0.05);
+  color: #555;
+  border-radius: 12px;
+  border: 1px solid rgba($um-blue, 0.1);
+}
+
+.lang-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  margin: 2px 2px;
+  background: rgba($um-maize, 0.15); 
+  color: #8c7300;                  
+  border-radius: 12px;
+  border: 1px solid rgba($um-maize, 0.5);
 }

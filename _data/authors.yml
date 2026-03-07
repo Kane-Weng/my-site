@@ -2,7 +2,13 @@
 # The site pulls information from here to build sidebar
 kane:
   name: "Kane Weng"
-  bio: "Robotics & CS @ U-M • Software Engineering • Instructional Aid"
+  bio: |
+    Robotics & CS @ U-M • Software Engineering • Instructional Aid
+    <div class="cv-button-container">
+      <a href="./assets/docs/Kane_Weng_Resume.pdf" class="btn-cv">
+        <i class="fas fa-file-download"></i> Download CV
+      </a>
+    </div>
   avatar: "/assets/images/personal_pic.jpeg" 
   location: "Ann Arbor, MI"
   email: "kaichi@umich.edu"
