@@ -2,7 +2,7 @@
 # The site pulls information from here to build sidebar
 kane:
   name: "Kane Weng"
-  bio: "Robotics & CS @ U-M | SIM-26 Software Lead | MRover Autonomy"
+  bio: "Robotics & CS @ U-M • Software Engineering • Instructional Aid"
   avatar: "/assets/images/personal_pic.jpeg" 
   location: "Ann Arbor, MI"
   email: "kaichi@umich.edu"
