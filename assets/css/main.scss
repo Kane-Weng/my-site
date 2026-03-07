@@ -1,0 +1,70 @@
+---
+---
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; 
+@import "minimal-mistakes"; 
+
+$um-blue: #00274c;
+$um-maize: #ffcb05;
+
+/* Sidebar settings */
+.author__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.author__avatar {
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint($large) {
+    margin-bottom: 20px; /* Adds space below avatar on desktop */
+  }
+
+  img {
+    width: 100%; 
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid $um-blue;
+    display: block;
+    margin: 0 auto; 
+  }
+}
+
+.author__name, 
+.author__bio {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include breakpoint($large) {
+    margin-top: 5px;
+  }
+}
+
+/* --- HOME PAGE (OVERLAY VERSION) --- */
+.page__hero--overlay .wrapper #page-title.page__title {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.25rem;
+}
+
+.page__hero--overlay .wrapper p.page__lead {
+  color: #bdc3c7 !important; 
+  font-size: 0.9rem !important;
+  font-weight: 200 !important;
+  opacity: 1 !important;
+  margin-bottom: 3rem !important;
+}
+
+.page__hero--overlay .btn--light-outline {
+  border-color: $um-maize !important;
+  color: $um-maize !important;
+  
+  &:hover {
+    background-color: $um-maize !important;
+    color: $um-blue !important;
+  }
+}

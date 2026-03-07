@@ -1,0 +1,16 @@
+# Jekyll build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby dependencies
+vendor/
+.bundle/
+Gemfile.lock # Optional, but usually ignored for personal sites
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Sass cache
+.sass-cache/

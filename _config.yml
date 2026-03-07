@@ -1,8 +1,38 @@
-title: "My Site"
-description: "My new Jekyll website"
-theme: null
+title: "Kane Weng"
+description: "Robotics & CS @ University of Michigan"
+url: "https://kane-weng.github.io" 
+baseurl: ""
 
+# Theme Settings
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+minimal_mistakes_skin: "default"
+
+# Site Author (Points to _data/authors.yml)
+author: kane
 
 plugins:
   - jekyll-include-cache
+
+defaults:
+  # standalone pages
+  - scope:
+      path: ""
+      type: pages           
+    values:
+      layout: single
+      author_profile: true
+  # projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      sidebar:
+        nav: "docs" # Sidebar menu of all projects
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  

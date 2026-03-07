@@ -1,14 +1,16 @@
+# Stored bio here
+# The site pulls information from here to build sidebar
 kane:
   name: "Kane Weng"
-  bio: "Undergraduate student at the University of Michigan | Robotics, AI, Embedded Systems"
-  avatar: "/assets/images/headshot.jpg"
-  location: "Michigan, USA"
+  bio: "Robotics & CS @ U-M | SIM-26 Software Lead | MRover Autonomy"
+  avatar: "/assets/images/personal_pic.jpeg" 
+  location: "Ann Arbor, MI"
   email: "kaichi@umich.edu"
-
   links:
     - label: "GitHub"
-      icon: "fab fa-github"
+      icon: "fab fa-fw fa-github"
       url: "https://github.com/Kane-Weng"
     - label: "LinkedIn"
-      icon: "fab fa-linkedin"
-      url: "https://www.linkedin.com/in//kai-chi-weng/"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/kai-chi-weng/"
+
