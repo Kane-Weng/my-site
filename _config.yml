@@ -1,7 +1,7 @@
 title: "Kane Weng"
 description: "Robotics & CS @ University of Michigan"
 url: "https://kane-weng.github.io" 
-baseurl: ""
+baseurl: "/my-site"
 
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"
