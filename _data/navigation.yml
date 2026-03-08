@@ -1,0 +1,8 @@
+# Main Top Navigation
+main:
+  - title: "Home"
+    url: /
+  - title: "Projects"
+    url: /projects/
+  - title: '<i class="fas fa-moon" aria-hidden="true" id="theme-toggle"></i>'
+    url: "#"

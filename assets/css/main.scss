@@ -5,6 +5,9 @@
 
 $um-blue: #00274c;
 $um-maize: #ffcb05;
+$color-build: #3498db; 
+$color-teach: #2ecc71; 
+$color-learn: #f1c40f;
 
 /* --- HOME PAGE (OVERLAY VERSION) --- */
 .page__hero--overlay .wrapper #page-title.page__title {
@@ -269,16 +272,6 @@ $um-maize: #ffcb05;
   flex-grow: 1; /* Ensures the content area fills the card */
 }
 
-/* --- Custom Branded Divider --- */
-.um-divider {
-  height: 4px;
-  border: none;
-  background: linear-gradient(to right, $um-blue, $um-maize, $um-blue);
-  border-radius: 2px;
-  margin: 3rem 0;
-  opacity: 0.8;
-}
-
 /* --- Learning Course Grid --- */
 .course-grid {
   display: grid;
@@ -337,4 +330,310 @@ $um-maize: #ffcb05;
   color: #8c7300;                  
   border-radius: 12px;
   border: 1px solid rgba($um-maize, 0.5);
+}
+
+/* --- FIXING THE WHITE BOX ISSUE --- */
+.masthead {
+  // Ensuring the gradient covers the whole bar
+  background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%) !important; 
+  
+  .masthead__inner-wrap {
+    background-color: transparent !important; // This removes the "white box"
+    border-bottom: none;
+    padding: 0.5rem 0;
+  }
+
+  nav {
+    background-color: transparent !important; // Just in case the nav itself has a background
+  }
+}
+
+/* --- TECHNICAL ACCENTS --- */
+.masthead {
+  // A thin, sharp border that looks like a hardware edge
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  
+  // Optional: A very subtle top-accent line in your new Teal color
+  border-top: 3px solid #0c8599; 
+  
+  .site-title {
+    font-family: "Courier New", Courier, monospace; // A "code" font for a CS/Robotics student
+    font-size: 1.1rem;
+    color: #212529 !important;
+  }
+}
+
+/* --- NAV BAR LIGHT MODE ICON STYLING --- */
+.masthead__menu-item {
+  // Target the last item specifically (the icon)
+  &:last-child a {
+    color: #0c8599 !important; // Using your new Teal accent color
+    font-size: 1.1rem;
+    padding-left: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1); // Subtle divider from the text links
+    
+    // Remove the underline effect for the icon
+    &:after {
+      display: none !important;
+    }
+
+    &:hover {
+      color: #3bc9db !important; // A brighter cyan highlight
+      transform: scale(1.1);
+      transition: transform 0.2s ease;
+    }
+  }
+}
+
+// Ensure the icon doesn't look like a white box on mobile
+.greedy-nav .hidden-links {
+  background-color: #f1f3f5 !important;
+}
+
+/* --- DARK MODE OVERRIDES --- */
+
+// The "Dark Mode" variable set
+body.dark-theme {
+  background-color: #1a1c1e !important; // Deep Charcoal
+  color: #e9ecef !important;
+
+  .author__content {
+    .author__name a {
+      color: $um-maize !important;
+    }
+
+    .author__bio {
+      color: #ced4da !important;
+    }
+  }
+
+  .masthead {
+    background: linear-gradient(135deg, #2d3436 0%, #1a1c1e 100%) !important;
+    border-bottom: 1px solid #3bc9db; // Cyan accent line for tech vibe
+  }
+
+  .site-title, .masthead__menu-item a {
+    color: #f8f9fa !important;
+  }
+
+  // Ensure your project cards and bio text stay readable
+  .archive, .page, .author__bio {
+    color: #ced4da !important;
+  }
+  
+  .exp-card {
+    background: #252a34;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .course-card {
+    background: #2d3436;
+    h4 { color: #fff; }
+    &:hover { background: #353b3c; }
+  }
+
+  .topic-tag {
+    color: #adb5bd; // Dark mode grey-white
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .lang-tag {
+    color: $um-maize; // Dark mode bright gold
+    background: rgba($um-maize, 0.1);
+  }
+
+  .section-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Icon styling to make the moon pop
+#theme-toggle {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #f1c40f; // Soft gold glow when hovering over the moon
+  }
+}
+
+.layout--collection #main {
+  padding-top: 4rem;
+}
+
+// Title for each section
+.section-header {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 5rem 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  // The "Status LED"
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: var(--header-color, #fff);
+    box-shadow: 0 0 10px var(--header-color, #fff);
+    animation: pulse 2s infinite linear;
+  }
+
+  // Modifiers for your specific sections
+  &.build { --header-color: #{$color-build}; }
+  &.teach { --header-color: #{$color-teach}; }
+  &.learn { --header-color: #{$color-learn}; }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Terminal Window - Container */
+.terminal-window {
+  // LIGHT MODE DEFAULT
+  background: #f8f9fa; 
+  border: 1px solid #d1d9e6;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Fira Code', 'Courier New', monospace;
+  margin: 2rem auto;
+  max-width: 900px; // Centering the window
+  transition: all 0.3s ease;
+
+  // DARK MODE OVERRIDE
+  .dark-theme & {
+    background: #1a1b26; 
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Terminal Header - Windows Style */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  // LIGHT MODE
+  background: #e9ecef;
+  border-bottom: 1px solid #d1d9e6;
+
+  .dark-theme & {
+    background: #24283b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Title in the center */
+  .terminal-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: lowercase;
+    opacity: 0.7;
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 45px; // Offsets the space taken by controls to truly center
+    color: $um-blue;
+
+    .dark-theme & { color: #a9b1d6; }
+  }
+
+  /* Windows Controls on the Right */
+  .win-controls {
+    display: flex;
+    align-items: center;
+    gap: 0; // Windows buttons usually touch or have very tight spacing
+    font-family: sans-serif; // System fonts look better for these icons
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 30px; // Standard Windows button hit area
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-size: 14px;
+      color: #666;
+
+      .dark-theme & { color: #a9b1d6; }
+
+      /* Minimize & Maximize Hover (Light Grey) */
+      &:nth-child(1):hover,
+      &:nth-child(2):hover {
+        background: rgba(0, 0, 0, 0.1);
+        .dark-theme & { background: rgba(255, 255, 255, 0.1); }
+      }
+
+      /* Close Button Hover (Windows Red) */
+      &:nth-child(3):hover {
+        background: #e81123 !important; // Official Windows Close Red
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+/* Terminal Body */
+.terminal-body {
+  padding: 20px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  .command {
+    display: block;
+    font-weight: bold;
+    // LIGHT MODE
+    color: #2b6cb0; 
+    &::before {
+      content: "kane@umich:~$ ";
+      color: #38a169;
+    }
+
+    .dark-theme & {
+      color: #7aa2f7;
+      &::before { color: #9ece6a; }
+    }
+  }
+
+  .output {
+    display: block;
+    margin-bottom: 1.2rem;
+    padding-left: 1rem;
+    // LIGHT MODE
+    color: #4a5568;
+    
+    b { color: #d69e2e; font-weight: 600; } // Keywords
+
+    .dark-theme & {
+      color: #a9b1d6;
+      b { color: #ff9e64; }
+    }
+  }
+}
+
+/* Blinking Cursor */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: currentColor;
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }

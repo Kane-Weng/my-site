@@ -1,4 +1,4 @@
-title: "Home"
+title: "Kane Weng"
 description: "Robotics & CS @ University of Michigan"
 url: "https://kane-weng.github.io" 
 baseurl: "/my-site"
@@ -31,8 +31,17 @@ defaults:
       sidebar:
         nav: "docs" # Sidebar menu of all projects
 
+# Project collections
 collections:
   projects:
     output: true
     permalink: /projects/:name/
+
+# Header Navigation
+header:
+  nav: "main"
+
+# Plugins
+footer_scripts:
+  - /assets/js/dark-mode.js
   
