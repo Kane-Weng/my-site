@@ -27,7 +27,7 @@ defaults:
       type: projects
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       sidebar:
         nav: "docs" # Sidebar menu of all projects
 
@@ -35,7 +35,7 @@ defaults:
 collections:
   projects:
     output: true
-    permalink: /projects/:name/
+    permalink: /projects/:path/
 
 # Header Navigation
 header:

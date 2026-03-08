@@ -458,7 +458,12 @@ body.dark-theme {
   }
 }
 
+// Space between title and top nav bar
 .layout--collection #main {
+  padding-top: 4rem;
+}
+
+.layout--single #main {
   padding-top: 4rem;
 }
 

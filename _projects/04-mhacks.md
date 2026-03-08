@@ -4,9 +4,9 @@ excerpt: "Frontend developer designing a social networking platform specifically
 header:
   teaser: ./assets/images/nift_shuttle.png
 ---
-
-**Role**: Frontend developer |
-**Stack**: ...
+* **Time**: Sep 2024
+* **Role**: Frontend developer
+* **Stack**: ...
 
 ## Overview
 The **MHacks TeamUp** project focuses on ...

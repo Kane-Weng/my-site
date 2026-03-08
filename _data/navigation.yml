@@ -6,3 +6,19 @@ main:
     url: /projects/
   - title: '<i class="fas fa-moon" aria-hidden="true" id="theme-toggle"></i>'
     url: "#"
+
+docs:
+  - title: "Research & Teams"
+    children:
+      - title: "NiFT Autonomous Shuttle"
+        url: /projects/01-nift/
+      - title: "SIM-26 Simulator"
+        url: /projects/02-sim-26/
+      - title: "Michigan Mars Rover"
+        url: /projects/03-mrover/
+      - title: "MHacks TeamUp"
+        url: /projects/04-mhacks/
+  - title: "Coursework"
+    children:
+      - title: "CV Foundations"
+        url: /projects/cv-foundations/
