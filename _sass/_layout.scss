@@ -1,0 +1,152 @@
+/* --- Expand Main Content Width --- */
+#main {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include breakpoint($large) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Target the specific container for your project list */
+.archive, .page {
+  @include breakpoint($large) {
+    width: 75% !important; 
+    padding-right: 0 !important; 
+    float: right; 
+  }
+}
+
+/* --- Sidebar width adjustment to match the new scale --- */
+.sidebar {
+  @include breakpoint($large) {
+    width: 20% !important;
+  }
+}
+
+/* --- TOP NAV BAR --- */
+.masthead {
+  background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%) !important; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  .masthead__inner-wrap {
+    background-color: transparent !important;
+    border-bottom: none;
+    padding: 0.5rem 0;
+  }
+
+  .site-title {
+    font-family: "Courier New", Courier, monospace; // A "code" font for a CS/Robotics student
+    font-size: 1.1rem;
+    color: #212529 !important;
+  }
+
+  nav {
+    background-color: transparent !important; // Just in case the nav itself has a background
+  }
+
+  /* --- Fix Alignment for Nav Items --- */
+  .masthead__menu-item {
+    display: inline-block;
+    vertical-align: middle;
+
+    // This targets the <a> tag wrapping your "Home", "Projects", and Toggle
+    a {
+      display: flex; 
+      align-items: center; // Vertically centers text and icons perfectly
+      height: 100%;
+      padding: 0.5rem 0.4rem; // Adjust this to match your specific theme's spacing
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      // Ensure the toggle icon inherits the link's alignment
+      #theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+
+      &:hover #theme-toggle {
+        color: #f1c40f; // Gold glow on hover
+      }
+    }
+  }
+
+  /* --- Dark Mode Masthead --- */
+  .dark-theme & {
+    background: linear-gradient(135deg, #2d3436 0%, #1a1c1e 100%) !important;
+    border-bottom: 1px solid #3bc9db;
+    .site-title, .masthead__menu-item a {
+      color: #f8f9fa !important;
+    }
+  }
+}
+
+
+
+/* === Space between title and top nav bar === */
+.layout--collection #main {
+  padding-top: 4rem;
+}
+
+.layout--single #main {
+  padding-top: 4rem;
+}
+/* ============================================= */
+
+
+
+/* === Title for each section === */
+.section-header {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 5rem 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  position: relative;
+
+  // The "Status LED"
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: var(--header-color, #fff);
+    box-shadow: 0 0 10px var(--header-color, #fff);
+    animation: pulse 2s infinite linear;
+  }
+
+  // Modifiers for your specific sections
+  &.build { --header-color: #{$color-build}; }
+  &.teach { --header-color: #{$color-teach}; }
+  &.learn { --header-color: #{$color-learn}; }
+
+  .dark-theme & {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+/* ============================================= */
+
+body.dark-theme {
+  background-color: #1a1c1e !important; // Deep Charcoal
+  color: #e9ecef !important;
+
+  // Ensure your project cards and bio text stay readable
+  .archive, .page, .author__bio {
+    color: #ced4da !important;
+  }
+}

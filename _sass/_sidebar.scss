@@ -1,0 +1,245 @@
+/* --- Centered Sidebar Styling --- */
+.sidebar.sticky {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+
+  @include breakpoint($large) {
+    padding-right: 0;
+  }
+}
+
+.h-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.author__avatar {
+  position: relative; 
+  display: block;
+  margin-bottom: 10px;
+  z-index: 10;
+
+  img {
+    max-width: 160px;
+    border-radius: 50%;
+    border: 3px solid $um-blue;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+}
+
+.author__content {
+  padding-left: 0 !important;
+  margin-top: 0;
+  width: 100%;
+
+  .author__name {
+    margin: 0;
+    font-size: 1.25rem;
+    
+    a {
+      color: $um-blue !important;
+      text-decoration: none;
+    }
+  }
+
+  .author__bio {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  .dark-theme & {
+    .author__name a { color: $um-maize !important; }
+    .author__bio { color: #ced4da !important; }
+  }
+}
+
+/* Sidebar CV Button Styling */
+.cv-button-container {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-cv {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  /* --- Light Mode (Default) --- */
+  background-color: $um-maize !important;
+  color: $um-blue !important;
+
+  &:hover {
+    background-color: $um-blue !important;
+    color: #fff !important;
+    transform: scale(1.05);
+  }
+
+  /* --- Dark Mode Config --- */
+  body.dark-theme & {
+    // We swap these so the button isn't a "flashbang" of yellow in the dark sidebar
+    background-color: $um-blue !important; 
+    color: $um-maize !important;
+    border: 1px solid $um-maize; // Added a border to make the shape pop against dark backgrounds
+
+    &:hover {
+      background-color: $um-maize !important;
+      color: $um-blue !important;
+      box-shadow: 0 0 10px rgba(255, 203, 5, 0.3); // Subtle glow using maize color
+    }
+  }
+}
+
+/* --- Social Links (Left-Align) --- */
+.author__urls-wrapper {
+  width: 100%;
+  margin-top: 20px;
+  text-align: left !important;
+  
+  ul {
+    display: inline-block;
+    padding-left: 0;
+    list-style: none;
+    
+    li {
+      font-size: 0.75rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+/* --- Sidebar Icon Visibility --- */
+.author__urls-wrapper, .sidebar {
+  // Target the icons specifically
+  i.fas, i.fab, i.far {
+    transition: color 0.3s ease;
+    
+    // Light mode (default) - keep them subtle
+    color: #495057; 
+
+    body.dark-theme & {
+      color: #e9ecef !important;
+      &.fa-linkedin { color: #0077b5 !important; }
+      &.fa-github { color: #f8f9fa !important; }
+    }
+  }
+}
+
+@include breakpoint(max-width $large) {
+  .sidebar.sticky {
+    flex-direction: row; 
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .h-card {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .author__avatar {
+    margin-top: 0;
+    margin-bottom: 40px;
+    margin-right: 50px;
+    
+    img {
+      width: 200%;
+      max-width: 120px; 
+    }
+  }
+
+  .author__content {
+    flex: 1;
+  }
+
+  .author__urls-wrapper {
+    display: none; /* hidden on mobile to save space */
+  }
+}
+
+/* --- Navigation Bar Left-Alignment --- */
+/* This targets the navigation section specifically */
+.nav__list {
+  width: 100%;
+  text-align: left;
+  
+  label {
+    /* "Toggle Menu" label on mobile/tablet */
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+
+  /* --- Hide Toggle Menu on Large Screens --- */
+  label[for="ac-toc"] {
+    @include breakpoint($large) {
+      display: none !important;
+    }
+  }
+}
+
+.nav__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Forces the list items to the left */
+
+  li {
+    width: 100%;
+    text-align: left;
+    
+    /* Targets the 'Coursework' titles */
+    .nav__sub-title {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: $um-blue !important; 
+      text-transform: uppercase;
+      border-bottom: 1px solid #444;
+
+      .dark-theme & {
+        color: $cyber_cyan !important;
+      }
+    }
+
+    /* Targets the sub-links under titles */
+    ul {
+      margin-left: 1.5rem; // Indents the entire sub-list
+      padding-left: 0;
+      list-style: none;
+
+      a {
+        display: block; // Ensures the link fills the line for easier clicking
+        text-align: left;
+        padding: 0.2rem 0;
+        color: #ccc;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;  
+
+        &:hover {
+          padding-left: 5px; 
+          color: $um-blue !important;
+
+          body.dark-theme & {
+            color: $um-maize !important;
+          }
+        }
+      }
+    }
+  }
+}

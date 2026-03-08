@@ -1,0 +1,80 @@
+/* --- HOME PAGE (OVERLAY VERSION) --- */
+.page__hero--overlay .wrapper #page-title.page__title {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.25rem;
+}
+
+.page__hero--overlay .wrapper p.page__lead {
+  color: #bdc3c7 !important; 
+  font-size: 1rem !important;
+  font-weight: 200 !important;
+  opacity: 1 !important;
+  margin-bottom: 5rem !important;
+}
+
+.page__hero--overlay .btn--light-outline {
+  border-color: $um-maize !important;
+  color: $um-maize !important;
+  
+  &:hover {
+    background-color: $um-maize !important;
+    color: $um-blue !important;
+  }
+}
+
+/* --- Project Image Styling --- */
+.project-img {
+  display: block;
+  margin: 0.5rem auto 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+  object-fit: cover; /* Crops image to fit the height without stretching */
+  border-radius: 15px; /* Round frame */
+  border: 1px solid rgba($um-blue, 0.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02); /* Subtle pop on hover */
+  }
+}
+
+/* --- Centered Project Caption --- */
+.project-caption {
+  display: block;
+  text-align: center;
+  margin: -2rem auto 2.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
+  max-width: 600px; /* Matches the image width */
+  line-height: 1.4;
+  border-left: 3px solid $um-maize;
+  padding-left: 10px;
+}
+
+/* Target the project title links specifically */
+.page__title a, 
+.archive__item-title a {
+  color: $um-blue; // Change to your preferred highlight color
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #1f618d; // A nice "NiFT" blue for the hover state
+    text-decoration: underline;
+  }
+
+  .dark-theme & {
+    color: $cyber_cyan; // Change to your preferred highlight color
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #1f618d; // A nice "NiFT" blue for the hover state
+      text-decoration: underline;
+    }
+  }
+}

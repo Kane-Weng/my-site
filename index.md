@@ -127,7 +127,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     </code>
     <div class="command">ls /usr/local/bin</div>
     <code class="output">
-      docker&nbsp;&nbsp; git&nbsp;&nbsp; cmake&nbsp;&nbsp; gdb&nbsp;&nbsp; valgrind&nbsp;&nbsp; ninja
+      docker&nbsp;&nbsp; git&nbsp;&nbsp; cmake&nbsp;&nbsp; gdb&nbsp;&nbsp; valgrind
     </code>
     <div class="command"> <span class="cursor">_</span></div>
   </div>
