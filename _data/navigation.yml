@@ -20,7 +20,7 @@ docs:
         url: /projects/03-mrover/
       - title: "MHacks 2024 TeamUp"
         url: /projects/04-mhacks/
-  - title: "Coursework"
+  - title: "Highlighted Coursework"
     children:
       - title: "ROB 320 Course Projects"
         url: /projects/101-rob320/

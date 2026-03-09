@@ -4,7 +4,7 @@ permalink: /experiences/
 title_link: false
 ---
 
-Technical Courseworks & Work Experiences are here. (Still in development)
+Technical Courseworks & Work Experiences are here. (Still in development ⚠️🟡🚧)
 
 <!-- coursework -->
 <h2 class="section-header build">Technical Courseworks @ U-M</h2>

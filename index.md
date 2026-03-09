@@ -35,7 +35,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     <div class="exp-card-content">
       <span class="role-date">U-M Robotics | 2026 – Now</span>
       <h3>ROB 320 Instructional Aid</h3>
-      <p>Helping lab sections, holding office hours, creating exam and grading for <i>ROB 320: Robot Operation System</i>. I support students on topics like <strong>Linux IPC in C/C++</strong>, developing <strong>custom ROS-like middleware</strong>, and <strong>kinematics & transforms</strong>.</p>
+      <p>Helping lab sections, holding office hours, creating exam and grading for <i>ROB 320: Robot Operation Systems</i>. I support students on topics like <strong>Linux IPC in C/C++</strong>, developing <strong>custom ROS-like middleware</strong>, and <strong>kinematics & transforms</strong>.</p>
     </div>
   </div>
 
@@ -63,7 +63,6 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     <div class="topic-tag">CNN/RNN</div>
     <div class="topic-tag">Transformers</div>
     <div class="topic-tag">Clustering/GMMs</div>
-    <div class="topic-tag">Probabilistic Graphical Models</div>
     <div class="topic-tag">Reinforcement Learning</div>
   </div>
 
@@ -138,9 +137,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 
 <p>Check out my other past projects, my highlighted courseworks, and my work experiences:</p>
 
-<div style="text-align: center; margin-top: 2rem;">
+<div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
   <a href="/my-site/projects/" class="btn btn--primary btn--large">View All Projects</a>
-</div>
-<div style="text-align: center; margin-top: 1rem;">
   <a href="/my-site/experiences/" class="btn btn--primary btn--large">View All Experiences</a>
 </div>
