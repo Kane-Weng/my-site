@@ -4,6 +4,8 @@ main:
     url: /
   - title: "Projects"
     url: /projects/
+  - title: "Experiences"
+    url: /experiences/
   - title: '<span id="theme-toggle"><i class="fas fa-moon"></i></span>'
     url: "javascript:void(0);"
 
@@ -14,11 +16,17 @@ docs:
         url: /projects/01-nift/
       - title: "SIM-26 Simulator"
         url: /projects/02-sim-26/
-      - title: "Michigan Mars Rover"
+      - title: "Michigan Mars Rover Team"
         url: /projects/03-mrover/
-      - title: "MHacks TeamUp"
+      - title: "MHacks 2024 TeamUp"
         url: /projects/04-mhacks/
   - title: "Coursework"
     children:
-      - title: "CV Foundations"
-        url: /projects/cv-foundations/
+      - title: "ROB 320 Course Projects"
+        url: /projects/101-rob320/
+      - title: "EECS 445 Course Projects"
+        url: /projects/102-eecs445/
+      - title: "EECS 504 Course Projects"
+        url: /projects/103-eecs504/
+      - title: "EECS 270 Course Projects"
+        url: /projects/104-eecs270/

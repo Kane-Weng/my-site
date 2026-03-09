@@ -5,7 +5,7 @@ kane:
   bio: |
     Robotics & CS @ U-M • Software Engineering • Instructional Aid
     <div class="cv-button-container">
-      <a href="./assets/docs/Kane_Weng_Resume.pdf" class="btn-cv">
+      <a href="/my-site/assets/docs/Kane_Weng_Resume.pdf" class="btn-cv">
         <i class="fas fa-file-download"></i> Download CV
       </a>
     </div>

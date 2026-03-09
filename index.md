@@ -24,7 +24,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 
 **SIM-26 Driving Simulator (Multidisciplinary Design Program):** <br> I am leading development on an accessible driving simulator powered by Unreal Engine 5. The engineering scope includes procedurally generating drivable worlds, configuring vehicle dynamics, simulating complex traffic flows, and implementing a low-cost steering system and motion base to enhance realism. Utilizing these high-fidelity simulations, the MDP team designs and conducts human performance experiments to research driver workload and distraction.
 <img src="./assets/images/mdp_sim.png" class="project-img" alt="SIM-26 Driving Simulator">
-<span class="project-caption">Building Multiplayer server in UE5 environment used for driver distraction and workload experiments.</span>
+<span class="project-caption">Multiplayer server in UE5 environment</span>
 
 <!-- current position -->
 <h2 class="section-header teach">What I’m MENTORING</h2>
@@ -97,24 +97,24 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 
 <div class="terminal-window">
   <div class="terminal-header">
-    <span class="terminal-title">guest@umich:~</span>
+    <span class="terminal-title">kane@umich:~</span>
     <div class="win-controls">
       <span>&#8211;</span> <span>&#9634;</span> <span>&times;</span> 
     </div>
   </div>
   
   <div class="terminal-body">
-    <div class="command">cat /etc/issue</div>
+    <div class="command" data-prompt="kane@umich:~$ ">cat /etc/issue</div>
     <code class="output">Ubuntu 22.04.5 LTS</code>
-    <div class="command">ls -m ./languages</div>
+    <div class="command" data-prompt="kane@umich:~$ ">ls -m ./languages</div>
     <code class="output">
       C/C++, Python, Julia, MATLAB, R, Verilog, ARM_Assembly, Blueprint
     </code>
-    <div class="command">ros2 pkg list | grep "autonomy"</div>
+    <div class="command" data-prompt="kane@umich:~$ ">ros2 pkg list | grep "autonomy"</div>
     <code class="output">
       nav2, tf2_ros_py, robot_localization, gazebo_sim, rviz2, fast_dds
     </code>
-    <div class="command">pip list --format=columns</div>
+    <div class="command" data-prompt="kane@umich:~$ ">pip list --format=columns</div>
     <code class="output">
       Package &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Version <br>
       ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
@@ -125,10 +125,22 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
       matplotlib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.10.6 <br>
       pandas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.1
     </code>
-    <div class="command">ls /usr/local/bin</div>
+    <div class="command" data-prompt="kane@umich:~$ ">ls /usr/local/bin</div>
     <code class="output">
       docker&nbsp;&nbsp; git&nbsp;&nbsp; cmake&nbsp;&nbsp; gdb&nbsp;&nbsp; valgrind
     </code>
-    <div class="command"> <span class="cursor">_</span></div>
+    <div class="command" data-prompt="kane@umich:~$ "> <span class="cursor">_</span></div>
   </div>
+</div>
+
+<!-- explore more -->
+<h2 class="section-header learn">Explore More</h2>
+
+<p>Check out my other past projects, my highlighted courseworks, and my work experiences:</p>
+
+<div style="text-align: center; margin-top: 2rem;">
+  <a href="/my-site/projects/" class="btn btn--primary btn--large">View All Projects</a>
+</div>
+<div style="text-align: center; margin-top: 1rem;">
+  <a href="/my-site/experiences/" class="btn btn--primary btn--large">View All Experiences</a>
 </div>

@@ -234,7 +234,7 @@
     // LIGHT MODE
     color: #2b6cb0; 
     &::before {
-      content: "kane@umich:~$ ";
+      content: attr(data-prompt);
       color: #38a169;
     }
 
@@ -251,11 +251,14 @@
     // LIGHT MODE
     color: #4a5568;
     
-    b { color: #d69e2e; font-weight: 600; } // Keywords
-
-    .dark-theme & {
-      color: #a9b1d6;
-      b { color: #ff9e64; }
+    &.output, code.output {
+      .dark-theme & {
+        color: #a9b1d6 !important; 
+        background: transparent !important;
+        border: none !important;
+        
+        b { color: #ff9e64; }
+      }
     }
   }
 }
@@ -263,14 +266,72 @@
 /* Blinking Cursor */
 .cursor {
   display: inline-block;
-  width: 8px;
-  height: 15px;
+  width: 12px;
+  height: 23px;
   background: currentColor;
-  margin-left: 5px;
-  animation: blink 1s step-end infinite;
+  margin-left: 0px;
+  animation: blink 1.5s step-end infinite;
+
+  vertical-align: -3px;
 }
 
 @keyframes blink {
   from, to { opacity: 1; }
   50% { opacity: 0; }
+}
+
+// Project Grid Styling
+.grid__item {
+  border: 1px solid #e2e8f0; // Light mode border
+  border-radius: 8px;
+  padding: 15px;
+  background: #ffffff;      // Light mode background
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  // --- DARK MODE OVERRIDES ---
+  .dark-theme & {
+    background: #1e293b;    // Dark slate background
+    border-color: #334155;  // Muted border
+
+    .archive__item-title {
+      color: #f8fafc;      // Off-white text
+    }
+
+    .archive__item-excerpt {
+      color: #94a3b8;      // Muted gray
+    }
+  }
+
+  &:hover {
+    border-color: #3498db;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    cursor: pointer;
+
+    .dark-theme & {
+      border-color: #60a5fa; // Brighter blue for dark mode visibility
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); // Deeper shadow for dark bg
+    }
+  }
+
+  .archive__item-title {
+    margin-top: 0.5em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .archive__item-teaser {
+    margin: -15px -15px 15px -15px; // Flushes image to edges
+    border-radius: 8px 8px 0 0;
+    height: 250px;                 // <-- Adjust this for "longer" height
+    max-height: none !important;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;           // <-- Essential: prevents image stretching
+    }
+  }
 }

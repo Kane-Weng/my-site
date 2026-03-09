@@ -1,14 +1,30 @@
 ---
 title: "NiFT Autonomous Shuttle"
-excerpt: "System Integration Engineer for transforming the NiFT Shuttle QB into an L4 autonomous vehicle"
+excerpt: "System Integration Engineer for transforming the NiFT Shuttle QB into an L4 autonomous vehicle."
 header:
-  teaser: ./assets/images/nift_shuttle.png
+  teaser: ./assets/images/pjtl_2.png
 ---
-
-* **Time**: Jan 2026 - Present
-* **Organization**: Perot Jain TechLab, Mcity @ U-M; NiFT
-* **Role**: System Integration Engineer
-* **Stack**: Python, C++, ROS 2, CAN bus, Gazebo, Git, Linux
+<div class="terminal-window">
+  <div class="terminal-header">
+    <span class="terminal-title">kane@umich:~/projects/nift</span>
+    <div class="win-controls">
+      <span>&#8211;</span> <span>&#9634;</span> <span>&times;</span> 
+    </div>
+  </div>
+  
+  <div class="terminal-body">
+    <div class="command" data-prompt="kane@umich:~/projects/nift$ ">info --detailed</div>
+    <code class="output">
+      Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Detail <br>
+      ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
+      TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 2026 – Present <br>
+      LAB/ORG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Perot Jain TechLab, Mcity @ U-M; NiFT <br>
+      ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System Integration Engineer <br>
+      STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, C++, ROS 2, CAN bus, Gazebo, Git, Linux
+    </code>
+    <div class="command" data-prompt="kane@umich:~/projects/nift$ ">ros2 launch shuttle_simulation launch_sim.launch.py<span class="cursor">_</span></div>
+  </div>
+</div>
 
 <!-- project abstract -->
 <h2 class="section-header build">Mission</h2>

@@ -56,25 +56,22 @@
 }
 
 /* Target the project title links specifically */
-.page__title a, 
 .archive__item-title a {
   color: $um-blue; // Change to your preferred highlight color
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 
-  &:hover {
-    color: #1f618d; // A nice "NiFT" blue for the hover state
-    text-decoration: underline;
-  }
-
   .dark-theme & {
     color: $cyber_cyan; // Change to your preferred highlight color
     text-decoration: none;
     transition: color 0.2s ease-in-out;
-
-    &:hover {
-      color: #1f618d; // A nice "NiFT" blue for the hover state
-      text-decoration: underline;
-    }
   }
+}
+
+/* Target only the Experiences page by its unique body class */
+.layout--single #page-title a {
+  pointer-events: none; /* Disables clicking */
+  cursor: default;      /* Removes the hand icon */
+  color: inherit;       /* Removes the link color */
+  text-decoration: none;/* Removes underline */
 }

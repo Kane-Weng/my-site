@@ -149,4 +149,28 @@ body.dark-theme {
   .archive, .page, .author__bio {
     color: #ced4da !important;
   }
+
+  /* Force Footer Dark Mode */
+  .page__footer {
+    background-color: #111; /* Or your preferred dark color */
+    color: #fff;
+    border-top: 1px solid #333;
+  }
+
+  .page__footer a {
+    color: #aaa; /* Makes links like 'Feed' less distracting */
+  }
+
+  .page__footer a:hover {
+    color: #fff;
+  }
+}
+
+/* Global inline code backtick fix */
+.dark-theme code {
+  background-color: #24283b !important; /* Muted background for backticks */
+  color: #c0caf5 !important;           /* Muted white/blue text */
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
