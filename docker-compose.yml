@@ -1,0 +1,15 @@
+services:
+  jekyll:
+    build: .
+    volumes:
+      - .:/workspaces/my-site
+    ports:
+      - "4000:4000"
+    environment:
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
+    # This keeps the container running in the background
+    tty: true 
+    stdin_open: true
+    command: >
+      bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling"
