@@ -5,6 +5,11 @@ header:
   teaser: ./assets/images/mrover_logo.png
 date: 2026-03-08
 ---
+<span class="lang-tag">Student Project Team</span>
+<span class="topic-tag">4th Semester</span>
+<span class="topic-tag">Software</span>
+<span class="topic-tag">Mechanical</span>
+
 <div class="terminal-window">
   <div class="terminal-header">
     <span class="terminal-title">kane@umich:~/projects/mrover</span>

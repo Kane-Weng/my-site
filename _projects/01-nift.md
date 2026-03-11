@@ -5,6 +5,11 @@ header:
   teaser: ./assets/images/pjtl_2.png
 date: 2026-03-08
 ---
+<span class="lang-tag">Undergraduate Research</span>
+<span class="topic-tag">Winter/Fall 2026</span>
+<span class="topic-tag">Entrepreneurship</span>
+<span class="topic-tag">Grade: #</span>
+
 <div class="terminal-window">
   <div class="terminal-header">
     <span class="terminal-title">kane@umich:~/projects/nift</span>

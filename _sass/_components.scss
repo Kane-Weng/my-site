@@ -335,3 +335,137 @@
     }
   }
 }
+
+/* --- Project Expandable Accordion --- */
+.project-accordion {
+  // LIGHT MODE (DEFAULT) - Matches your Experience/Course cards
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+
+  summary {
+    padding: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa; // Light grey header
+    border-bottom: 3px solid $um-blue; // UM Blue accent
+    color: $um-blue;
+    
+    &::-webkit-details-marker { display: none; }
+    
+    &:hover { 
+      background: #fff; 
+      color: $um-blue;
+    }
+  }
+
+  /* Chevron Logic */
+  summary::after {
+    content: '▼'; 
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+    opacity: 0.7;
+  }
+
+  &[open] {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    
+    summary {
+      border-bottom-color: $um-maize; // Turns Maize when open
+    }
+    
+    summary::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  .project-content {
+    padding: 1.5rem;
+    line-height: 1.6;
+    background: #ffffff;
+    
+    code {
+      background: #f1f5f9;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  }
+
+  // --- DARK MODE OVERRIDES ---
+  .dark-theme & {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+    summary {
+      background: #252a34;
+      border-bottom: 3px solid $cyber_cyan; // Cyber Cyan accent
+      color: $cyber_cyan;
+      
+      &:hover { background: #2d3436; }
+    }
+
+    .project-content {
+      background: #1a1b26; // Matches your Terminal background
+      
+      code {
+        background: #24283b;
+        color: #ff9e64; // Orange-ish for code visibility
+      }
+    }
+  }
+
+  summary {
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Vertically centers the chevron
+    gap: 15px;
+
+    .summary-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px; // Space between Title and Tags
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      
+      // Make tags slightly smaller in the summary for a cleaner look
+      .lang-tag, .topic-tag {
+        font-size: 0.65rem;
+        margin: 0; 
+        padding: 1px 7px;
+      }
+    }
+  }
+
+  // Ensure tags stay visible and clean in Dark Mode
+  .dark-theme & {
+    .project-title { color: #fff; }
+    
+    .summary-tags {
+      .lang-tag { background: rgba($um-maize, 0.15); color: $um-maize; }
+      .topic-tag { background: rgba(255,255,255,0.05); color: #adb5bd; }
+    }
+  }
+}

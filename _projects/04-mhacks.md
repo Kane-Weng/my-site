@@ -1,20 +1,25 @@
 ---
-title: "MHacks 2024 TeamUp"
+title: "MHacks 2024 - TeamUp"
 excerpt: "A full-stack team-matching platform built for hackers to find compatible teammates through skill-based filtering."
 header:
   teaser: ./assets/images/mhacks.png
 date: 2026-03-08
 ---
+<span class="lang-tag">Team Competition</span>
+<span class="topic-tag">24-Hour</span>
+<span class="topic-tag">Hackathon</span>
+<span class="topic-tag">Redbull</span>
+
 <div class="terminal-window">
   <div class="terminal-header">
-    <span class="terminal-title">kane@umich:~/projects/mrover</span>
+    <span class="terminal-title">kane@umich:~/projects/mhacks</span>
     <div class="win-controls">
       <span>&#8211;</span> <span>&#9634;</span> <span>&times;</span> 
     </div>
   </div>
   
   <div class="terminal-body">
-    <div class="command" data-prompt="kane@umich:~/projects/mrover$ ">info --detailed</div>
+    <div class="command" data-prompt="kane@umich:~/projects/mhacks$ ">info --detailed</div>
     <code class="output">
       Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Detail <br>
       ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
@@ -23,7 +28,7 @@ date: 2026-03-08
       ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Frontend Developer & UI Designer <br>
       STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next.js, TypeScript, Tailwind CSS, Shadcn UI, Git
     </code>
-    <div class="command" data-prompt="kane@umich:~/projects/mrover$ ">curl -I http://localhost:3000<span class="cursor">_</span></div>
+    <div class="command" data-prompt="kane@umich:~/projects/mhacks$ ">curl -I http://localhost:3000<span class="cursor">_</span></div>
   </div>
 </div>
 
@@ -47,7 +52,7 @@ I developed the frontend using Next.js and TypeScript, utilizing the App Router 
 <h2 class="section-header learn">Challenges</h2>
 
 ### Onboarding
-This was my first deep dive into the Next.js App Router and Shadcn UI. Navigating a new framework and component library while under a strict 36-hour deadline propels me to quickly pick up how to bridge the gap between static design and dynamic React components, ensuring the landing page wasn't just pretty, but also functional and responsive.
+This was my first deep dive into the Next.js App Router and Shadcn UI. Navigating a new framework and component library while under a strict 24-hour deadline propels me to quickly pick up how to bridge the gap between static design and dynamic React components, ensuring the landing page wasn't just pretty, but also functional and responsive.
 
 ### Coordination
 Since the backend and database were being built simultaneously by my teammates, I had to design the Dashboard and Onboarding UI without live data. This required me to build robust frontend mocks that could be easily plugged into the real API later, requiring constant communication and good Git control to ensure my UI components matched the data structures my teammates were creating in Prisma.

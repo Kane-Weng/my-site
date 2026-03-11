@@ -49,7 +49,4 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
 
-# Minimal Mistakes specific setting
-mathjax: true
-
-logo: "/assets/images/logo.png"
+# logo: "/assets/images/logo.png"

@@ -111,7 +111,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     </code>
     <div class="command" data-prompt="kane@umich:~$ ">ros2 pkg list | grep "autonomy"</div>
     <code class="output">
-      nav2, tf2_ros_py, robot_localization, gazebo_sim, rviz2, fast_dds
+      nav2, tf2_ros, eigen, robot_localization, gazebo_sim, rviz2, fast_dds
     </code>
     <div class="command" data-prompt="kane@umich:~$ ">pip list --format=columns</div>
     <code class="output">
@@ -119,8 +119,9 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
       ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
       torch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.0 <br>
       opencv-python &nbsp; 4.9.0 <br>
-      numpy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.26.4 <br>
       scikit-learn &nbsp;&nbsp; 1.4.1 <br>
+      scipy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.12.0 <br>
+      numpy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.26.4 <br>
       matplotlib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.10.6 <br>
       pandas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.1
     </code>
