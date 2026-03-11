@@ -29,8 +29,8 @@
   margin: 0.5rem auto 2.5rem;
   width: 100%;
   max-width: 600px;
-  height: 350px;
-  object-fit: cover; /* Crops image to fit the height without stretching */
+  height: auto;
+  
   border-radius: 15px; /* Round frame */
   border: 1px solid rgba($um-blue, 0.1);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
