@@ -469,3 +469,118 @@
     }
   }
 }
+
+// Gitflow branches
+.gitflow-roadmap {
+  display: flex;
+  margin: 3rem 0;
+  padding-left: 80px; /* Safe gutter for Semester labels */
+  position: relative;
+
+  .git-graph {
+    position: relative;
+    width: 160px;
+    margin-right: 40px;
+
+    .branch-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      font-family: var(--sans-serif);
+      font-size: 0.65rem;
+      font-weight: 800;
+      opacity: 0.6;
+      span { width: 33%; text-align: center; }
+    }
+
+    .branch {
+      position: absolute;
+      top: 35px; bottom: 0;
+      width: 2px;
+      &.hw { left: 16%; background: #e74c3c; }
+      &.robotics { left: 50%; background: #f1c40f; }
+      &.sw { left: 84%; background: #3498db; }
+    }
+
+    .semester-layer {
+      position: relative;
+      min-height: 180px; /* Increased spacing to breathe with the right column */
+      display: flex;
+      align-items: center;
+
+      .semester-label {
+        position: absolute;
+        left: -70px; /* Sits perfectly in that 80px padding we made */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: #6e7681;
+      }
+
+      .node {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid #1d2126; /* Match your background */
+        z-index: 10;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+
+        &[data-branch="hw"] { left: 16%; background: #e74c3c; }
+        &[data-branch="robotics"] { left: 50%; background: #f1c40f; }
+        &[data-branch="sw"] { left: 84%; background: #3498db; }
+
+        &:hover { transform: translate(-50%, -50%) scale(1.6); }
+
+        &.node-active {
+          transform: translate(-50%, -50%) scale(1.6);
+          box-shadow: 0 0 15px currentColor;
+          z-index: 20;
+        }
+      }
+    }
+  }
+
+  .course-reference {
+    flex: 1;
+    .course-card {
+      padding: 12px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 4px;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+      opacity: 0.7;
+
+      &.highlight-active {
+        opacity: 1;
+        background: rgba(255,255,255,0.08);
+        transform: translateX(10px);
+        /* We'll set the border color via JS based on branch */
+      }
+    }
+  }
+}
+
+.branch-labels {
+  span {
+    cursor: help; /* Shows the question mark cursor for the tooltip */
+    transition: all 0.2s ease;
+    border-bottom: 1px dashed transparent;
+
+    &:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px);
+      border-bottom: 1px dashed currentColor; /* Subtle underline on hover */
+    }
+  }
+  
+  /* Dim other labels when one is hovered to focus the user */
+  &:hover span:not(:hover) {
+    opacity: 0.3;
+  }
+}
