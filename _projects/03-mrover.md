@@ -60,7 +60,3 @@ Joining the robotics arm subteam with no prior CAD experience was a steep learni
 ### System Complexity
 Transitioning to Autonomy, I had to master ROS 2 and the principles of localization and perception while simultaneously navigating a massive, multi-language (C++/Python) codebase. Deciphering complex node interactions and managing version control with Git, all while still learning Python syntax, required a disciplined approach to peer code review and architectural documentation.
 
-<!-- takeaway & goals -->
-<h2 class="section-header build">Reflection</h2>
-This experience really taught me the value of a hardware-aware software engineer. Having spent a year physically fabricating the arm, I have a much deeper intuition now when writing the code to control it. In robotics, sensors and actuators aren't just abstract data points. They’re defined by physical constraints and real-world noise that you only truly understand after you’ve turned the wrenches yourself.
-

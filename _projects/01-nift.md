@@ -44,7 +44,7 @@ I architected the ROS 2 workspace to achieve the **Sense-Think-Act pipeline** fo
 
 ### Communication & Actuation
 * **CAN Bus Integration:** Utilized `ros2_socketcan` to interface with the vehicle's control bus. I performed frame decoding using proprietary DBC files to map raw bus signals, including throttle, brake, gear, and steering.
-* **By-Wire Controller:** Developed a controller node to bridge high-level ROS 2 `Twist` commands with low-level CAN frames. This included implementing a Finite State Machine (FSM) to translate target velocities and steering angles into precise actuator setpoints.
+* **By-Wire Controller:** Developed a controller node to bridge high-level ROS 2 `Twist` commands with low-level CAN frames. This included implementing a Finite State Machine (FSM) and PID controller to translate target velocities and steering angles into precise actuator setpoints.
 
 ### Perception & Localization
 * **LiDAR-Based Obstacle Detection:** Processed raw point cloud data to extract obstacle coordinates and implemented spatial transformations (`TF2`) to map object detections from the sensor frame to the vehicle's local coordinate system.
@@ -69,9 +69,3 @@ Coming into the project with no prior CAN experience, the learning curve for low
 The L4 aspect of NiFT shuttle relies on external data, which introduced unique software integration challenges.
 * **Real-time External Comms:** I had to implement a Socket.io client within our ROS 2 stack to communicate with the Mcity Octane API. Ensuring that infrastructure-based routing data reached our planner with minimal latency was critical for safe operation.
 * **ROS 2 Ecosystem:** Beyond just writing nodes, I had to master managing complex Parameter files, launch configurations, and package dependencies to ensure the system was modular and reproducible for the rest of the team.
-
-<!-- takeaway & goals -->
-<h2 class="section-header build">Reflection</h2>
-My biggest takeaway from this project is that building the NiFT autonomy stack from scratch gave me a transformative, under-the-hood look at how ROS 2 operates on physical hardware. Moving beyond simple simulations, I gained hands-on experience managing the problems of real-world systems, from synchronizing infrastructure-based sensor data via Socket.io to the nuances of bit-level CAN bus manipulation. 
-
-This whole experience pushed me toward the intersection of high-level intelligence and low-level execution. Now that I’ve built the vehicle comms and simulation from the ground up, I’m ready to dive into precise motion planning and non-smooth trajectory optimization. I want to take what I learned at PJTL and tackle more complex algorithms that let robots move through high-stakes environments with more mathematical rigor and agility.

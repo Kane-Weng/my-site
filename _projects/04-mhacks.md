@@ -56,7 +56,3 @@ This was my first deep dive into the Next.js App Router and Shadcn UI. Navigatin
 
 ### Coordination
 Since the backend and database were being built simultaneously by my teammates, I had to design the Dashboard and Onboarding UI without live data. This required me to build robust frontend mocks that could be easily plugged into the real API later, requiring constant communication and good Git control to ensure my UI components matched the data structures my teammates were creating in Prisma.
-
-<!-- takeaway & goals -->
-<h2 class="section-header build">Reflection</h2>
-MHacks taught me the importance of the Minimum Viable Product because in a hackathon, I don’t have time to over-engineer, and I need to focus on the core user journey. I learned how to prioritize high-impact visuals and essential user flows to ensure our team had a polished demo ready for the judges.
