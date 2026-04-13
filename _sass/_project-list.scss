@@ -1,0 +1,150 @@
+// =============================================================================
+// _project-list.scss
+// =============================================================================
+// Sleek, full-width interactive rows used for the main project directory.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. Project List Rows (.project-list, .project-row)
+//    A minimalist, non-card layout with a bottom border and hover effects.
+// =============================================================================
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  border-top: 1px solid $border-light;
+
+  .dark-theme & {
+    border-top-color: $dark-border;
+  }
+}
+
+.project-row {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid $border-light;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  gap: 2rem;
+
+  .dark-theme & {
+    border-bottom-color: $dark-border;
+  }
+
+  // Hover Effect: Subtle background shift and arrow animation
+  &:hover {
+    background: $surface-1;
+    
+    .dark-theme & {
+      background: $dark-surface-1;
+    }
+
+    .project-row-title {
+      color: $um-blue;
+      .dark-theme & { color: $dark-accent; }
+    }
+
+    .project-row-icon {
+      transform: translateX(8px);
+      color: $um-blue;
+      .dark-theme & { color: $dark-accent; }
+    }
+  }
+}
+
+.project-row-meta {
+  flex: 1;
+  min-width: 250px;
+  
+  .project-row-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: $text-primary;
+    transition: color 0.3s ease;
+
+    .dark-theme & { 
+      color: $dark-text-heading; 
+    }
+  }
+}
+
+.project-row-desc {
+  flex: 2;
+  
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: $text-secondary;
+
+    .dark-theme & { 
+      color: $dark-text-muted; 
+    }
+  }
+}
+
+.project-row-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $text-muted;
+  transition: transform 0.3s ease, color 0.3s ease;
+  
+  .dark-theme & {
+    color: $dark-text-secondary;
+  }
+}
+
+// Mobile Responsiveness
+@media (max-width: 768px) {
+  .project-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    position: relative;
+    padding-right: 3rem; // Make room for the arrow
+  }
+  
+  .project-row-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    // Override the hover transform for mobile so it just shifts right from center
+    .project-row:hover & {
+      transform: translate(5px, -50%); 
+    }
+  }
+}
+
+// Project Thumbnail Image
+.project-row-img {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $border-soft;
+  background: $surface-0; // Fallback background while loading
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  .dark-theme & {
+    border-color: $dark-border;
+    background: $dark-bg;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Ensures the image fills the square perfectly without stretching
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  // Subtle zoom effect on the image when hovering over the row
+  .project-row:hover & img {
+    transform: scale(1.05);
+  }
+}

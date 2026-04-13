@@ -9,8 +9,9 @@
 
 // ─── Structure ───────────────────────────────────────────────────────────────
 @import "layout";         // Page skeleton, masthead, dark mode body
-@import "sidebar";        // Author profile, CV button, docs nav
-@import "typography";     // Section headers (.section-header + pulse animation)
+@import "sidebar";          // Author profile, CV button, docs nav
+@import "project-sidebar";  // Project profile block in project-page sidebars
+@import "typography";       // Section headers (.section-header + pulse animation)
 
 // ─── UI Components ───────────────────────────────────────────────────────────
 @import "tags";           // .lang-tag, .topic-tag pills
@@ -20,6 +21,7 @@
 @import "gitflow";        // Git-graph roadmap diagram (Experiences page)
 @import "showcase";       // Engineering showcase layout (alternating image/text blocks)
 @import "buttons";        // Theme-aware interactive buttons (e.g., .btn--explore)
+@import "project-list";   // Sleek row layout for the projects index
 
 // ─── Page-Specific Overrides ─────────────────────────────────────────────────
 @import "page-specific";  // One-off styles: home hero, project images, etc.
