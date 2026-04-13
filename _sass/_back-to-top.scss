@@ -1,0 +1,69 @@
+// =============================================================================
+// _back-to-top.scss
+// =============================================================================
+// Fixed "back to top" button, bottom-right corner of every page.
+// Rendered by _includes/scripts.html; shown/hidden via the .visible class
+// toggled by a scroll listener (threshold: 300px from top).
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. #back-to-top
+//    44×44px rounded-square button. Hidden by default (opacity: 0,
+//    pointer-events: none, slight downward translate). Fades and slides
+//    in when .visible is added.
+//    Light: $um-blue bg / white icon.
+//    Dark:  $dark-surface-1 bg / $dark-accent icon, $dark-accent border.
+//    Hover: $um-maize bg / $um-blue icon in both modes for a branded pop.
+// =============================================================================
+
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $um-blue;
+  color: #fff;
+  font-size: 1rem;
+
+  // Hidden state
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+
+  // Visible state (toggled by JS)
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: $um-maize;
+    color: $um-blue;
+  }
+
+  // Dark mode
+  body.dark-theme & {
+    background: $dark-surface-1;
+    color: $dark-accent;
+    border: 1px solid $dark-accent;
+
+    &:hover {
+      background: $um-maize;
+      color: $um-blue;
+      border-color: $um-maize;
+    }
+  }
+}
