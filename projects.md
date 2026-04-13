@@ -7,9 +7,9 @@ author_profile: true
 
 Take a look at the autonomous systems and robotics projects I've been working on at the University of Michigan!
 
-{% assign research = site.projects | where: "categories", "research" | sort: "date" | reverse %}
-{% assign extracurricular = site.projects | where: "categories", "extracurricular" | sort: "date" | reverse %}
-{% assign coursework = site.projects | where: "categories", "coursework" | sort: "date" | reverse %}
+{% assign research = site.projects | where: "categories", "research" | sort: "order" %}
+{% assign extracurricular = site.projects | where: "categories", "extracurricular" | sort: "order" %}
+{% assign coursework = site.projects | where: "categories", "coursework" | sort: "order" %}
 
 <h2 class="section-header build">Research</h2>
 <div class="project-list">

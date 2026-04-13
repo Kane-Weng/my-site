@@ -9,6 +9,8 @@ header:
   actions:
     - label: "View My Projects"
       url: "/projects/"
+    - label: "View My Experiences"
+      url: "/experiences/"
 ---
 <!-- brief intro -->
 I am a **Robotics x CS student** at the **University of Michigan**, dedicated to bridging the gap between high-level code and physical motion. My work sits at the intersection of autonomous systems, deep learning, and robust software architecture. 

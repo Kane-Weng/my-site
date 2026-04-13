@@ -1,0 +1,319 @@
+// =============================================================================
+// _pipeline.scss
+// =============================================================================
+// Interactive Sense → Think → Act pipeline diagram used on project pages.
+// Clicking a stage card highlights it and scrolls to its detail section.
+//
+// Structure:
+//   .pipeline-wrap
+//     .pipeline-stages          ← CSS grid: stage | arrow | stage | arrow | stage
+//       .pipeline-stage         ← clickable card (×3)
+//         .stage-phase          ← "SENSE" / "THINK" / "ACT" label
+//         .stage-icon           ← Font Awesome icon
+//         .stage-title          ← section name
+//         .stage-chips          ← tech pill tags
+//     .pipeline-sim             ← full-width dashed bar for the Simulation layer
+// =============================================================================
+
+.pipeline-wrap {
+  margin: 1.5rem 0 2rem;
+  user-select: none;
+}
+
+// ── Main pipeline row ──────────────────────────────────────────────────────
+.pipeline-stages {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+}
+
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  color: $text-muted;
+  font-size: 1rem;
+
+  &::after { content: "→"; }
+}
+
+// ── Stage card ─────────────────────────────────────────────────────────────
+.pipeline-stage {
+  background: $surface-1;   // muted gray — feels like a menu selector
+  border: 1.5px solid $border-soft;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+
+  &:hover {
+    border-color: $accent-light;
+    box-shadow: 0 3px 12px rgba($accent-light, 0.12);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background: $surface-0;   // brighten to white — visually connects into the detail panel
+    border-color: $accent-light;
+    box-shadow: 0 0 0 3px rgba($accent-light, 0.15);
+
+    .stage-phase,
+    .stage-icon { color: $accent-light; }
+  }
+}
+
+.stage-phase {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $text-muted;
+  margin-bottom: 0.45rem;
+  transition: color 0.2s;
+}
+
+.stage-icon {
+  display: block;
+  font-size: 1.2rem;
+  color: $text-secondary;
+  margin-bottom: 0.45rem;
+  transition: color 0.2s;
+}
+
+.stage-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $text-primary;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+
+.stage-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+
+  span {
+    font-size: 0.62rem;
+    font-family: monospace;
+    background: $surface-2;
+    border-radius: 3px;
+    padding: 0.15rem 0.4rem;
+    color: $text-secondary;
+  }
+}
+
+// ── Simulation bar (parallel layer, full-width, dashed border) ─────────────
+.pipeline-sim {
+  margin-top: 0.6rem;
+  background: $surface-1;   // matches stage cards (selector row)
+  border: 1.5px dashed $border-soft;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: $accent-light;
+    box-shadow: 0 2px 8px rgba($accent-light, 0.1);
+  }
+
+  &.active {
+    background: $surface-0;   // brighten when selected
+    border-color: $accent-light;
+    box-shadow: 0 0 0 3px rgba($accent-light, 0.12);
+
+    .stage-phase,
+    .stage-icon { color: $accent-light; }
+  }
+
+  .stage-phase { margin-bottom: 0; }
+
+  .stage-icon {
+    display: inline;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .stage-title {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  .stage-chips { flex: 1; }
+}
+
+// ── Hidden content templates ───────────────────────────────────────────────
+.pipeline-tpl { display: none; }
+
+// ── Inline detail panel ────────────────────────────────────────────────────
+// Uses CSS grid row animation (0fr → 1fr) for a smooth height transition
+// without a hardcoded max-height.
+.pipeline-detail-outer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease, margin-top 0.3s ease;
+  margin-top: 0;
+
+  &.is-open {
+    grid-template-rows: 1fr;
+    margin-top: 0.6rem;
+  }
+}
+
+.pipeline-detail {
+  min-height: 0;          // required for grid 0fr collapse
+  overflow: hidden;
+  background: $surface-0; // bright white — the "content" area, visually elevated vs. gray cards
+  border: 1.5px solid $border-soft;
+  border-top: 3px solid $accent-light; // accent stripe makes it feel selected/active
+  border-radius: 8px;
+}
+
+.pipeline-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 0.6rem;
+  border-bottom: 1px solid $border-soft;
+}
+
+.pipeline-detail-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.pipeline-detail-phase {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $accent-light;
+}
+
+.pipeline-detail-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.pipeline-detail-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: $text-muted;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+
+  &:hover {
+    color: $text-primary;
+    background: $surface-2;
+  }
+}
+
+.pipeline-detail-body {
+  padding: 0.75rem 1rem 0.9rem;
+
+  ul {
+    margin: 0;
+    padding-left: 1.25rem;
+
+    li {
+      margin-bottom: 0.55rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
+
+// ── Dark mode ──────────────────────────────────────────────────────────────
+.dark-theme {
+  .pipeline-stage,
+  .pipeline-sim {
+    background: $dark-surface-1;  // muted — matches the selector role
+    border-color: $dark-border;
+  }
+
+  .pipeline-stage.active,
+  .pipeline-sim.active {
+    background: $dark-surface-0;  // elevate on selection
+  }
+
+  .pipeline-arrow { color: $dark-text-muted; }
+
+  .stage-phase { color: $dark-text-muted; }
+  .stage-icon  { color: $dark-text-secondary; }
+  .stage-title { color: $dark-text-heading; }
+
+  .stage-chips span {
+    background: $dark-surface-1;
+    color: $dark-text-secondary;
+  }
+
+  .pipeline-stage:hover,
+  .pipeline-sim:hover {
+    border-color: $dark-accent;
+    box-shadow: 0 3px 12px rgba($dark-accent, 0.12);
+  }
+
+  .pipeline-stage.active,
+  .pipeline-sim.active {
+    border-color: $dark-accent;
+    box-shadow: 0 0 0 3px rgba($dark-accent, 0.15);
+
+    .stage-phase,
+    .stage-icon { color: $dark-accent; }
+  }
+
+  .pipeline-detail {
+    background: $dark-surface-0;
+    border-color: $dark-border;
+    border-top-color: $dark-accent;  // cyan accent stripe in dark mode
+  }
+
+  .pipeline-detail-header { border-bottom-color: $dark-border; }
+  .pipeline-detail-phase  { color: $dark-accent; }
+  .pipeline-detail-title  { color: $dark-text-heading; }
+
+  .pipeline-detail-close {
+    color: $dark-text-muted;
+
+    &:hover {
+      color: $dark-text-primary;
+      background: $dark-surface-1;
+    }
+  }
+
+  .pipeline-detail-body li { color: $dark-text-primary; }
+}
+
+// ── Mobile ─────────────────────────────────────────────────────────────────
+@media (max-width: 600px) {
+  .pipeline-stages {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .pipeline-arrow {
+    justify-content: center;
+    padding: 0;
+
+    &::after { content: "↓"; }
+  }
+
+  .pipeline-sim {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

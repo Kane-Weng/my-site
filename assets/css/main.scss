@@ -22,7 +22,8 @@
 @import "showcase";       // Engineering showcase layout (alternating image/text blocks)
 @import "buttons";        // Theme-aware interactive buttons (e.g., .btn--explore)
 @import "project-list";   // Sleek row layout for the projects index
-@import "dashboard"; 
+@import "dashboard";
+@import "pipeline";   // Sense→Think→Act pipeline diagram (project pages)
 
 // ─── Page-Specific Overrides ─────────────────────────────────────────────────
 @import "page-specific";  // One-off styles: home hero, project images, etc.

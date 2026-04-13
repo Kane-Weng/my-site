@@ -1,0 +1,9 @@
+- key: research
+  title: "Research & Teams"
+  order: 1
+- key: extracurricular
+  title: "Extracurricular"
+  order: 2
+- key: coursework
+  title: "Highlighted Coursework"
+  order: 3
