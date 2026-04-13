@@ -1,0 +1,99 @@
+// =============================================================================
+// _buttons.scss
+// =============================================================================
+// Styling for interactive buttons and call-to-action elements.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. Theme-Aware Explore Buttons (.btn--explore)
+//    Custom CTA buttons used for navigation (e.g., "View All Projects").
+//    Uses U-M Maize/Blue in Light Mode, and shifts to a hollow outline
+//    using $dark-accent (Cyber Cyan) in Dark Mode.
+// =============================================================================
+
+// ─── 1. Theme-Aware Explore Buttons ──────────────────────────────────────────
+.btn--explore {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  background-color: $um-maize;
+  color: $um-blue !important;
+  border-color: $um-maize;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $um-blue;
+    color: #ffffff !important;
+    border: 2px solid $um-blue;
+  }
+
+  .dark-theme & {
+    background-color: transparent;
+    color: $dark-accent !important;
+    border: 2px solid $dark-accent;
+
+    &:hover {
+      background-color: $dark-accent;
+      color: $dark-bg !important;
+    }
+  }
+}
+
+//
+/* --- Tech Stack Grid --- */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stack-category {
+  background: $surface-1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid $border-light;
+
+  .dark-theme & {
+    background: $dark-surface-1;
+    border-color: $dark-border-soft;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    border-bottom: 2px solid $um-maize;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: $text-primary;
+  }
+
+  .dark-theme & h3 {
+    border-color: $dark-accent;
+    color: $dark-text-heading;
+  }
+
+  .pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-pill {
+    background: $surface-0;
+    color: $text-secondary;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid $border-soft;
+    font-family: "Courier New", Courier, monospace; /* Keeps a tiny bit of the terminal vibe */
+
+    .dark-theme & {
+      background: $dark-surface-2;
+      color: $dark-text-primary;
+      border-color: $dark-border;
+    }
+  }
+}

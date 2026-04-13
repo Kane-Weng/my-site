@@ -18,6 +18,8 @@
 @import "terminal";       // Terminal window widget + cursor animation
 @import "accordions";     // Project accordion (<details>/<summary>)
 @import "gitflow";        // Git-graph roadmap diagram (Experiences page)
+@import "showcase";       // Engineering showcase layout (alternating image/text blocks)
+@import "buttons";        // Theme-aware interactive buttons (e.g., .btn--explore)
 
 // ─── Page-Specific Overrides ─────────────────────────────────────────────────
 @import "page-specific";  // One-off styles: home hero, project images, etc.

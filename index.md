@@ -18,13 +18,29 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 <!-- current project -->
 <h2 class="section-header build">What I’m ENGINEERING</h2>
 
-**NiFT Autonomous Shuttle (Perot Jain TechLab at Mcity):** <br> I am delivering a proof-of-concept that transforms the NiFT Shuttle QB into an L4 autonomous vehicle, leveraging infrastructure-based sensing and routing protocols. My detailed responsibilities include vehicle assembly, sensor configuration, robust systems engineering, and an economic analysis of depot autonomy.
-<img src="./assets/images/nift_shuttle.png" class="project-img" alt="NiFT Autonomous Shuttle">
-<span class="project-caption">NiFT Shuttle QB here!</span>
+<div class="showcase-container">
+  <div class="showcase-block">
+    <div class="showcase-img">
+      <img src="./assets/images/nift_shuttle.png" alt="NiFT Autonomous Shuttle">
+    </div>
+    <div class="showcase-text">
+      <h3>NiFT Autonomous Shuttle</h3>
+      <span class="role-date">Perot Jain TechLab at Mcity</span>
+      <p>Delivering a proof-of-concept that transforms the NiFT Shuttle QB into an L4 autonomous vehicle, leveraging infrastructure-based sensing and routing protocols. Responsibilities include vehicle assembly, sensor configuration, robust systems engineering, and an economic analysis of depot autonomy.</p>
+    </div>
+  </div>
 
-**SIM-26 Driving Simulator (Multidisciplinary Design Program):** <br> I am leading development on an accessible driving simulator powered by Unreal Engine 5. The engineering scope includes procedurally generating drivable worlds, configuring vehicle dynamics, simulating complex traffic flows, and implementing a low-cost steering system and motion base to enhance realism. Utilizing these high-fidelity simulations, the MDP team designs and conducts human performance experiments to research driver workload and distraction.
-<img src="./assets/images/mdp_sim.png" class="project-img" alt="SIM-26 Driving Simulator">
-<span class="project-caption">Multiplayer server in UE5 environment</span>
+  <div class="showcase-block reverse">
+    <div class="showcase-text">
+      <h3>SIM-26 Driving Simulator</h3>
+      <span class="role-date">Multidisciplinary Design Program</span>
+      <p>Leading development on an accessible driving simulator powered by Unreal Engine 5. Scope includes procedurally generating drivable worlds, configuring vehicle dynamics, simulating complex traffic flows, and implementing a low-cost steering system and motion base to research driver workload.</p>
+    </div>
+    <div class="showcase-img">
+      <img src="./assets/images/mdp_drive_screen.png" alt="SIM-26 Driving Simulator">
+    </div>
+  </div>
+</div>
 
 <!-- current position -->
 <h2 class="section-header teach">What I’m MENTORING</h2>
@@ -139,6 +155,6 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 <p>Check out my other past projects, my highlighted courseworks, and my work experiences:</p>
 
 <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-  <a href="/my-site/projects/" class="btn btn--primary btn--large">View All Projects</a>
-  <a href="/my-site/experiences/" class="btn btn--primary btn--large">View All Experiences</a>
+  <a href="/my-site/projects/" class="btn btn--explore">View All Projects</a>
+  <a href="/my-site/experiences/" class="btn btn--explore">View All Experiences</a>
 </div>
