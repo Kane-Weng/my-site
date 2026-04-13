@@ -1,0 +1,162 @@
+// =============================================================================
+// _accordions.scss
+// =============================================================================
+// The expandable project accordion widget used on course project pages
+// (ROB 320, EECS 445, EECS 504, EECS 270) to collapse individual project
+// entries until the user clicks to expand them.
+//
+// Built on the native HTML <details>/<summary> elements. No JavaScript needed.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .project-accordion  (outer <details> wrapper)
+//    Card-style container with rounded corners and a subtle shadow.
+//    Light mode: $surface-0 bg, $border-soft border.
+//    Dark mode:  $dark-surface-0 bg, $dark-border border.
+//
+// 2. summary  (clickable header row)
+//    Flexbox row containing .summary-container and the chevron ::after.
+//    Light: $surface-1 bg, $um-blue bottom border and text.
+//    Dark:  $dark-surface-1 bg, $dark-accent bottom border and text.
+//    Border color transitions to $um-maize when the accordion is [open].
+//    The ::after chevron rotates 180° when [open].
+//    Note: ::-webkit-details-marker is hidden; custom chevron is used instead.
+//
+//    2a. .summary-container
+//        Column flex wrapper holding .project-title and .summary-tags.
+//
+//    2b. .project-title
+//        Bold heading inside the summary. Dark mode: $dark-text-heading.
+//
+//    2c. .summary-tags
+//        Flex row of .lang-tag and .topic-tag pills (from _tags.scss).
+//        Slightly smaller (0.65rem) than standalone tags for visual balance.
+//
+// 3. .project-content  (the expanded body)
+//    Content area revealed when [open]. Uses $surface-0 / $dark-bg.
+//    Inline <code> uses $surface-1 bg (light) and $dark-surface-2 bg with
+//    $dark-highlight text (dark).
+// =============================================================================
+
+
+// ─── 1. Outer Container ──────────────────────────────────────────────────────
+
+.project-accordion {
+  background: $surface-0;
+  border: 1px solid $border-soft;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  color: $text-primary;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+
+  .dark-theme & {
+    background: $dark-surface-0;
+    border-color: $dark-border;
+    color: $dark-text-heading;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  &[open] {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    summary { border-bottom-color: $um-maize; }
+    summary::after { transform: rotate(180deg); }
+  }
+
+
+  // ─── 2. Summary Row ────────────────────────────────────────────────────────
+
+  summary {
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: $surface-1;
+    border-bottom: 3px solid $um-blue;
+    color: $um-blue;
+    font-weight: bold;
+    font-size: 1.1rem;
+
+    &::-webkit-details-marker { display: none; }
+    &:hover { background: $surface-0; }
+
+    .dark-theme & {
+      background: $dark-surface-1;
+      border-bottom: 3px solid $dark-accent;
+      color: $dark-accent;
+      &:hover { background: $dark-surface-hover; }
+    }
+
+    // Chevron icon
+    &::after {
+      content: '▼';
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    // 2a. Summary container
+    .summary-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    // 2b. Project title
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+
+      .dark-theme & { color: $dark-text-heading; }
+    }
+
+    // 2c. Tag row
+    .summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+
+      .lang-tag, .topic-tag {
+        font-size: 0.65rem;
+        margin: 0;
+        padding: 1px 7px;
+      }
+
+      .dark-theme & {
+        .lang-tag  { background: rgba($um-maize, 0.15); color: $um-maize; }
+        .topic-tag { background: rgba(255,255,255,0.05); color: $dark-text-secondary; }
+      }
+    }
+  }
+
+
+  // ─── 3. Expanded Content ───────────────────────────────────────────────────
+
+  .project-content {
+    padding: 1.5rem;
+    line-height: 1.6;
+    background: $surface-0;
+
+    code {
+      background: $surface-1;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .dark-theme & {
+      background: $dark-bg;
+
+      code {
+        background: $dark-surface-2;
+        color: $dark-highlight;
+      }
+    }
+  }
+}

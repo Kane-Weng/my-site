@@ -1,0 +1,62 @@
+// =============================================================================
+// _typography.scss
+// =============================================================================
+// Reusable typographic components used across project and experience pages.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .section-header
+//    The bold, uppercase section dividers used on every project page.
+//    Variants controlled by modifier classes:
+//      .build  → blue LED  (Mission / Implementation sections)
+//      .teach  → green LED (Teaching / Topic sections)
+//      .learn  → yellow LED (Challenges / Learning sections)
+//    Each variant sets a CSS custom property --header-color that drives
+//    both the pulsing status LED (::before pseudo-element) and its glow.
+//
+// 2. @keyframes pulse
+//    Powers the opacity breathing animation on the status LED dot.
+// =============================================================================
+
+/* === Section Header === */
+.section-header {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 5rem 0 1.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+
+  // Status LED pseudo-element
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: var(--header-color, #fff);
+    box-shadow: 0 0 10px var(--header-color, #fff);
+    animation: pulse 2s infinite linear;
+  }
+
+  // Modifier: Mission / Implementation
+  &.build { --header-color: #{$color-build}; }
+  // Modifier: Topic / Teaching
+  &.teach { --header-color: #{$color-teach}; }
+  // Modifier: Challenges / Learning
+  &.learn { --header-color: #{$color-learn}; }
+
+  .dark-theme & {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}

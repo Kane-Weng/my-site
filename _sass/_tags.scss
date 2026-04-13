@@ -1,0 +1,53 @@
+// =============================================================================
+// _tags.scss
+// =============================================================================
+// Inline pill-style labels used throughout project pages and accordion
+// summaries to communicate language, course type, and topic metadata.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .lang-tag
+//    Gold-tinted pill for primary classification labels:
+//    e.g. "Undergraduate", "Undergraduate Research", "Student Project Team"
+//    Light mode: maize tint background, dark amber text.
+//    Dark mode:  bright $um-maize text on a semi-transparent maize bg.
+//
+// 2. .topic-tag
+//    Neutral pill for secondary descriptors:
+//    e.g. "Fall 2025", "Robotics Core", "Grade: A"
+//    Light mode: faint UM-blue tint, muted grey text.
+//    Dark mode:  subtle white-on-dark with muted border.
+// =============================================================================
+
+.lang-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  margin: 2px 2px;
+  background: rgba($um-maize, 0.15);
+  color: #8c7300;
+  border-radius: 12px;
+  border: 1px solid rgba($um-maize, 0.5);
+
+  .dark-theme & {
+    color: $um-maize;
+    background: rgba($um-maize, 0.1);
+  }
+}
+
+.topic-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  margin: 2px 2px;
+  background: rgba($um-blue, 0.05);
+  color: $text-muted;
+  border-radius: 12px;
+  border: 1px solid rgba($um-blue, 0.1);
+
+  .dark-theme & {
+    color: $dark-text-secondary;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba($dark-text-secondary, 0.2);
+  }
+}

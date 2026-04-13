@@ -1,18 +1,23 @@
 ---
 ---
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; 
-@import "minimal-mistakes"; 
+// Theme skin and core — must come first
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
 
-// Custom Variables
-@import "variables";
-@import "layout";
-@import "sidebar";
-@import "components";
-@import "page-specific";
+// ─── Foundation ──────────────────────────────────────────────────────────────
+@import "variables";      // Color tokens and design system
 
+// ─── Structure ───────────────────────────────────────────────────────────────
+@import "layout";         // Page skeleton, masthead, dark mode body
+@import "sidebar";        // Author profile, CV button, docs nav
+@import "typography";     // Section headers (.section-header + pulse animation)
 
+// ─── UI Components ───────────────────────────────────────────────────────────
+@import "tags";           // .lang-tag, .topic-tag pills
+@import "cards";          // Experience cards, course grid, project grid items
+@import "terminal";       // Terminal window widget + cursor animation
+@import "accordions";     // Project accordion (<details>/<summary>)
+@import "gitflow";        // Git-graph roadmap diagram (Experiences page)
 
-
-
-
-
+// ─── Page-Specific Overrides ─────────────────────────────────────────────────
+@import "page-specific";  // One-off styles: home hero, project images, etc.

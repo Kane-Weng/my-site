@@ -1,32 +1,67 @@
-/* --- Expand Main Content Width --- */
+// =============================================================================
+// _layout.scss
+// =============================================================================
+// Global structural skeleton: page widths, the masthead nav bar, layout
+// padding, global dark-mode body overrides, and the dark-mode code fix.
+// UI components (cards, terminal, accordions) live in their own partials.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. #main  /  .archive  /  .page  /  .sidebar
+//    Expands the Minimal Mistakes content column to 75% and sidebar to 20%
+//    at the $large breakpoint. Caps overall width at 1300px.
+//
+// 2. .masthead
+//    Top navigation bar. Light: soft grey gradient. Dark: $dark-surface-1
+//    to $dark-bg gradient with a $dark-accent bottom border.
+//    Contains .site-title (monospace font), .masthead__menu-item alignment
+//    fix, and the #theme-toggle icon hover color.
+//
+// 3. Layout Padding
+//    Adds 4rem top padding to both .layout--collection and .layout--single
+//    to prevent content from sitting flush against the masthead.
+//
+// 4. body.dark-theme
+//    Global dark mode: background ($dark-bg), text ($dark-text-primary),
+//    and footer overrides. Applied as a class toggled by dark-mode.js.
+//
+// 5. .dark-theme code
+//    Forces inline code backtick styling in dark mode to use the token
+//    palette ($dark-surface-2 bg, $dark-code-text color) so it doesn't
+//    inherit the theme's default light-mode code colors.
+// =============================================================================
+
+
+// ─── 1. Page Layout ──────────────────────────────────────────────────────────
+
 #main {
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
-  
+
   @include breakpoint($large) {
     display: flex;
     justify-content: space-between;
   }
 }
 
-/* Target the specific container for your project list */
 .archive, .page {
   @include breakpoint($large) {
-    width: 75% !important; 
-    padding-right: 0 !important; 
-    float: right; 
+    width: 75% !important;
+    padding-right: 0 !important;
+    float: right;
   }
 }
 
-/* --- Sidebar width adjustment to match the new scale --- */
 .sidebar {
   @include breakpoint($large) {
     width: 20% !important;
   }
 }
 
-/* --- TOP NAV BAR --- */
+
+// ─── 2. Masthead ─────────────────────────────────────────────────────────────
+
 .masthead {
   background: linear-gradient(135deg, $surface-3 0%, $surface-2 100%) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -44,29 +79,25 @@
   }
 
   nav {
-    background-color: transparent !important; // Just in case the nav itself has a background
+    background-color: transparent !important;
   }
 
-  /* --- Fix Alignment for Nav Items --- */
   .masthead__menu-item {
     display: inline-block;
     vertical-align: middle;
 
-    // This targets the <a> tag wrapping your "Home", "Projects", and Toggle
     a {
-      display: flex; 
-      align-items: center; // Vertically centers text and icons perfectly
+      display: flex;
+      align-items: center;
       height: 100%;
-      padding: 0.5rem 0.4rem; // Adjust this to match your specific theme's spacing
+      padding: 0.5rem 0.4rem;
       text-decoration: none;
       transition: color 0.2s ease;
 
-      // Ensure the toggle icon inherits the link's alignment
       #theme-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        
       }
 
       &:hover #theme-toggle {
@@ -75,10 +106,10 @@
     }
   }
 
-  /* --- Dark Mode Masthead --- */
   .dark-theme & {
     background: linear-gradient(135deg, $dark-surface-1 0%, $dark-bg 100%) !important;
     border-bottom: 1px solid $dark-accent;
+
     .site-title, .masthead__menu-item a {
       color: $dark-text-heading !important;
     }
@@ -86,63 +117,15 @@
 }
 
 
+// ─── 3. Layout Padding ───────────────────────────────────────────────────────
 
-/* === Space between title and top nav bar === */
-.layout--collection #main {
-  padding-top: 4rem;
-}
-
+.layout--collection #main,
 .layout--single #main {
   padding-top: 4rem;
 }
-/* ============================================= */
 
 
-
-/* === Title for each section === */
-.section-header {
-  display: flex;
-  align-items: center;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin: 5rem 0 1.5rem;
-  padding-bottom: 0.5rem;
-  position: relative;
-
-  &.section-header { 
-    border-bottom: 2px solid rgba(0, 0, 0, 0.5); // Double clssing to override
-  }
-
-  // The "Status LED"
-  &::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 15px;
-    background-color: var(--header-color, #fff);
-    box-shadow: 0 0 10px var(--header-color, #fff);
-    animation: pulse 2s infinite linear;
-  }
-
-  // Modifiers for your specific sections
-  &.build { --header-color: #{$color-build}; }
-  &.teach { --header-color: #{$color-teach}; }
-  &.learn { --header-color: #{$color-learn}; }
-
-  .dark-theme & {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  }
-}
-
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-/* ============================================= */
+// ─── 4. Global Dark Mode ─────────────────────────────────────────────────────
 
 body.dark-theme {
   background-color: $dark-bg !important;
@@ -152,23 +135,19 @@ body.dark-theme {
     color: $dark-text-primary !important;
   }
 
-  /* Force Footer Dark Mode */
   .page__footer {
     background-color: darken($dark-bg, 3%);
     color: $dark-text-heading;
     border-top: 1px solid $dark-border;
   }
 
-  .page__footer a {
-    color: $dark-text-muted;
-  }
-
-  .page__footer a:hover {
-    color: $dark-text-heading;
-  }
+  .page__footer a       { color: $dark-text-muted; }
+  .page__footer a:hover { color: $dark-text-heading; }
 }
 
-/* Global inline code backtick fix */
+
+// ─── 5. Dark Mode Inline Code ────────────────────────────────────────────────
+
 .dark-theme code {
   background-color: $dark-surface-2 !important;
   color: $dark-code-text !important;

@@ -1,3 +1,32 @@
+// =============================================================================
+// _page-specific.scss
+// =============================================================================
+// One-off styles scoped to a specific page or layout context.
+// Nothing in this file is reused across multiple pages.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. Home Page Hero  (.page__hero--overlay)
+//    Forces white heading and light subtitle text on the dark hero image.
+//    CTA button: $um-maize border/text with blue fill on hover.
+//
+// 2. .project-img
+//    Centered, rounded project screenshot/diagram used inline on project
+//    pages. Max-width 600px with a subtle shadow and 1.02× scale on hover.
+//
+// 3. .project-caption
+//    Italicized caption beneath .project-img. Left-bordered in $um-maize.
+//    Max-width matches the image.
+//
+// 4. .archive__item-title a
+//    Colors the project card title links $um-blue (light) / $dark-accent
+//    (dark) on the /projects/ collection index page.
+//
+// 5. .layout--single #page-title a
+//    Disables click/hover behavior on the Experiences page title so it
+//    doesn't look like a navigable link.
+// =============================================================================
+
 /* --- HOME PAGE (OVERLAY VERSION) --- */
 .page__hero--overlay .wrapper #page-title.page__title {
   color: #ffffff !important;

@@ -1,0 +1,174 @@
+// =============================================================================
+// _gitflow.scss
+// =============================================================================
+// The interactive Git-graph roadmap widget used on the Experiences page to
+// visualize academic and project history across three parallel "branches."
+// Driven by branch.js for node activation and hover interactions.
+//
+// Color tokens for each branch come from $variables.scss:
+//   $branch-hw       (#e74c3c) — Hardware / Mechanical branch
+//   $branch-robotics (#f1c40f) — Robotics branch
+//   $branch-sw       (#3498db) — Software branch
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .gitflow-roadmap  (outer flex container)
+//    Left-padded to create room for .semester-label absolute positioning.
+//
+// 2. .git-graph  (left column: the visual branch lines and nodes)
+//
+//    2a. .branch-labels  (column headers above the graph)
+//        Three equally-spaced labels for HW / Robotics / SW.
+//        Hover dims non-hovered siblings and shows a dashed underline.
+//
+//    2b. .branch  (vertical line stripes)
+//        Three absolutely-positioned 2px lines spanning the graph height.
+//        Colors: $branch-hw, $branch-robotics, $branch-sw.
+//
+//    2c. .semester-layer  (horizontal row per semester)
+//        Relatively positioned row that aligns nodes at semester midpoints.
+//        Contains a .semester-label (absolute, in the left gutter) and one
+//        or more .node circles.
+//
+//    2d. .node  (commit dot on a branch line)
+//        14×14px circle. Border matches $dark-bg to cut into the line,
+//        giving a "commit on branch" visual. Scales 1.6× on hover/active.
+//        data-branch attribute drives the fill color via &[data-branch="*"].
+//        .node-active class added by branch.js to pulse with a glow.
+//
+// 3. .course-reference  (right column: the card list panel)
+//    Shows course cards that highlight when a branch node is active.
+//    Cards are dim (opacity: 0.7) by default; .highlight-active makes them
+//    fully opaque with a translateX(10px) slide. Border color is set
+//    dynamically by branch.js based on the active branch.
+// =============================================================================
+
+
+// ─── 1. Outer Container ──────────────────────────────────────────────────────
+
+.gitflow-roadmap {
+  display: flex;
+  margin: 3rem 0;
+  padding-left: 80px; // Gutter for .semester-label absolute positioning
+  position: relative;
+}
+
+
+// ─── 2. Git Graph ────────────────────────────────────────────────────────────
+
+.git-graph {
+  position: relative;
+  width: 160px;
+  margin-right: 40px;
+
+  // 2a. Column headers
+  .branch-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-family: var(--sans-serif);
+    font-size: 0.65rem;
+    font-weight: 800;
+    opacity: 0.6;
+    span { width: 33%; text-align: center; }
+  }
+
+  // 2b. Vertical branch lines
+  .branch {
+    position: absolute;
+    top: 35px; bottom: 0;
+    width: 2px;
+    &.hw       { left: 16%; background: $branch-hw; }
+    &.robotics { left: 50%; background: $branch-robotics; }
+    &.sw       { left: 84%; background: $branch-sw; }
+  }
+
+  // 2c. Semester rows
+  .semester-layer {
+    position: relative;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+
+    .semester-label {
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      font-weight: bold;
+      color: #6e7681;
+    }
+
+    // 2d. Commit nodes
+    .node {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid $dark-bg; // Cuts into the branch line visually
+      z-index: 10;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+
+      &[data-branch="hw"]       { left: 16%; background: $branch-hw; }
+      &[data-branch="robotics"] { left: 50%; background: $branch-robotics; }
+      &[data-branch="sw"]       { left: 84%; background: $branch-sw; }
+
+      &:hover { transform: translate(-50%, -50%) scale(1.6); }
+
+      &.node-active {
+        transform: translate(-50%, -50%) scale(1.6);
+        box-shadow: 0 0 15px currentColor;
+        z-index: 20;
+      }
+    }
+  }
+}
+
+
+// ─── 3. Course Reference Panel ───────────────────────────────────────────────
+
+.course-reference {
+  flex: 1;
+
+  .course-card {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 4px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+
+    &.highlight-active {
+      opacity: 1;
+      background: rgba(255,255,255,0.08);
+      transform: translateX(10px);
+      // border-left-color set dynamically by branch.js
+    }
+  }
+}
+
+
+// ─── Branch Label Hover Interactions ─────────────────────────────────────────
+
+.branch-labels {
+  span {
+    cursor: help;
+    transition: all 0.2s ease;
+    border-bottom: 1px dashed transparent;
+
+    &:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px);
+      border-bottom: 1px dashed currentColor;
+    }
+  }
+
+  &:hover span:not(:hover) {
+    opacity: 0.3;
+  }
+}

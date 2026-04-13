@@ -1,0 +1,190 @@
+// =============================================================================
+// _terminal.scss
+// =============================================================================
+// A self-contained Windows-style terminal window widget used on project pages
+// to present project metadata (role, stack, time) in an on-brand, interactive
+// format. Built entirely from SCSS with no JavaScript dependencies.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .terminal-window
+//    Outer container. Light mode: off-white bg ($surface-1) with a soft border.
+//    Dark mode: deep $dark-surface-0 with a subtle rgba border.
+//
+// 2. .terminal-header
+//    Mimics a Windows title bar. Contains the centered .terminal-title and
+//    right-aligned .win-controls buttons. Minimize/maximize have a light hover;
+//    the close button gets the official Windows red (#e81123) on hover.
+//    Dark mode: $dark-surface-2 background.
+//
+//    2a. .terminal-title
+//        Centered path label (e.g. "kane@umich:~/projects/nift").
+//        Light mode: $um-blue. Dark mode: $dark-text-secondary.
+//
+//    2b. .win-controls  >  span
+//        Three clickable icon buttons. Color $text-muted / $dark-text-secondary.
+//
+// 3. .terminal-body
+//    Content area. Contains .command and .output blocks.
+//
+//    3a. .command
+//        Simulates a shell prompt line. The data-prompt attribute is rendered
+//        as a ::before pseudo-element in green ($text-prompt / $dark-prompt-text).
+//        Command text: $text-code (light) / $dark-cmd-text (dark).
+//
+//    3b. .output  /  code.output
+//        Displayed as a block below each command. Styled as monospace plain
+//        text. Dark mode uses $dark-text-secondary; <b> tags inside get
+//        $dark-highlight (orange) for emphasis.
+//
+// 4. .cursor
+//    Blinking block cursor appended to the last .command line.
+//    Animated by @keyframes blink (1.5s step-end loop).
+// =============================================================================
+
+
+// ─── 1. Terminal Window ──────────────────────────────────────────────────────
+
+.terminal-window {
+  background: $surface-1;
+  border: 1px solid $border-light;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Fira Code', 'Courier New', monospace;
+  margin: 2rem auto;
+  max-width: 900px;
+  transition: all 0.3s ease;
+
+  .dark-theme & {
+    background: $dark-surface-0;
+    border-color: $dark-border-soft;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+}
+
+
+// ─── 2. Terminal Header ──────────────────────────────────────────────────────
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: $surface-2;
+  border-bottom: 1px solid $border-light;
+
+  .dark-theme & {
+    background: $dark-surface-2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  // 2a. Title
+  .terminal-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: lowercase;
+    opacity: 0.7;
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 45px; // Offsets win-controls width to truly center the text
+    color: $um-blue;
+
+    .dark-theme & { color: $dark-text-secondary; }
+  }
+
+  // 2b. Windows-style control buttons
+  .win-controls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-family: sans-serif;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 30px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-size: 14px;
+      color: $text-muted;
+
+      .dark-theme & { color: $dark-text-secondary; }
+
+      &:nth-child(1):hover,
+      &:nth-child(2):hover {
+        background: rgba(0, 0, 0, 0.1);
+        .dark-theme & { background: rgba(255, 255, 255, 0.1); }
+      }
+
+      // Official Windows close-button red
+      &:nth-child(3):hover {
+        background: #e81123 !important;
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+
+// ─── 3. Terminal Body ────────────────────────────────────────────────────────
+
+.terminal-body {
+  padding: 20px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  // 3a. Command line
+  .command {
+    display: block;
+    font-weight: bold;
+    color: $text-code;
+
+    &::before {
+      content: attr(data-prompt);
+      color: $text-prompt;
+    }
+
+    .dark-theme & {
+      color: $dark-cmd-text;
+      &::before { color: $dark-prompt-text; }
+    }
+  }
+
+  // 3b. Output block
+  .output {
+    display: block;
+    margin-bottom: 1.2rem;
+    padding-left: 1rem;
+    color: $text-secondary;
+
+    &.output, code.output {
+      .dark-theme & {
+        color: $dark-text-secondary !important;
+        background: transparent !important;
+        border: none !important;
+
+        b { color: $dark-highlight; }
+      }
+    }
+  }
+}
+
+
+// ─── 4. Cursor ───────────────────────────────────────────────────────────────
+
+.cursor {
+  display: inline-block;
+  width: 12px;
+  height: 23px;
+  background: currentColor;
+  animation: blink 1.5s step-end infinite;
+  vertical-align: -3px;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50%       { opacity: 0; }
+}

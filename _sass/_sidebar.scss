@@ -1,3 +1,46 @@
+// =============================================================================
+// _sidebar.scss
+// =============================================================================
+// Styles for the author profile sidebar and the docs navigation sidebar.
+// Applies to both the home/projects author card and the per-project nav.
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .sidebar.sticky  /  .h-card
+//    Centers the author profile column on desktop, switches to a horizontal
+//    row layout on mobile (below $large breakpoint).
+//
+// 2. .author__avatar
+//    Circular avatar with $um-blue border. Sized 160px on desktop, 120px
+//    on mobile.
+//
+// 3. .author__content  /  .author__name  /  .author__bio
+//    Author name links: $um-blue (light) / $um-maize (dark).
+//    Bio text: $text-secondary (light) / $dark-text-primary (dark).
+//
+// 4. .cv-button-container  /  .btn-cv
+//    Pill-shaped CV download button. Light: maize bg / blue text.
+//    Dark: swapped — blue bg / maize text with a maize border so it
+//    reads clearly against $dark-bg. Hover states invert in both modes.
+//
+// 5. .author__urls-wrapper  (social links)
+//    Left-aligned list of icon+label links. Hidden on mobile.
+//    Icons: $text-icon (light) / #e9ecef (dark), with brand colors for
+//    LinkedIn and GitHub in dark mode.
+//
+// 6. .nav__list  /  .nav__items  (docs sidebar nav)
+//    Left-aligned navigation list used on project pages.
+//    .nav__sub-title: uppercase section label, $um-blue (light) /
+//    $dark-accent (dark), with a $border-light bottom rule.
+//    Sub-links: $text-secondary (light) / $dark-text-secondary (dark),
+//    hover slides right and turns $um-blue / $um-maize.
+//    "Toggle Menu" label hidden at $large breakpoint.
+//
+// 7. Responsive Breakpoints
+//    Below $large: sidebar switches to a horizontal h-card row.
+//    .author__urls-wrapper hidden on mobile.
+// =============================================================================
+
 /* --- Centered Sidebar Styling --- */
 .sidebar.sticky {
   display: flex;
@@ -209,7 +252,7 @@
       font-weight: 700;
       color: $um-blue !important; 
       text-transform: uppercase;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid $border-light;
 
       .dark-theme & {
         color: $cyber_cyan !important;
