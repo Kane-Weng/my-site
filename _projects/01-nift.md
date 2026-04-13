@@ -4,6 +4,7 @@ excerpt: "System Integration Engineer for transforming the NiFT Shuttle QB into 
 header:
   teaser: ./assets/images/pjtl_2.png
 date: 2026-03-08
+categories: research
 ---
 <span class="lang-tag">Undergraduate Research</span>
 <span class="topic-tag">Winter/Fall 2026</span>

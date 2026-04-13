@@ -4,6 +4,7 @@ excerpt: "A full-stack team-matching platform built for hackers to find compatib
 header:
   teaser: ./assets/images/mhacks.png
 date: 2026-03-08
+categories: extracurricular
 ---
 <span class="lang-tag">Team Competition</span>
 <span class="topic-tag">24-Hour</span>

@@ -49,13 +49,13 @@
   .author__bio {
     margin-top: 5px;
     font-size: 1rem;
-    color: #444;
+    color: $text-secondary;
     line-height: 1.4;
   }
 
   .dark-theme & {
     .author__name a { color: $um-maize !important; }
-    .author__bio { color: #ced4da !important; }
+    .author__bio { color: $dark-text-primary !important; }
   }
 }
 
@@ -126,8 +126,7 @@
   i.fas, i.fab, i.far {
     transition: color 0.3s ease;
     
-    // Light mode (default) - keep them subtle
-    color: #495057; 
+    color: $text-icon;
 
     body.dark-theme & {
       color: #e9ecef !important;
@@ -224,15 +223,19 @@
       list-style: none;
 
       a {
-        display: block; // Ensures the link fills the line for easier clicking
+        display: block;
         text-align: left;
         padding: 0.2rem 0;
-        color: #ccc;
+        color: $text-secondary;
         transition: all 0.2s ease-in-out;
-        text-decoration: none;  
+        text-decoration: none;
+
+        body.dark-theme & {
+          color: $dark-text-secondary;
+        }
 
         &:hover {
-          padding-left: 5px; 
+          padding-left: 5px;
           color: $um-blue !important;
 
           body.dark-theme & {

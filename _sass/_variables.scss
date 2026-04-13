@@ -1,7 +1,63 @@
-$um-blue: #00274c;
-$um-maize: #ffcb05;
-$color-build: #3498db; 
-$color-teach: #2ecc71; 
+// === Brand Colors ===
+$um-blue:   #00274c;
+$um-maize:  #ffcb05;
+$cyber_cyan: #3bc9db;
+
+// === Section Header Colors ===
+$color-build: #3498db;
+$color-teach: #2ecc71;
 $color-learn: #f1c40f;
 
-$cyber_cyan: #3bc9db;
+// === Gitflow Branch Colors ===
+$branch-hw:       #e74c3c;
+$branch-robotics: #f1c40f;
+$branch-sw:       #3498db;
+
+// ─── Light Mode ──────────────────────────────────────────────────────────────
+
+// Surfaces (lightest → darkest)
+$surface-0:   #ffffff;   // Card backgrounds
+$surface-1:   #f8f9fa;   // Secondary surfaces (terminal body, accordion summary)
+$surface-2:   #e9ecef;   // Tertiary surfaces (terminal header, nav bar)
+$surface-3:   #f1f3f5;   // Masthead gradient start
+
+// Borders
+$border-light: #d1d9e6;  // Standard border
+$border-soft:  #e2e8f0;  // Cards / accordions
+
+// Text
+$text-primary:   #212529;
+$text-secondary: #4a5568;
+$text-muted:     #555555;
+$text-icon:      #495057;
+
+// Terminal / Interactive
+$text-code:    #2b6cb0;   // Command text
+$text-prompt:  #38a169;   // Prompt text
+$accent-light: #3498db;   // Hover borders, interactive elements
+
+// ─── Dark Mode ───────────────────────────────────────────────────────────────
+
+// Surfaces (deepest → most elevated)
+$dark-bg:            #1a1c1e;  // Page background
+$dark-surface-0:     #1e2030;  // Primary cards (grid items, accordions, content areas)
+$dark-surface-1:     #252a34;  // Elevated surfaces (headers, summaries, exp-cards)
+$dark-surface-2:     #24283b;  // Deepest (code blocks, terminal header)
+$dark-surface-hover: #2d3448;  // Card hover state
+
+// Borders
+$dark-border:      #334155;
+$dark-border-soft: rgba(255, 255, 255, 0.1);
+
+// Text
+$dark-text-primary:   #e9ecef;
+$dark-text-secondary: #a9b1d6;  // Subdued text, terminal output
+$dark-text-muted:     #94a3b8;  // Excerpts
+$dark-text-heading:   #f8fafc;  // Headings, strong text
+
+// Accents
+$dark-accent:       $cyber_cyan;  // Primary interactive accent
+$dark-code-text:    #c0caf5;      // Inline code text
+$dark-cmd-text:     #7aa2f7;      // Terminal command text
+$dark-prompt-text:  #9ece6a;      // Terminal prompt text
+$dark-highlight:    #ff9e64;      // Bold/highlighted text in terminal output

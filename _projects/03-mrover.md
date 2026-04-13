@@ -4,6 +4,7 @@ excerpt: "Engineering autonomous navigation and robotic arm systems for U-M’s 
 header:
   teaser: ./assets/images/mrover_logo.png
 date: 2026-03-08
+categories: extracurricular
 ---
 <span class="lang-tag">Student Project Team</span>
 <span class="topic-tag">4th Semester</span>

@@ -48,7 +48,7 @@
   margin: -2rem auto 2.5rem;
   font-size: 0.85rem;
   font-style: italic;
-  color: #666;
+  color: $text-muted;
   max-width: 600px; /* Matches the image width */
   line-height: 1.4;
   border-left: 3px solid $um-maize;
@@ -62,7 +62,7 @@
   transition: color 0.2s ease-in-out;
 
   .dark-theme & {
-    color: $cyber_cyan; // Change to your preferred highlight color
+    color: $dark-accent;
     text-decoration: none;
     transition: color 0.2s ease-in-out;
   }

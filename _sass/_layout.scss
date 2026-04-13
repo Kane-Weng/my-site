@@ -28,7 +28,7 @@
 
 /* --- TOP NAV BAR --- */
 .masthead {
-  background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%) !important; 
+  background: linear-gradient(135deg, $surface-3 0%, $surface-2 100%) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   .masthead__inner-wrap {
@@ -38,9 +38,9 @@
   }
 
   .site-title {
-    font-family: "Courier New", Courier, monospace; // A "code" font for a CS/Robotics student
+    font-family: "Courier New", Courier, monospace;
     font-size: 1.1rem;
-    color: #212529 !important;
+    color: $text-primary !important;
   }
 
   nav {
@@ -70,17 +70,17 @@
       }
 
       &:hover #theme-toggle {
-        color: #f1c40f; // Gold glow on hover
+        color: $um-maize;
       }
     }
   }
 
   /* --- Dark Mode Masthead --- */
   .dark-theme & {
-    background: linear-gradient(135deg, #2d3436 0%, #1a1c1e 100%) !important;
-    border-bottom: 1px solid #3bc9db;
+    background: linear-gradient(135deg, $dark-surface-1 0%, $dark-bg 100%) !important;
+    border-bottom: 1px solid $dark-accent;
     .site-title, .masthead__menu-item a {
-      color: #f8f9fa !important;
+      color: $dark-text-heading !important;
     }
   }
 }
@@ -145,35 +145,34 @@
 /* ============================================= */
 
 body.dark-theme {
-  background-color: #1a1c1e !important; // Deep Charcoal
-  color: #e9ecef !important;
+  background-color: $dark-bg !important;
+  color: $dark-text-primary !important;
 
-  // Ensure your project cards and bio text stay readable
   .archive, .page, .author__bio {
-    color: #ced4da !important;
+    color: $dark-text-primary !important;
   }
 
   /* Force Footer Dark Mode */
   .page__footer {
-    background-color: #111; /* Or your preferred dark color */
-    color: #fff;
-    border-top: 1px solid #333;
+    background-color: darken($dark-bg, 3%);
+    color: $dark-text-heading;
+    border-top: 1px solid $dark-border;
   }
 
   .page__footer a {
-    color: #aaa; /* Makes links like 'Feed' less distracting */
+    color: $dark-text-muted;
   }
 
   .page__footer a:hover {
-    color: #fff;
+    color: $dark-text-heading;
   }
 }
 
 /* Global inline code backtick fix */
 .dark-theme code {
-  background-color: #24283b !important; /* Muted background for backticks */
-  color: #c0caf5 !important;           /* Muted white/blue text */
+  background-color: $dark-surface-2 !important;
+  color: $dark-code-text !important;
   padding: 2px 4px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid $dark-border-soft;
 }

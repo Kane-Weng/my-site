@@ -28,6 +28,10 @@ defaults:
     values:
       layout: single
       author_profile: false
+      author: kane
+      show_date: true
+      read_time: false
+      share: false
       sidebar:
         nav: "docs" # Sidebar menu of all projects
 
@@ -36,10 +40,6 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
-
-# Header Navigation
-header:
-  nav: "main"
 
 # Plugins
 footer_scripts:
