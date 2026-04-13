@@ -54,8 +54,25 @@ Technical Courseworks & Work Experiences are here. (Still in development ⚠️�
 <!-- work exp -->
 <h2 class="section-header teach">Work Experiences</h2>
 
-* ROB 320 Instructional Aid
-* ROB 201 Instructional Aid
-* ROB 101 Grader
-* MATH 115/116/215 Tutor
+<div class="timeline-container">
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <span class="timeline-date">Fall 2025 &ndash; Present</span>
+      <h3 class="timeline-role">Instructional Aid &mdash; ROB 320</h3>
+      <span class="timeline-org">U-M Robotics Department</span>
+      <p>Instructed students in C/C++ and Linux IPC, guiding them through the development of custom ROS-like middleware and kinematics transforms.</p>
+    </div>
+  </div>
 
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <span class="timeline-date">Jan 2025 &ndash; Jan 2026</span>
+      <h3 class="timeline-role">Math Tutor &mdash; Calculus I-III</h3>
+      <span class="timeline-org">U-M Math Learning Center</span>
+      <p>Facilitated drop-in tutoring and structured study groups for MATH 115, 116, and 215, supporting 20&ndash;30 students weekly with multivariable problem sets.</p>
+    </div>
+  </div>
+  
+  </div>

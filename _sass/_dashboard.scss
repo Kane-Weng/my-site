@@ -1,0 +1,86 @@
+.timeline-container {
+  position: relative;
+  margin: 2rem 0 3rem 1rem;
+  padding-left: 2rem;
+  border-left: 2px solid $border-soft;
+
+  .dark-theme & {
+    border-left-color: $dark-border;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // The dot on the timeline
+  .timeline-marker {
+    position: absolute;
+    left: -2.45rem; // Pull it back over the border
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $surface-0;
+    border: 3px solid $um-blue;
+    transition: all 0.3s ease;
+
+    .dark-theme & {
+      background: $dark-bg;
+      border-color: $dark-accent;
+    }
+  }
+
+  &:hover .timeline-marker {
+    background: $um-blue;
+    box-shadow: 0 0 0 4px rgba($um-blue, 0.2);
+
+    .dark-theme & {
+      background: $dark-accent;
+      box-shadow: 0 0 0 4px rgba($dark-accent, 0.2);
+    }
+  }
+}
+
+.timeline-content {
+  .timeline-date {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: $text-muted;
+    margin-bottom: 0.3rem;
+    font-family: "Courier New", Courier, monospace;
+
+    .dark-theme & { color: $dark-text-muted; }
+  }
+
+  .timeline-role {
+    margin: 0 0 0.2rem 0;
+    font-size: 1.25rem;
+    color: $text-primary;
+
+    .dark-theme & { color: $dark-text-heading; }
+  }
+
+  .timeline-org {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: $um-blue;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+
+    .dark-theme & { color: $dark-accent; }
+  }
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+    line-height: 1.6;
+
+    .dark-theme & { color: $dark-text-secondary; }
+  }
+}
