@@ -53,6 +53,13 @@ This project aims to develop an autonomous depot shuttle platform for **Mcity** 
 
 As part of a six-person student team, I architected the end-to-end <strong>ROS 2 Humble</strong> software stack, bridging high-level autonomy with low-level hardware execution. My core achievements include developing a custom <strong>Active Disturbance Rejection Control (ADRC)</strong> system alongside an adaptive pure pursuit planner, engineering the <strong>SocketCAN</strong> communication bridge for by-wire control, and integrating RTK GNSS localization with a fail-safe hardware state machine. To validate our navigation algorithms prior to physical deployment, I also built a high-fidelity <strong>Gazebo</strong> simulation environment of the Mcity testing grounds, complete with custom URDF models and RViz 2 diagnostic tools.
 
+<div style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-top: 1rem;">
+  <img src="/my-site/assets/images/nift_winter26_cohort.jpeg" width="100%" alt="Winter 2026 NiFT Cohort photo">
+</div>
+<p class="text-center" style="font-size: 0.85em; color: #888; margin-top: 0.5rem;">
+  <em>Winter 2026 NiFT Cohort!</em>
+</p>
+
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>
 I architected the ROS 2 workspace to achieve the **Sense-Think-Act pipeline** for the shuttle. For testing, **simulation** is also developed. The system can be split into 4 core layers:
