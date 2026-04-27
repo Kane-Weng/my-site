@@ -4,7 +4,7 @@ permalink: /experiences/
 title_link: false
 ---
 
-Technical Courseworks & Work Experiences are here. (Still in development ⚠️🟡🚧)
+Technical Courseworks & Work Experiences are here.
 
 <!-- coursework -->
 <h2 class="section-header build">Technical Courseworks @ U-M</h2>
@@ -58,7 +58,7 @@ Technical Courseworks & Work Experiences are here. (Still in development ⚠️�
   <div class="timeline-item">
     <div class="timeline-marker"></div>
     <div class="timeline-content">
-      <span class="timeline-date">Fall 2025 &ndash; Present</span>
+      <span class="timeline-date">Winter 2026 &ndash; Present</span>
       <h3 class="timeline-role">Instructional Aid &mdash; ROB 320</h3>
       <span class="timeline-org">U-M Robotics Department</span>
       <p>Instructed students in C/C++ and Linux IPC, guiding them through the development of custom ROS-like middleware and kinematics transforms.</p>

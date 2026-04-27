@@ -31,7 +31,7 @@ order: 1
       ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System Integration Engineer <br>
       STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, C++, ROS 2, CAN bus, Gazebo, Git, Linux
     </code>
-    <div class="command" data-prompt="kane@umich:~/projects/nift$ ">ros2 launch nift_integration system.launch.py<span class="cursor">_</span></div>
+    <div class="command" data-prompt="kane@umich:~/projects/nift$ ">ros2 launch nift_bringup system.launch.py<span class="cursor">_</span></div>
   </div>
 </div>
 
@@ -53,8 +53,86 @@ This project aims to develop an autonomous depot shuttle platform for **Mcity** 
 
 As part of a six-person student team, I architected the end-to-end <strong>ROS 2 Humble</strong> software stack, bridging high-level autonomy with low-level hardware execution. My core achievements include developing a custom <strong>Active Disturbance Rejection Control (ADRC)</strong> system alongside an adaptive pure pursuit planner, engineering the <strong>SocketCAN</strong> communication bridge for by-wire control, and integrating RTK GNSS localization with a fail-safe hardware state machine. To validate our navigation algorithms prior to physical deployment, I also built a high-fidelity <strong>Gazebo</strong> simulation environment of the Mcity testing grounds, complete with custom URDF models and RViz 2 diagnostic tools.
 
-<img src="/my-site/assets/images/nift_cohort_2026.jpeg" class="project-img" alt="Winter 2026 NiFT Cohort photo">
-<span class="project-caption">Winter 2026 NiFT Cohort!</span>
+<div class="project-carousel" id="nift-carousel">
+  <div class="carousel-inner">
+    <div class="carousel-track" id="nift-track">
+      <div class="carousel-slide">
+        <img src="/my-site/assets/images/nift_pjtl26_cohort.png" alt="2026 Perot Jain TechLab Mcity cohort">
+      </div>
+      <div class="carousel-slide">
+        <img src="/my-site/assets/images/nift_cohort_2026.jpeg" alt="NiFT Winter 2026 Team">
+      </div>
+      <div class="carousel-slide">
+        <img src="/my-site/assets/images/nift_shuttle_garage.jpg" alt="NiFT shuttle in the Mcity garage">
+      </div>
+    </div>
+    <button class="carousel-btn carousel-prev" onclick="carouselStep('nift', -1)" aria-label="Previous">&#8249;</button>
+    <button class="carousel-btn carousel-next" onclick="carouselStep('nift', 1)" aria-label="Next">&#8250;</button>
+  </div>
+  <div class="carousel-dots" id="nift-dots">
+    <span class="carousel-dot active" onclick="carouselGoTo('nift', 0)"></span>
+    <span class="carousel-dot" onclick="carouselGoTo('nift', 1)"></span>
+    <span class="carousel-dot" onclick="carouselGoTo('nift', 2)"></span>
+  </div>
+
+  <span class="project-caption">NiFT photo gallery — PJTL cohort, NiFT team, and the NiFT shuttle</span>
+</div>
+
+
+<script>
+(function() {
+  var _idx = {}, _timers = {};
+
+  function getTrack(id)  { return document.getElementById(id + '-track'); }
+  function getInner(id)  { return getTrack(id).parentElement; }
+  function getSlides(id) { return getTrack(id).querySelectorAll('.carousel-slide'); }
+  function getDots(id)   { return document.querySelectorAll('#' + id + '-dots .carousel-dot'); }
+
+  function render(id) {
+    var i  = _idx[id];
+    var ss = getSlides(id);
+    var offset = 0;
+    for (var k = 0; k < i; k++) offset += ss[k].offsetWidth;
+    getTrack(id).style.transform = 'translateX(-' + offset + 'px)';
+    getInner(id).style.width     = ss[i].offsetWidth + 'px';
+    getDots(id).forEach(function(d, j) { d.classList.toggle('active', j === i); });
+  }
+
+  window.carouselGoTo = function(id, idx) {
+    var n = getSlides(id).length;
+    _idx[id] = ((idx % n) + n) % n;
+    render(id);
+  };
+  window.carouselStep = function(id, dir) {
+    carouselGoTo(id, (_idx[id] || 0) + dir);
+  };
+
+  function startAuto(id) {
+    clearInterval(_timers[id]);
+    _timers[id] = setInterval(function() { carouselStep(id, 1); }, 4000);
+  }
+
+  function initCarousel(id) {
+    _idx[id] = 0;
+    var inn  = getInner(id);
+    var imgs = inn.querySelectorAll('img');
+    var pending = imgs.length;
+    function onLoad() {
+      if (--pending > 0) return;
+      render(id);
+      startAuto(id);
+      inn.addEventListener('mouseenter', function() { clearInterval(_timers[id]); });
+      inn.addEventListener('mouseleave', function() { startAuto(id); });
+    }
+    imgs.forEach(function(img) {
+      if (img.complete && img.naturalWidth > 0) onLoad();
+      else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() { initCarousel('nift'); });
+})();
+</script>
 
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>

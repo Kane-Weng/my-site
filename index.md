@@ -28,7 +28,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     <div class="showcase-text">
       <h3>NiFT Autonomous Shuttle</h3>
       <span class="role-date">Perot Jain TechLab at Mcity</span>
-      <p>Delivering a proof-of-concept that transforms the NiFT Shuttle QB into an L4 autonomous vehicle, leveraging infrastructure-based sensing and routing protocols. Responsibilities include vehicle assembly, sensor configuration, robust systems engineering, and an economic analysis of depot autonomy.</p>
+      <p>Delivering a proof-of-concept that transforms the NiFT Shuttle QB into an L4 autonomous vehicle, leveraging infrastructure-based sensing and routing protocols.</p>
     </div>
   </div>
 
@@ -36,7 +36,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     <div class="showcase-text">
       <h3>SIM-26 Driving Simulator</h3>
       <span class="role-date">Multidisciplinary Design Program</span>
-      <p>Leading development on an accessible driving simulator powered by Unreal Engine 5. Scope includes procedurally generating drivable worlds, configuring vehicle dynamics, simulating complex traffic flows, and implementing a low-cost steering system and motion base to research driver workload.</p>
+      <p>Leading development on an accessible driving simulator powered by Unreal Engine 5 to assist research on driver workload and distraction.</p>
     </div>
     <div class="showcase-img">
       <img src="./assets/images/sim26_drive_screen.png" alt="SIM-26 Driving Simulator">
@@ -53,16 +53,16 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     <div class="exp-card-content">
       <span class="role-date">U-M Robotics | 2026 – Now</span>
       <h3>ROB 320 Instructional Aid</h3>
-      <p>Helping lab sections, holding office hours, creating exam and grading for <i>ROB 320: Robot Operation Systems</i>. I support students on topics like <strong>Linux IPC in C/C++</strong>, developing <strong>custom ROS-like middleware</strong>, and <strong>kinematics & transforms</strong>.</p>
+      <p>Helping lab sections, holding office hours, creating exam and grading on topics of Linux IPC, developing Robot Interprocess eXchange (RIX), and kinematics & transforms.</p>
     </div>
   </div>
 
   <div class="exp-card">
     <img src="./assets/images/calculus.jpeg" class="exp-banner-img" alt="Calculus">
     <div class="exp-card-content">
-      <span class="role-date">U-M Math | 2025 – Now</span>
+      <span class="role-date">U-M Math | 2025 – 2026</span>
       <h3>Math 115/116/215 Tutor</h3>
-      <p>Delivering 10 hrs per week of drop-in and group tutoring for <strong>Calculus I-III</strong> at Math Learning Center. I also facilitate weekly <i>MATH 215 (Multivariable Calculus)</i> study groups with GSIs, supporting 20–30 students with structured problem sets.</p>
+      <p>Delivering 10 hrs per week of drop-in and group tutoring for Calculus I-III at Math Learning Center, supporting 20–30 students with structured problem sets.</p>
     </div>
   </div>
 </div>
