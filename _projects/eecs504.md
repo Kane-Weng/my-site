@@ -11,7 +11,7 @@ order: 2
 <span class="lang-tag">Graduate</span>
 <span class="topic-tag">Winter 2026</span>
 <span class="topic-tag">Upper Level Electives</span>
-<span class="topic-tag">Grade: #</span>
+<span class="topic-tag">Grade: A</span>
 
 > *EECS 504: Foundations of Computer Vision* provides a graduate-level foundation in computer vision by treating image analysis as a series of optimization problems, focusing on the mathematical modeling of visual invariants, feature extraction, and estimation techniques like camera calibration and stereo reconstruction.
 
@@ -89,18 +89,22 @@ The capstone of the course involves translating academic research into functiona
 <details class="project-accordion">
   <summary>
     <div class="summary-container">
-      <div class="project-title">Coming up ...</div>
+      <div class="project-title">Final Project: RapidGeoStitch (Disaster Response Orthomosaics)</div>
       <div class="summary-tags">
-        <span class="lang-tag">#</span>
-        <span class="topic-tag">#</span>
-        <span class="topic-tag">#</span>
-        <span class="topic-tag">#</span>
+        <span class="lang-tag">Python</span>
+        <span class="topic-tag">SIFT / RANSAC</span>
+        <span class="topic-tag">YOLOv8</span>
+        <span class="topic-tag">GrabCut</span>
       </div>
     </div>
   </summary>
   <div class="project-content">
     <ul>
-      Coming up ...
+      <li><strong>Objective:</strong> Developing a real-time aerial mapping and analysis system that converts low-altitude drone imagery into a single metric-scaled orthomosaic to aid search-and-rescue teams in disaster zones.</li>
+      <li><strong>Build:</strong> Engineered a four-stage pipeline utilizing SIFT keypoints and RANSAC-estimated homographies to construct a global spanning-tree pose graph for image stitching. Integrated a fine-tuned YOLOv8m model using a tiled sliding-window approach for disaster detection, refined by a custom classical computer vision segmenter (GrabCut, Otsu thresholding, morphological operations). Ground Sampling Distance (GSD) was calculated using EXIF metadata with a Depth Anything V2 fallback.</li>
+      <li><strong>Functionality:</strong> Delivered a comprehensive application suite (OpenCV live view, batch orchestrator, Streamlit browser) that dynamically stitches sequences of drone images into a unified map. Successfully overlaid color-coded disaster masks (floods, building damage, blocked roads, vehicles) and enabled responders to estimate real-world ground distances directly from the aerial image using an interactive two-click measurement tool.</li>
     </ul>
+    <img src="/my-site/assets/images/eecs504_stitch_result.png" class="project-img" alt="EECS 504 stitched result">
+    <span class="project-caption">Final Output of the system</span>
   </div>
 </details>

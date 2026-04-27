@@ -1,0 +1,106 @@
+// =============================================================================
+// _carousel.scss
+// =============================================================================
+
+.project-carousel {
+  margin: 0.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+
+  .carousel-inner {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 500px;
+    max-width: 100%;
+    border: 1px solid rgba($um-blue, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: width 0.4s ease;
+    // width is set by JS after images load to match natural image width at fixed height
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-slide {
+    flex: 0 0 auto;
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.75);
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s ease;
+    padding: 0;
+    color: $um-blue;
+
+    &:hover { background: rgba(255, 255, 255, 0.95); }
+    &.carousel-prev { left: 0.5rem; }
+    &.carousel-next { right: 0.5rem; }
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    margin: 0.5rem 0 0;
+  }
+
+  .carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba($um-blue, 0.2);
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &.active { background: $um-blue; }
+  }
+
+  .dark-theme & {
+    .carousel-inner {
+      border-color: rgba($dark-accent, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .carousel-btn {
+      background: rgba(30, 41, 59, 0.75);
+      color: $dark-accent;
+      &:hover { background: rgba(30, 41, 59, 0.95); }
+    }
+
+    .carousel-dot {
+      background: rgba($dark-accent, 0.25);
+      &.active { background: $dark-accent; }
+    }
+  }
+
+  .project-caption {
+    display: block; // Ensures it behaves predictably 
+    margin-top: 1rem; 
+  }
+}

@@ -9,7 +9,7 @@ kane:
         <i class="fas fa-file-download"></i> Download CV
       </a>
     </div>
-  avatar: "/assets/images/personal_pic.jpeg" 
+  avatar: "/assets/images/profile_avatar.jpeg"
   location: "Ann Arbor, MI"
   email: "kaichi@umich.edu"
   links:

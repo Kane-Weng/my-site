@@ -11,7 +11,7 @@ order: 3
 <span class="lang-tag">Undergraduate</span>
 <span class="topic-tag">Winter 2026</span>
 <span class="topic-tag">Upper Level Electives</span>
-<span class="topic-tag">Grade: #</span>
+<span class="topic-tag">Grade: A</span>
 
 > *EECS 445: Introduction to Machine Learning* explores the mathematical foundations and practical implementation of supervised and unsupervised machine learning algorithms, focusing on their application to complex, real-world datasets in fields like robot perception and computer vision.
 

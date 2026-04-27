@@ -39,7 +39,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
       <p>Leading development on an accessible driving simulator powered by Unreal Engine 5. Scope includes procedurally generating drivable worlds, configuring vehicle dynamics, simulating complex traffic flows, and implementing a low-cost steering system and motion base to research driver workload.</p>
     </div>
     <div class="showcase-img">
-      <img src="./assets/images/mdp_drive_screen.png" alt="SIM-26 Driving Simulator">
+      <img src="./assets/images/sim26_drive_screen.png" alt="SIM-26 Driving Simulator">
     </div>
   </div>
 </div>

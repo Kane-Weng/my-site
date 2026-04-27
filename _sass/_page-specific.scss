@@ -70,6 +70,11 @@
   }
 }
 
+.dark-theme .project-img {
+  border-color: rgba($dark-accent, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
 /* --- Centered Project Caption --- */
 .project-caption {
   display: block;
@@ -82,6 +87,10 @@
   line-height: 1.4;
   border-left: 3px solid $um-maize;
   padding-left: 10px;
+
+  .dark-theme & {
+    color: $dark-text-muted;
+  }
 }
 
 /* Target the project title links specifically */

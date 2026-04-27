@@ -168,7 +168,7 @@ By introducing memory, clock-synchronized state, and feedback loops, I moved fro
       <li><strong>Build:</strong> Implemented <strong>Booth’s Multiplication Algorithm</strong> and a multi-cycle division-by-subtraction routine, coordinated by a central controller that manages a 2x-width shift register (<code>PM</code>).</li>
       <li><strong>Functionality:</strong> Built a fully integrated datapath that translates between user-friendly Signed-Magnitude inputs and internal Two's Complement logic, featuring automated overflow protection and an 11-bit binary-to-decimal display driver.</li>
     </ul>
-    <img src="/my-site/assets/images/eecs270_p7.png" class="project-img" alt="EECS 270 p7 system diagram">
+    <img src="/my-site/assets/images/eecs270_processor_diagram.png" class="project-img" alt="EECS 270 p7 system diagram">
     <span class="project-caption">Diagram of the Processor</span>
   </div>
 </details>
