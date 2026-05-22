@@ -4,14 +4,14 @@ excerpt: "System Integration Engineer for transforming the NiFT Shuttle QB into 
 header:
   teaser: ./assets/images/nift_teaser.png
 date: 2026-03-08
-categories: research
+categories: program
 order: 1
 ---
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 <span class="lang-tag">Undergraduate Research</span>
 <span class="topic-tag">Winter/Fall 2026</span>
 <span class="topic-tag">Entrepreneurship</span>
-<span class="topic-tag">Grade: #</span>
+<span class="topic-tag">Grade: A</span>
 
 <div class="terminal-window">
   <div class="terminal-header">

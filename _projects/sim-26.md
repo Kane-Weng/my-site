@@ -4,8 +4,8 @@ excerpt: "Technical Lead for high-fidelity Unreal Engine 5 autonomous vehicle si
 header:
   teaser: ./assets/images/sim26_logo.jpeg
 date: 2026-03-08
-categories: research
-order: 2
+categories: program
+order: 3
 ---
 <span class="lang-tag">Undergraduate Research</span>
 <span class="topic-tag">Winter/Fall 2026</span>

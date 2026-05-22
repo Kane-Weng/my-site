@@ -32,7 +32,7 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     </div>
   </div>
 
-  <div class="showcase-block reverse">
+  <div class="showcase-block reverse">    <!-- Can add/delete reverse  -->
     <div class="showcase-text">
       <h3>SIM-26 Driving Simulator</h3>
       <span class="role-date">Multidisciplinary Design Program</span>
@@ -42,6 +42,29 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
       <img src="./assets/images/sim26_drive_screen.png" alt="SIM-26 Driving Simulator">
     </div>
   </div>
+
+  <!-- Hidden showcases -->
+  <!-- <div class="showcase-block">
+    <div class="showcase-text">
+      <h3>3D Dynamic Parabolic Control Barrier Functions - 3D Extension</h3>
+      <span class="role-date">Distributed Autonomous Systems and Control Lab</span>
+      <p>Assisting research on building up the concept of Dynamic Parabolic Control Barrier Functions to 3D formulation.</p>
+    </div>
+    <div class="showcase-img">
+      <img src="..." alt="3D DPCBF simulation">  
+    </div>
+  </div> -->
+
+  <!-- <div class="showcase-block">
+    <div class="showcase-text">
+      <h3>Visual Physical Dataset</h3>
+      <span class="role-date">Distributed Autonomous Systems and Control Lab</span>
+      <p>Transforming existing 3D models into an annotated dataset usable for physics-based simulators to support broader research.</p>
+    </div>
+    <div class="showcase-img">
+      <img src="..." alt="SURE program">  
+    </div>
+  </div> -->
 </div>
 
 <!-- current position -->

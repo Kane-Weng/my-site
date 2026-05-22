@@ -8,10 +8,10 @@ author_profile: true
 Take a look at the autonomous systems and robotics projects I've been working on at the University of Michigan!
 
 {% assign research = site.projects | where: "categories", "research" | sort: "order" %}
-{% assign extracurricular = site.projects | where: "categories", "extracurricular" | sort: "order" %}
+{% assign program = site.projects | where: "categories", "program" | sort: "order" %}
 {% assign coursework = site.projects | where: "categories", "coursework" | sort: "order" %}
 
-<h2 class="section-header build">Research</h2>
+<h2 class="section-header build">Lab Research</h2>
 <div class="project-list">
   {% for project in research %}
   <a href="{{ project.url | relative_url }}" class="project-row">
@@ -33,9 +33,9 @@ Take a look at the autonomous systems and robotics projects I've been working on
   {% endfor %}
 </div>
 
-<h2 class="section-header teach">Extracurricular</h2>
+<h2 class="section-header teach">Engineering Programs</h2>
 <div class="project-list">
-  {% for project in extracurricular %}
+  {% for project in program %}
   <a href="{{ project.url | relative_url }}" class="project-row">
     {% if project.header.teaser %}
     <div class="project-row-img">

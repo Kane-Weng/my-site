@@ -58,8 +58,18 @@ Technical Courseworks & Work Experiences are here.
   <div class="timeline-item">
     <div class="timeline-marker"></div>
     <div class="timeline-content">
-      <span class="timeline-date">Winter 2026 &ndash; Present</span>
-      <h3 class="timeline-role">Instructional Aid &mdash; ROB 320</h3>
+      <span class="timeline-date">Summer 2026</span>
+      <h3 class="timeline-role">Research Assistant &mdash; Corso Group</h3>
+      <span class="timeline-org">U-M Robotics Department</span>
+      <p>Participated in the Summer Undergraduate Research in Engineering (SURE) program. Developed "Visual Physics Dataset" usable for physics-based simulators to support broader research on multi-modal AI pre-training</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <span class="timeline-date">Winter 2026</span>
+      <h3 class="timeline-role">Instructional Aid &mdash; ROB 320: Robot Operating Systems</h3>
       <span class="timeline-org">U-M Robotics Department</span>
       <p>Instructed students in C/C++ and Linux IPC, guiding them through the development of custom ROS-like middleware and kinematics transforms.</p>
     </div>
@@ -68,11 +78,31 @@ Technical Courseworks & Work Experiences are here.
   <div class="timeline-item">
     <div class="timeline-marker"></div>
     <div class="timeline-content">
-      <span class="timeline-date">Jan 2025 &ndash; Jan 2026</span>
+      <span class="timeline-date">Winter 2025 &ndash; Winter 2026</span>
       <h3 class="timeline-role">Math Tutor &mdash; Calculus I-III</h3>
       <span class="timeline-org">U-M Math Learning Center</span>
       <p>Facilitated drop-in tutoring and structured study groups for MATH 115, 116, and 215, supporting 20&ndash;30 students weekly with multivariable problem sets.</p>
     </div>
   </div>
-  
+
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <span class="timeline-date">Fall 2025</span>
+      <h3 class="timeline-role">Instructional Aid &mdash; ROB 201: Calculus for Modern Engineers</h3>
+      <span class="timeline-org">U-M Robotics Department</span>
+      <p>Redesigned 8 core Julia assignments to elevate difficulty levels and challenge students’ problem-solving skills. Led weekly office hours and graded assignments to reinforce student understanding of Julia coding and calculus</p>
+    </div>
   </div>
+
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <span class="timeline-date">Winter 2025</span>
+      <h3 class="timeline-role">Grader &mdash; ROB 101: Computational Linear Algebra</h3>
+      <span class="timeline-org">U-M Robotics Department</span>
+      <p>Graded 40+ written and Julia programming assignments on Linear Algebra weekly for 160+ students.</p>
+    </div>
+  </div>
+  
+</div>
