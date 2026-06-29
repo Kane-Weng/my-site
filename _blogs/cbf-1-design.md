@@ -1,5 +1,5 @@
 ---
-title: "[CBF] Design & Intuition"
+title: "[CBF] Design & Use"
 excerpt: "Building a control barrier function from a single distance, and the inequality that turns it into a real-time safety guarantee."
 categories: control
 order: 2
@@ -12,13 +12,13 @@ use_math: true
 <span class="topic-tag">Safety</span>
 <span class="topic-tag">Design</span>
 
-The [previous post]({{ "/blogs/cbf-0-preliminary/" | relative_url }}) laid out the mathematical and control-theoretic pieces in isolation. Here we put them together. Starting from a single distance measurement, we construct a control barrier function, see why naively forcing safety is far too conservative, and arrive at the one inequality that defines a CBF.
+The previous post laid out the mathematical and control-theoretic pieces in isolation. Here we put them together. Starting from a single distance measurement, we construct a control barrier function, see why naively forcing safety is far too conservative, arrive at the one inequality that defines a CBF, and fold it into the quadratic program that runs as a real-time safety filter.
 
 <h2 class="section-header build">From a distance to a safe set</h2>
 
 Suppose a robot at position $p$ must avoid an obstacle at $p_o$, keeping at least a clearance $d$ between them. The most direct way to measure safety is the signed distance to that limit:
 
-$$ h(x) = \lVert p - p_o \rVert - d . $$
+$$ h(x) = \lVert p - p_o \rVert ^2 - d^2 . $$
 
 This scalar is our **barrier function**, and its sign tells us everything. The set we care about, the **safe set**, is exactly where $h$ is non-negative:
 
@@ -50,8 +50,6 @@ What we actually want is a condition that is permissive when there is margin to 
 
 $$ \dot{h}(x, u) \ge -\alpha\big(h(x)\big) . $$
 
-The behavior of this single line is worth pausing on:
-
 - When $h$ is large (far from the obstacle), $-\alpha(h)$ is very negative, so $\dot h$ is allowed to be very negative. The robot may freely close the distance.
 - As $h \to 0$ (approaching the boundary), $-\alpha(h) \to 0$, and we recover the strict Nagumo condition $\dot h \ge 0$ exactly where it matters.
 
@@ -68,6 +66,21 @@ Substituting back into the CBF condition turns it into a constraint we can actua
 $$ L_f h(x) + L_g h(x)\,u \ge -\alpha\big(h(x)\big) . $$
 
 The key feature is that this is **linear in $u$**. Everything else is a number once the state is known, so the safety requirement is just a linear inequality on the input, the exact shape a quadratic program can enforce while minimally adjusting a nominal controller.
+
+<h2 class="section-header teach">The safety filter: a quadratic program</h2>
+
+A CBF tells us which inputs are safe, but it says nothing about which task we are trying to accomplish. In practice some other controller already does that: a planner or a Control Lyapunov Function hands us a **nominal input** $u_{\text{nom}}$ that drives toward the goal but knows nothing about the obstacle.
+
+The idea of the **safety filter** is to leave that controller alone whenever it is safe and to overrule it as gently as possible when it is not. Among all inputs that satisfy the CBF constraint, we pick the one closest to $u_{\text{nom}}$. That is a quadratic objective under a single linear constraint, a **quadratic program**:
+
+$$ u^{*}(x) = \arg\min_{u}\; \tfrac{1}{2}\lVert u - u_{\text{nom}} \rVert^2 \quad \text{s.t.}\quad L_f h(x) + L_g h(x)\,u \ge -\alpha\big(h(x)\big) . $$
+
+Because the objective is convex and the constraint is linear, this solves in microseconds and can run at the control loop rate. Its two regimes mirror the CBF condition itself:
+
+- When $u_{\text{nom}}$ already satisfies the constraint, it is the minimizer, so $u^{*} = u_{\text{nom}}$ and the filter is completely transparent.
+- When $u_{\text{nom}}$ would violate safety, the solution lands exactly on the constraint boundary, the smallest possible correction that keeps the system inside $\mathcal{C}$.
+
+Extending the program is just as direct. Actuator limits enter as an extra constraint $u \in \mathcal{U}$, and several obstacles each contribute one more linear inequality. The cost is that adding constraints can make the program **infeasible**: if no input satisfies all of them at once, the filter has no safe action left to return, which is the failure mode worth watching for in any real deployment.
 
 <h2 class="section-header learn">Relative degree and dynamic models</h2>
 

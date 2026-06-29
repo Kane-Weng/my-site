@@ -77,7 +77,7 @@ These are the analytical tools the rest of the framework leans on. Each one is a
       </div>
       <div class="tab-section">
         <span class="tab-label">Example</span>
-        <p>For a robot that must stay at least $d$ away from an obstacle at $p_o$, a natural choice is $h(x) = \lVert p - p_o \rVert - d$. It is positive when safely clear and zero exactly at the minimum allowed distance.</p>
+        <p>For a robot that must stay at least $d$ away from an obstacle at $p_o$, a natural choice is $h(x) = \lVert p - p_o \rVert ^2 - d^2$. It is positive when safely clear and zero exactly at the minimum allowed distance.</p>
       </div>
     </div>
     <!-- set invariance -->
