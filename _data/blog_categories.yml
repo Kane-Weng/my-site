@@ -1,0 +1,12 @@
+- key: control
+  title: "Control Theory"
+  order: 1
+- key: cv
+  title: "Computer Vision"
+  order: 2
+- key: ai
+  title: "AI & ML"
+  order: 3
+- key: books
+  title: "Books"
+  order: 4

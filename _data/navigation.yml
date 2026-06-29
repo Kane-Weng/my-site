@@ -4,6 +4,8 @@ main:
     url: /
   - title: "Projects"
     url: /projects/
+  - title: "Blog"
+    url: /blogs/
   - title: "Experiences"
     url: /experiences/
   - title: '<span id="theme-toggle"><i class="fas fa-moon"></i></span>'

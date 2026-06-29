@@ -1,0 +1,177 @@
+// =============================================================================
+// _tabs.scss
+// =============================================================================
+// The .concept-tabs widget: a tabbed card used on blog pages (e.g. the CBF
+// "Preliminaries" post) to group several related concepts behind a row of
+// tab buttons. Each panel typically holds a Definition / Example / Math block.
+//
+// Interactivity lives in assets/js/tabs.js — clicking a .tab-btn toggles the
+// matching .tab-panel within the same .concept-tabs container.
+//
+// COLOR VARIANTS
+// --------------
+// The active-tab accent is driven by the --tab-accent CSS custom property so a
+// widget can be tinted to match its section header:
+//   .concept-tabs--build  → blue   ($color-build)
+//   .concept-tabs--teach  → green  ($color-teach)
+//   .concept-tabs--learn  → yellow ($color-learn)
+//
+// TABLE OF CONTENTS
+// -----------------
+// 1. .concept-tabs   Outer card container + color-variant modifiers.
+// 2. .tab-nav        Flex row of tab buttons (the header strip).
+// 3. .tab-btn        Individual tab button; .is-active draws the accent underline.
+// 4. .tab-panels     Padded body wrapping the panels.
+// 5. .tab-panel      A single concept panel; only .is-active is shown.
+// 6. .tab-section    Definition / Example / Math sub-block.
+// 7. .tab-label      Small uppercase accent chip ("Definition", "Math", ...).
+// 8. .tab-diagram    Centered figure box for the inline-SVG visuals.
+// =============================================================================
+
+
+// ─── 1. Outer Container ──────────────────────────────────────────────────────
+
+.concept-tabs {
+  --tab-accent:      #{$color-build};
+  --tab-accent-soft: #{rgba($color-build, 0.12)};
+
+  background: $surface-0;
+  border: 1px solid $border-soft;
+  border-radius: 10px;
+  margin: 1.5rem 0 2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  .dark-theme & {
+    background: $dark-surface-0;
+    border-color: $dark-border;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &--build { --tab-accent: #{$color-build}; --tab-accent-soft: #{rgba($color-build, 0.12)}; }
+  &--teach { --tab-accent: #{$color-teach}; --tab-accent-soft: #{rgba($color-teach, 0.14)}; }
+  &--learn { --tab-accent: #{$color-learn}; --tab-accent-soft: #{rgba($color-learn, 0.16)}; }
+
+
+  // ─── 2. Tab Nav Strip ──────────────────────────────────────────────────────
+
+  .tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    background: $surface-1;
+    border-bottom: 1px solid $border-soft;
+
+    .dark-theme & {
+      background: $dark-surface-1;
+      border-bottom-color: $dark-border;
+    }
+  }
+
+
+  // ─── 3. Tab Button ─────────────────────────────────────────────────────────
+
+  .tab-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0.75rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-secondary;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+
+    &:hover { color: $text-primary; background: rgba(0, 0, 0, 0.03); }
+
+    &.is-active {
+      color: var(--tab-accent);
+      border-bottom-color: var(--tab-accent);
+    }
+
+    .dark-theme & {
+      color: $dark-text-secondary;
+      &:hover { color: $dark-text-heading; background: rgba(255, 255, 255, 0.04); }
+      &.is-active { color: var(--tab-accent); }
+    }
+  }
+
+
+  // ─── 4. Panels Body ────────────────────────────────────────────────────────
+
+  .tab-panels { padding: 1.5rem; }
+
+
+  // ─── 5. Single Panel ───────────────────────────────────────────────────────
+
+  .tab-panel {
+    display: none;
+
+    &.is-active {
+      display: block;
+      animation: tab-fade 0.25s ease;
+    }
+  }
+
+
+  // ─── 6. Definition / Example / Math sub-block ──────────────────────────────
+
+  .tab-section {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+
+    &:last-child { margin-bottom: 0; }
+
+    p { margin: 0.3rem 0; }
+  }
+
+
+  // ─── 7. Accent Label Chip ──────────────────────────────────────────────────
+
+  .tab-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--tab-accent);
+    background: var(--tab-accent-soft);
+    border-radius: 4px;
+  }
+
+
+  // ─── 8. Diagram Figure ─────────────────────────────────────────────────────
+
+  .tab-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    color: var(--tab-accent);
+    background: $surface-1;
+    border: 1px solid $border-soft;
+    border-radius: 8px;
+
+    svg { max-width: 100%; height: auto; }
+
+    figcaption {
+      font-size: 0.8rem;
+      color: $text-muted;
+    }
+
+    .dark-theme & {
+      background: $dark-surface-2;
+      border-color: $dark-border;
+      figcaption { color: $dark-text-muted; }
+    }
+  }
+}
+
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

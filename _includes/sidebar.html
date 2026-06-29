@@ -11,7 +11,8 @@
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
       {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
     {% endfor %}
-    {% if page.collection == "projects" and page.header.teaser %}
+    {% if page.header.teaser %}
+      {% if page.collection == "projects" or page.collection == "blogs" %}
       <div class="project-sidebar-profile">
         <div class="project-sidebar-img">
           <img src="{{ page.header.teaser | relative_url }}" alt="{{ page.title }} thumbnail">
@@ -20,6 +21,7 @@
           <span class="project-sidebar-title">{{ page.title }}</span>
         </div>
       </div>
+      {% endif %}
     {% endif %}
     {% if page.sidebar.nav %}
       {% if page.collection == "projects" %}
@@ -35,6 +37,26 @@
                   <ul>
                     {% for project in cat_projects %}
                       <li><a href="{{ project.url | relative_url }}"{% if page.url == project.url %} class="active"{% endif %}>{{ project.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      {% elsif page.collection == "blogs" %}
+        <nav class="nav__list">
+          <input id="ac-toc" name="accordion-toc" type="checkbox" />
+          <label for="ac-toc">Toggle Menu</label>
+          <ul class="nav__items">
+            {% for category in site.data.blog_categories %}
+              {% assign cat_posts = site.blogs | where: "categories", category.key | sort: "order" %}
+              {% if cat_posts.size > 0 %}
+                <li>
+                  <span class="nav__sub-title">{{ category.title }}</span>
+                  <ul>
+                    {% for post in cat_posts %}
+                      <li><a href="{{ post.url | relative_url }}"{% if page.url == post.url %} class="active"{% endif %}>{{ post.title }}</a></li>
                     {% endfor %}
                   </ul>
                 </li>
