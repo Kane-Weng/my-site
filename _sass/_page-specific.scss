@@ -140,3 +140,9 @@
   color: inherit;       /* Removes the link color */
   text-decoration: none;/* Removes underline */
 }
+/* --- Centered compact table (add {: .table-centered} after a markdown table) --- */
+table.table-centered {
+  display: table;
+  width: auto;
+  margin: 0 auto 1.5rem;
+}

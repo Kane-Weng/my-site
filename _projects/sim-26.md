@@ -1,6 +1,6 @@
 ---
 title: "SIM-26 Driving Simulator"
-excerpt: "Technical Lead for high-fidelity Unreal Engine 5 autonomous vehicle simulation for driver behavior research."
+excerpt: "Software Lead for a high-fidelity Unreal Engine 5 autonomous vehicle simulation for driver behavior research."
 header:
   teaser: ./assets/images/sim26_logo.jpeg
 date: 2026-03-08
@@ -28,7 +28,7 @@ order: 3
       TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 2026 – Present <br>
       LAB/ORG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Multidisciplinary Design Program @ U-M;  <br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; University of Michigan Transportation Research Institute <br>
-      ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Technical Lead & Software Engineer <br>
+      ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Software Lead <br>
       STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C++, Unreal Engine 5 (Blueprints & Networking)
     </code>
     <div class="command" data-prompt="kane@umich:~/projects/sim-26$ ">ping -c 4 192.168.1.10<span class="cursor">_</span></div>
@@ -63,64 +63,8 @@ As the Software Lead for the **“Wizard of Oz”** subteam, I architected a hig
     <span class="carousel-dot" onclick="carouselGoTo('sim26', 2)"></span>
   </div>
 
-  <span class="project-caption">SIM26 photo gallery — team, poster, and the simulator in UE5</span>
+  <span class="project-caption">SIM-26 gallery: team, poster, and the simulator in UE5</span>
 </div>
-
-
-<script>
-(function() {
-  var _idx = {}, _timers = {};
-
-  function getTrack(id)  { return document.getElementById(id + '-track'); }
-  function getInner(id)  { return getTrack(id).parentElement; }
-  function getSlides(id) { return getTrack(id).querySelectorAll('.carousel-slide'); }
-  function getDots(id)   { return document.querySelectorAll('#' + id + '-dots .carousel-dot'); }
-
-  function render(id) {
-    var i  = _idx[id];
-    var ss = getSlides(id);
-    var offset = 0;
-    for (var k = 0; k < i; k++) offset += ss[k].offsetWidth;
-    getTrack(id).style.transform = 'translateX(-' + offset + 'px)';
-    getInner(id).style.width     = ss[i].offsetWidth + 'px';
-    getDots(id).forEach(function(d, j) { d.classList.toggle('active', j === i); });
-  }
-
-  window.carouselGoTo = function(id, idx) {
-    var n = getSlides(id).length;
-    _idx[id] = ((idx % n) + n) % n;
-    render(id);
-  };
-  window.carouselStep = function(id, dir) {
-    carouselGoTo(id, (_idx[id] || 0) + dir);
-  };
-
-  function startAuto(id) {
-    clearInterval(_timers[id]);
-    _timers[id] = setInterval(function() { carouselStep(id, 1); }, 4000);
-  }
-
-  function initCarousel(id) {
-    _idx[id] = 0;
-    var inn  = getInner(id);
-    var imgs = inn.querySelectorAll('img');
-    var pending = imgs.length;
-    function onLoad() {
-      if (--pending > 0) return;
-      render(id);
-      startAuto(id);
-      inn.addEventListener('mouseenter', function() { clearInterval(_timers[id]); });
-      inn.addEventListener('mouseleave', function() { startAuto(id); });
-    }
-    imgs.forEach(function(img) {
-      if (img.complete && img.naturalWidth > 0) onLoad();
-      else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() { initCarousel('sim26'); });
-})();
-</script>
 
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>
@@ -130,6 +74,7 @@ As the Software Lead for the **“Wizard of Oz”** subteam, I architected a hig
 * **Data Collection:** Integrated a visual occlusion system mapped to the steering wheel, allowing the team to quantify visual demand by tracking the frequency and duration of manual glimpses the subject used to navigate relative to the lead vehicle.
 
 ### Experimental Design & Environmental Logic
+* **Methodology:** Built the experiment on prior literature so that the "Wizard" driving the lead car could not bias the participant. Lead vehicle unpredictability is measured with **Sample Entropy**, which lets the team relate how erratic the lead car is to the driver's visual demand.
 * **Traffic Setup:** Scripted ambient background traffic to prevent participant "zoning out," while limiting sessions to 15 minutes to avoid cognitive fatigue and focus loss.
 * **Environment Setup:** Designed a rural road environment to minimize environmental load and confounding variables. The map uses gentle curves to keep focus on the lead car while utilizing specific textures and road furniture (trees, signs) to ensure accurate optical flow for speed perception.
 

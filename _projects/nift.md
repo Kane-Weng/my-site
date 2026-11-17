@@ -1,6 +1,6 @@
 ---
 title: "NiFT Autonomous Shuttle"
-excerpt: "System Integration Engineer for transforming the NiFT Shuttle QB into an L4 autonomous vehicle."
+excerpt: "Project Co-Lead for transforming the NiFT Shuttle QB into an L4 autonomous vehicle."
 header:
   teaser: ./assets/images/nift_teaser.png
 date: 2026-03-08
@@ -28,7 +28,7 @@ order: 1
       ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
       TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 2026 – Present <br>
       LAB/ORG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Perot Jain TechLab, Mcity @ U-M; NiFT <br>
-      ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System Integration Engineer <br>
+      ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Project Co-Lead & System Integration <br>
       STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, C++, ROS 2, CAN bus, Gazebo, Git, Linux
     </code>
     <div class="command" data-prompt="kane@umich:~/projects/nift$ ">ros2 launch nift_bringup system.launch.py<span class="cursor">_</span></div>

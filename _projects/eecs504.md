@@ -6,6 +6,7 @@ header:
 date: 2026-04-01
 categories: coursework
 order: 2
+use_math: true
 ---
 
 <span class="lang-tag">Graduate</span>
