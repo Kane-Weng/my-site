@@ -120,7 +120,6 @@ Technical Courseworks & Work Experiences are here.
         <h3 class="timeline-role">Instructional Aide, ROB 320</h3>
         <span class="timeline-org">U-M Robotics &middot; Robot Operating Systems</span>
         <p>Guide students through C/C++ and Linux IPC as they build their own ROS-like middleware and kinematics transforms.</p>
-        <!-- TODO(kane): ROB 320 student count? -->
         <div class="exp-stats"><span><b>60+</b>students</span><span><b>Weekly</b>lab sections</span></div>
         <div class="exp-tags"><span class="lang-tag">C++</span><span class="topic-tag">Linux IPC</span><span class="topic-tag">Middleware</span><a class="exp-link" href="/my-site/projects/rob320/">Course projects &rarr;</a></div>
       </div>

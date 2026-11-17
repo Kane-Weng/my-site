@@ -28,11 +28,12 @@ use_math: true
       ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
       TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; May 2026 – Jul 2026 <br>
       LAB/ORG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Corso Group, SURE Program @ U-M <br>
+      ADVISOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prof. Jason Corso <br>
       ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Research Assistant <br>
       STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, uv, HDF5 (h5py), trimesh, Ollama, Blender <br>
-      COMPUTE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8x NVIDIA H100 node
+      COMPUTE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8x NVIDIA H100 node
     </code>
-    <div class="command" data-prompt="kane@umich:~/projects/sure$ "><span class="cursor">_</span></div>
+    <div class="command" data-prompt="kane@umich:~/projects/sure$ ">uv run python -m hdf5_export.convert --config hdf5_export/convert.yaml --dataset all<span class="cursor">_</span></div>
   </div>
 </div>
 
@@ -43,10 +44,27 @@ This research builds a "Visual Physics Dataset": existing 3D models from online 
 
 Two things make that hard. Real physical measurements tied to 3D models are rare, so most values have to be estimated. And the raw models come from many datasets that each store files their own way. My summer covered both: one store the cluster can train from, and a benchmark of which open models estimate mass well enough to help annotate at scale.
 
-<!-- TODO(kane): overview figure, maybe sample objects from the datasets. analyze_datasets/visualize_mesh.py can render any object to PNG with --screenshot -->
-<p class="project-caption"><em>[Image placeholder: sample objects from the source datasets]</em></p>
-<!-- <img src="/my-site/assets/images/sure_overview.png" class="project-img" alt="Visual Physics Dataset overview">
-<span class="project-caption">Caption here</span> -->
+I worked under Prof. Jason Corso, and I'm grateful to my mentor, [Colin Fuelberth](https://www.linkedin.com/in/colin-fuelberth/), for guidance throughout the summer.
+
+<div class="project-carousel" id="sure-carousel">
+  <div class="carousel-inner">
+    <div class="carousel-track" id="sure-track">
+      <div class="carousel-slide" data-caption="Sample objects from ABO, GSO, and YCB, rendered with the project's mesh viewer.">
+        <img src="/my-site/assets/images/sure_overview.jpg" alt="Sample 3D objects from the source datasets">
+      </div>
+      <div class="carousel-slide" data-caption="The Corso Group, Summer 2026.">
+        <img src="/my-site/assets/images/sure_corso_group.jpeg" alt="Corso Group, Summer 2026">
+      </div>
+    </div>
+    <button class="carousel-btn carousel-prev" onclick="carouselStep('sure', -1)" aria-label="Previous">&#8249;</button>
+    <button class="carousel-btn carousel-next" onclick="carouselStep('sure', 1)" aria-label="Next">&#8250;</button>
+  </div>
+  <div class="carousel-dots" id="sure-dots">
+    <span class="carousel-dot active" onclick="carouselGoTo('sure', 0)"></span>
+    <span class="carousel-dot" onclick="carouselGoTo('sure', 1)"></span>
+  </div>
+  <span class="project-caption">Sample objects from ABO, GSO, and YCB, rendered with the project's mesh viewer.</span>
+</div>
 
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>

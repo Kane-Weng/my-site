@@ -34,11 +34,12 @@ use_math: true
       ------- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------- <br>
       TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mar 2026 – Present <br>
       LAB/ORG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DASC Lab, U-M Robotics <br>
+      ADVISOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prof. Dimitra Panagou <br>
       ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Research Assistant <br>
       SIM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, cvxpy, CasADi, do-mpc, Optuna, W&B <br>
-      HARDWARE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ROS 2 Humble, JAX, Vicon, DJI RoboMaster EP, Docker
+      HARDWARE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ROS 2 Humble, JAX, Vicon, DJI RoboMaster EP, Docker
     </code>
-    <div class="command" data-prompt="kane@umich:~/projects/dasc$ "><span class="cursor">_</span></div>
+    <div class="command" data-prompt="kane@umich:~/projects/dasc$ ">ros2 launch plcbf_bridge plcbf_vicon.launch.py conn_type:=sta<span class="cursor">_</span></div>
   </div>
 </div>
 
@@ -46,6 +47,8 @@ use_math: true
 <h2 class="section-header build">Mission</h2>
 
 The Distributed Autonomous Systems and Control (DASC) Lab works on planning, learning, and control for autonomous robots, with a focus on safety and provable guarantees. I work on the safety side with Control Barrier Functions (CBFs). A CBF acts as a filter on top of any nominal controller: it leaves the command alone while the robot is safe, and changes it only as much as needed to avoid a collision.
+
+I work under Prof. Dimitra Panagou, and I'm grateful to my PhD mentor, [Taekyung Kim](https://www.taekyung.me/) (TK), for guiding this work.
 
 <video class="project-img" autoplay loop muted playsinline>
   <source src="/my-site/assets/videos/dpcbf_bicycle_100obs.mp4" type="video/mp4">
@@ -95,7 +98,7 @@ The Dynamic Parabolic CBF (DPCBF), from Park, Kim, and Panagou at ICRA 2026, rep
   <span class="project-caption">Head-on encounter: the C3BF (a) turns away early, while the DPCBF (b) holds course longer and still reaches the goal.</span>
 </div>
 
-**My part:** The original paper shows the DPCBF on a kinematic bicycle and a dynamic unicycle in the plane. I am extending it to more robot models and to 3D, and benchmarking it against other CBF filters. We are working toward a journal paper on this extension.
+The original paper shows the DPCBF on a kinematic bicycle in 2D plane. I am extending it to more robot models and to 3D, and benchmarking it against other CBF filters. We are working toward a journal paper on this extension.
 
 <details class="project-accordion">
   <summary>
@@ -120,7 +123,7 @@ The Dynamic Parabolic CBF (DPCBF), from Park, Kim, and Panagou at ICRA 2026, rep
 ### PLCBF: Safety on Real Hardware
 A Policy Library CBF (PLCBF) keeps a small library of backup policies, like braking or turning away. At every step it rolls each one forward in parallel with JAX, and treats the state as safe as long as at least one backup policy stays safe. The robot follows its normal controller and only gets corrected when that guarantee is about to break, with no safe set to design offline.
 
-I brought PLCBF up on a DJI RoboMaster EP in the lab's Vicon space, as a ROS 2 Humble stack in a Docker container. **Result:** collision-free waypoint navigation on the real robot, with the filter running in the loop.
+I brought PLCBF up on a DJI RoboMaster EP in the lab's Vicon space, as a ROS 2 Humble stack in a Docker container. The following video shows the collision-free waypoint navigation on the real robot, with the filter running in the loop.
 
 <details class="project-accordion">
   <summary>
@@ -153,7 +156,7 @@ I brought PLCBF up on a DJI RoboMaster EP in the lab's Vicon space, as a ROS 2 H
 <h2 class="section-header learn">Challenges</h2>
 
 ### Building on an Existing Codebase
-Almost everything I wrote extends the lab's `safe_control` library, so progress depended on reading its abstractions, finding the right places to subclass, and staying compatible with upstream instead of forking away from it. Learning to extend a system I did not write, without breaking it, taught me as much as the control theory.
+Almost everything I wrote extends my PhD mentor's `safe_control` library, so progress depended on reading its abstractions, finding the right places to subclass, and staying compatible with upstream instead of forking away from it. Learning to extend a system I did not write, without breaking it, taught me as much as the control theory.
 
 ### Sim to Hardware
 The real robot surfaced problems a simulator never shows. The SDK keeps the last wheel speed when commands stop, so I set a chassis timeout to make it halt. The mecanum base strafes slower than it drives forward, so I measured its real speed limits and added heading tracking. The SDK also needs host networking to find the robot, and the robot accepts only one controller at a time.
