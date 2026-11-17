@@ -1,9 +1,9 @@
 - key: research
-  title: "Research & Teams"
+  title: "Lab Research"
   order: 1
 - key: program
-  title: "Extracurricular"
+  title: "Engineering Programs"
   order: 2
 - key: coursework
-  title: "Highlighted Coursework"
+  title: "Coursework"
   order: 3

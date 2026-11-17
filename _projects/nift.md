@@ -45,17 +45,16 @@ order: 1
 
 This project builds an autonomous depot shuttle for **Mcity** with the mobility startup **NiFT**. The goal is a proof of concept that turns the NiFT Shuttle QB into an *L4 autonomous vehicle*, using infrastructure-based sensing and routing.
 
-<!-- TODO(agent): Can u update this with the new colored model used in CARLA rn? -->
 <div class="model-viewer-wrap">
   <model-viewer 
-    src="/my-site/assets/models/nift_shuttle.glb" 
+    src="/my-site/assets/models/nift_shuttle_twin.glb" 
     alt="3D Model of the NiFT Autonomous Shuttle" 
     auto-rotate 
     camera-controls 
     style="width: 100%; height: 100%;">
   </model-viewer>
 </div>
-<p class="model-viewer-caption"><em>Interactive URDF: Click and drag to inspect the shuttle's sensor payload and chassis.</em></p>
+<p class="model-viewer-caption"><em>The shuttle model from our CARLA digital twin. Click and drag to rotate it.</em></p>
 
 I co-lead the student team and designed the shuttle's ROS 2 software stack, from raw GNSS and LiDAR data down to the drive-by-wire CAN frames. In the winter we built a classical autonomy stack and drove it on the real shuttle. This fall the team is working toward a learned driver, and I rebuilt the stack underneath it so the shuttle drives the same way in simulation and on the road.
 
@@ -244,7 +243,10 @@ This semester the team set a bigger goal: let a **vision-language-action (VLA)**
       <li><strong>Swap Only the Hardware:</strong> The sim stands in for the GNSS server, the LiDAR, and the drive-by-wire ECU, so every node under test is the node that drives the shuttle. A kinematic backend runs the same stack for teammates without a GPU.</li>
       <li><strong>Measure the Real Vehicle:</strong> Garage tests showed the steering pulls about 2.2° right, the wheels turn only 70% of the command, there is about 0.45 s of dead time, and our steering sign was reversed. I fed these numbers back into both simulators.</li>
     </ul>
-    <!-- TODO(agent): here we can have a quick vid of CARLA sim iwth mcity digital twin -->
+    <video class="project-img" style="max-width: 100%;" autoplay loop muted playsinline>
+      <source src="/my-site/assets/videos/nift_carla_route.mp4" type="video/mp4">
+    </video>
+    <span class="project-caption">The shuttle driving a 200 m block loop in CARLA on the Mcity digital twin, at 3× speed.</span>
   </div>
 </details>
 

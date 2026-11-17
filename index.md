@@ -28,7 +28,11 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     <div class="showcase-text">
       <h3>NiFT Autonomous Shuttle</h3>
       <span class="role-date">Perot Jain TechLab at Mcity</span>
-      <p>Delivering a proof-of-concept that transforms the NiFT Shuttle QB into an L4 autonomous vehicle, leveraging infrastructure-based sensing and routing protocols.</p>
+      <p>Co-leading the team that is turning the NiFT Shuttle QB into an L4 autonomous vehicle. This fall I rebuilt our ROS 2 stack so it drives the same way in simulation and on the road, as groundwork for a VLA driver. You can drive it yourself in the browser.</p>
+      <div class="project-links">
+        <a class="repo-link" href="https://kane-weng.github.io/nift_playground/"><i class="fas fa-play-circle"></i> Live Demo</a>
+        <a class="repo-link" href="{{ '/projects/nift/' | relative_url }}"><i class="fas fa-arrow-right"></i> Project Page</a>
+      </div>
     </div>
   </div>
 
@@ -37,6 +41,9 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
       <h3>SIM-26 Driving Simulator</h3>
       <span class="role-date">Multidisciplinary Design Program</span>
       <p>Leading development on an accessible driving simulator powered by Unreal Engine 5 to assist research on driver workload and distraction.</p>
+      <div class="project-links">
+        <a class="repo-link" href="{{ '/projects/sim-26/' | relative_url }}"><i class="fas fa-arrow-right"></i> Project Page</a>
+      </div>
     </div>
     <div class="showcase-img">
       <img src="./assets/images/sim26_drive_screen.png" alt="SIM-26 Driving Simulator">
@@ -51,6 +58,10 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
       <h3>Safety-Critical Control with CBFs</h3>
       <span class="role-date">Distributed Autonomous Systems and Control Lab</span>
       <p>Extending Dynamic Parabolic Control Barrier Functions from 2D to 3D for navigation in dense environments, and deploying Policy Library CBFs on a DJI RoboMaster tracked by Vicon.</p>
+      <div class="project-links">
+        <a class="repo-link" href="https://dasc-lab.github.io/"><i class="fas fa-flask"></i> DASC Lab</a>
+        <a class="repo-link" href="{{ '/projects/dasc/' | relative_url }}"><i class="fas fa-arrow-right"></i> Project Page</a>
+      </div>
     </div>
   </div>
 

@@ -10,7 +10,7 @@ order: 4
 <span class="lang-tag">Team Competition</span>
 <span class="topic-tag">24-Hour</span>
 <span class="topic-tag">Hackathon</span>
-<span class="topic-tag">Redbull</span>
+<span class="topic-tag">Next.js</span>
 
 <div class="project-links">
   <a class="repo-link" href="https://github.com/Blank-FS/mhacks-team-up"><i class="fab fa-github"></i> mhacks-team-up</a>

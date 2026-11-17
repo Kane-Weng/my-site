@@ -173,13 +173,9 @@ $exp-teaching: $color-teach;
   }
 }
 
-.exp-tags {
+.exp-links {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 5px;
-
-  .lang-tag, .topic-tag { margin: 0; font-size: 0.7rem; }
 }
 
 .exp-link {
