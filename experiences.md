@@ -123,7 +123,7 @@ Technical Courseworks & Work Experiences are here.
         <div class="exp-stats"><span><b>60+</b>students</span><span><b>Weekly</b>lab sections</span></div>
         <div class="exp-tags"><span class="lang-tag">C++</span><span class="topic-tag">Linux IPC</span><span class="topic-tag">Middleware</span><a class="exp-link" href="/my-site/projects/rob320/">Course projects &rarr;</a></div>
       </div>
-      <figure class="exp-media"><img src="/my-site/assets/images/ros.jpg" alt="ROS logo"></figure>
+      <figure class="exp-media"><img src="/my-site/assets/images/rob320_mbot.png" alt="Mbot Omni used in ROB 320"><figcaption>Mbot Omni used in ROB 320</figcaption></figure>
     </div>
   </div>
 
@@ -145,7 +145,6 @@ Technical Courseworks & Work Experiences are here.
   <!-- Older roles that have ended. Keep the five most recent (and anything current) above this -->
   <details class="timeline-more">
     <summary><span class="more-label">Show 2 earlier roles</span><span class="less-label">Show less</span></summary>
-
     <div class="timeline-item is-teaching">
       <div class="timeline-marker"><i class="fas fa-pencil-ruler"></i></div>
       <div class="timeline-content has-media">
@@ -160,7 +159,6 @@ Technical Courseworks & Work Experiences are here.
         <figure class="exp-media is-contain"><img src="/my-site/assets/images/calculus.jpeg" alt="Gradient formula"></figure>
       </div>
     </div>
-
     <div class="timeline-item is-teaching">
       <div class="timeline-marker"><i class="fas fa-check-double"></i></div>
       <div class="timeline-content has-media">
@@ -175,7 +173,6 @@ Technical Courseworks & Work Experiences are here.
         <figure class="exp-media is-contain is-navy"><img src="/my-site/assets/images/umich_rob.jpg" alt="Michigan Robotics logo"></figure>
       </div>
     </div>
-
   </details>
 
 </div>

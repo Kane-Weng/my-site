@@ -43,13 +43,13 @@ My contribution to the team has evolved from the physical to the digital. I spen
 <div class="project-carousel" id="mrover-carousel">
   <div class="carousel-inner">
     <div class="carousel-track" id="mrover-track">
-      <div class="carousel-slide">
+      <div class="carousel-slide" data-caption="The 2025 MRover team with the rover Kiwi.">
         <img src="/my-site/assets/images/mrover_team_2025.jpg" alt="2025 MRover Team with the rover Kiwi">
       </div>
-      <div class="carousel-slide">
+      <div class="carousel-slide" data-caption="Robotic arm subteam at work.">
         <img src="/my-site/assets/images/mrover_arm.jpg" alt="Robotic arm subteam fabrication work">
       </div>
-      <div class="carousel-slide">
+      <div class="carousel-slide" data-caption="The rover Kiwi.">
         <img src="/my-site/assets/images/mrover_rover.jpg" alt="Rover Kiwi">
       </div>
     </div>
@@ -62,64 +62,10 @@ My contribution to the team has evolved from the physical to the digital. I spen
     <span class="carousel-dot" onclick="carouselGoTo('mrover', 2)"></span>
   </div>
 
-  <span class="project-caption">MRover photo gallery — team, robotic arm, and the rover "Kiwi"</span>
+  <span class="project-caption">The 2025 MRover team with the rover Kiwi.</span>
 </div>
 
 
-<script>
-(function() {
-  var _idx = {}, _timers = {};
-
-  function getTrack(id)  { return document.getElementById(id + '-track'); }
-  function getInner(id)  { return getTrack(id).parentElement; }
-  function getSlides(id) { return getTrack(id).querySelectorAll('.carousel-slide'); }
-  function getDots(id)   { return document.querySelectorAll('#' + id + '-dots .carousel-dot'); }
-
-  function render(id) {
-    var i  = _idx[id];
-    var ss = getSlides(id);
-    var offset = 0;
-    for (var k = 0; k < i; k++) offset += ss[k].offsetWidth;
-    getTrack(id).style.transform = 'translateX(-' + offset + 'px)';
-    getInner(id).style.width     = ss[i].offsetWidth + 'px';
-    getDots(id).forEach(function(d, j) { d.classList.toggle('active', j === i); });
-  }
-
-  window.carouselGoTo = function(id, idx) {
-    var n = getSlides(id).length;
-    _idx[id] = ((idx % n) + n) % n;
-    render(id);
-  };
-  window.carouselStep = function(id, dir) {
-    carouselGoTo(id, (_idx[id] || 0) + dir);
-  };
-
-  function startAuto(id) {
-    clearInterval(_timers[id]);
-    _timers[id] = setInterval(function() { carouselStep(id, 1); }, 4000);
-  }
-
-  function initCarousel(id) {
-    _idx[id] = 0;
-    var inn  = getInner(id);
-    var imgs = inn.querySelectorAll('img');
-    var pending = imgs.length;
-    function onLoad() {
-      if (--pending > 0) return;
-      render(id);
-      startAuto(id);
-      inn.addEventListener('mouseenter', function() { clearInterval(_timers[id]); });
-      inn.addEventListener('mouseleave', function() { startAuto(id); });
-    }
-    imgs.forEach(function(img) {
-      if (img.complete && img.naturalWidth > 0) onLoad();
-      else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() { initCarousel('mrover'); });
-})();
-</script>
 
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>

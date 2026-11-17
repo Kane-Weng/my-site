@@ -13,6 +13,11 @@ order: 1
 <span class="topic-tag">Entrepreneurship</span>
 <span class="topic-tag">Grade: A</span>
 
+<div class="project-links">
+  <a class="repo-link" href="https://github.com/Kane-Weng/NiFT-AV-shuttle"><i class="fab fa-github"></i> NiFT-AV-shuttle</a>
+  <a class="repo-link" href="https://kane-weng.github.io/nift_playground/"><i class="fas fa-play-circle"></i> Web Playground</a>
+</div>
+
 <div class="terminal-window">
   <div class="terminal-header">
     <span class="terminal-title">kane@umich:~/projects/nift</span>
@@ -29,17 +34,18 @@ order: 1
       TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 2026 – Present <br>
       LAB/ORG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Perot Jain TechLab, Mcity @ U-M; NiFT <br>
       ROLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Project Co-Lead & System Integration <br>
-      STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, C++, ROS 2, CAN bus, Gazebo, Git, Linux
+      STACK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python, C++, ROS 2 Humble, CAN bus, CARLA, React, Linux
     </code>
-    <div class="command" data-prompt="kane@umich:~/projects/nift$ ">ros2 launch nift_bringup system.launch.py<span class="cursor">_</span></div>
+    <div class="command" data-prompt="kane@umich:~/projects/nift$ ">ros2 launch nift_bringup system.launch.py profile:=sim_kinematic<span class="cursor">_</span></div>
   </div>
 </div>
 
 <!-- project abstract -->
 <h2 class="section-header build">Mission</h2>
 
-This project aims to develop an autonomous depot shuttle platform for **Mcity** in collaboration with **NiFT**. Our goal is to deliver a proof-of-concept transforming the NiFT Shuttle QB into an *L4 autonomous vehicle* by leveraging infrastructure-based sensing and routing.
+This project builds an autonomous depot shuttle for **Mcity** with the mobility startup **NiFT**. The goal is a proof of concept that turns the NiFT Shuttle QB into an *L4 autonomous vehicle*, using infrastructure-based sensing and routing.
 
+<!-- TODO(agent): Can u update this with the new colored model used in CARLA rn? -->
 <div class="model-viewer-wrap">
   <model-viewer 
     src="/my-site/assets/models/nift_shuttle.glb" 
@@ -51,18 +57,18 @@ This project aims to develop an autonomous depot shuttle platform for **Mcity** 
 </div>
 <p class="model-viewer-caption"><em>Interactive URDF: Click and drag to inspect the shuttle's sensor payload and chassis.</em></p>
 
-As part of a six-person student team, I architected the end-to-end <strong>ROS 2 Humble</strong> software stack, bridging high-level autonomy with low-level hardware execution. My core achievements include developing a custom <strong>Active Disturbance Rejection Control (ADRC)</strong> system alongside an adaptive pure pursuit planner, engineering the <strong>SocketCAN</strong> communication bridge for by-wire control, and integrating RTK GNSS localization with a fail-safe hardware state machine. To validate our navigation algorithms prior to physical deployment, I also built a high-fidelity <strong>Gazebo</strong> simulation environment of the Mcity testing grounds, complete with custom URDF models and RViz 2 diagnostic tools.
+I co-lead the student team and designed the shuttle's ROS 2 software stack, from raw GNSS and LiDAR data down to the drive-by-wire CAN frames. In the winter we built a classical autonomy stack and drove it on the real shuttle. This fall the team is working toward a learned driver, and I rebuilt the stack underneath it so the shuttle drives the same way in simulation and on the road.
 
 <div class="project-carousel" id="nift-carousel">
   <div class="carousel-inner">
     <div class="carousel-track" id="nift-track">
-      <div class="carousel-slide">
+      <div class="carousel-slide" data-caption="The 2026 Perot Jain TechLab Mcity cohort.">
         <img src="/my-site/assets/images/nift_pjtl26_cohort.png" alt="2026 Perot Jain TechLab Mcity cohort">
       </div>
-      <div class="carousel-slide">
+      <div class="carousel-slide" data-caption="The NiFT team, Winter 2026.">
         <img src="/my-site/assets/images/nift_cohort_2026.jpeg" alt="NiFT Winter 2026 Team">
       </div>
-      <div class="carousel-slide">
+      <div class="carousel-slide" data-caption="The NiFT shuttle in the Mcity garage.">
         <img src="/my-site/assets/images/nift_shuttle_garage.jpg" alt="NiFT shuttle in the Mcity garage">
       </div>
     </div>
@@ -74,94 +80,39 @@ As part of a six-person student team, I architected the end-to-end <strong>ROS 2
     <span class="carousel-dot" onclick="carouselGoTo('nift', 1)"></span>
     <span class="carousel-dot" onclick="carouselGoTo('nift', 2)"></span>
   </div>
-
-  <span class="project-caption">NiFT photo gallery — PJTL cohort, NiFT team, and the NiFT shuttle</span>
+  <span class="project-caption">The 2026 Perot Jain TechLab Mcity cohort.</span>
 </div>
-
-
-<script>
-(function() {
-  var _idx = {}, _timers = {};
-
-  function getTrack(id)  { return document.getElementById(id + '-track'); }
-  function getInner(id)  { return getTrack(id).parentElement; }
-  function getSlides(id) { return getTrack(id).querySelectorAll('.carousel-slide'); }
-  function getDots(id)   { return document.querySelectorAll('#' + id + '-dots .carousel-dot'); }
-
-  function render(id) {
-    var i  = _idx[id];
-    var ss = getSlides(id);
-    var offset = 0;
-    for (var k = 0; k < i; k++) offset += ss[k].offsetWidth;
-    getTrack(id).style.transform = 'translateX(-' + offset + 'px)';
-    getInner(id).style.width     = ss[i].offsetWidth + 'px';
-    getDots(id).forEach(function(d, j) { d.classList.toggle('active', j === i); });
-  }
-
-  window.carouselGoTo = function(id, idx) {
-    var n = getSlides(id).length;
-    _idx[id] = ((idx % n) + n) % n;
-    render(id);
-  };
-  window.carouselStep = function(id, dir) {
-    carouselGoTo(id, (_idx[id] || 0) + dir);
-  };
-
-  function startAuto(id) {
-    clearInterval(_timers[id]);
-    _timers[id] = setInterval(function() { carouselStep(id, 1); }, 4000);
-  }
-
-  function initCarousel(id) {
-    _idx[id] = 0;
-    var inn  = getInner(id);
-    var imgs = inn.querySelectorAll('img');
-    var pending = imgs.length;
-    function onLoad() {
-      if (--pending > 0) return;
-      render(id);
-      startAuto(id);
-      inn.addEventListener('mouseenter', function() { clearInterval(_timers[id]); });
-      inn.addEventListener('mouseleave', function() { startAuto(id); });
-    }
-    imgs.forEach(function(img) {
-      if (img.complete && img.naturalWidth > 0) onLoad();
-      else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() { initCarousel('nift'); });
-})();
-</script>
 
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>
-I architected the ROS 2 workspace to achieve the **Sense-Think-Act pipeline** for the shuttle. For testing, **simulation** is also developed. The system can be split into 4 core layers:
+
+### Winter 2026: Traditional AV Stack
+I set up the ROS 2 workspace as a **Sense-Think-Act pipeline**, with a simulation that swaps in for the hardware. Click a stage to see what is inside.
 
 <!-- Hidden content templates — populated into the inline detail panel by JS -->
 <div id="tpl-impl-perception" class="pipeline-tpl">
   <ul>
-    <li><strong>LiDAR-Based Obstacle Detection:</strong> Processed raw point cloud data to extract obstacle coordinates and implemented spatial transformations (<code>TF2</code>) to map object detections from the sensor frame to the vehicle's local coordinate system.</li>
-    <li><strong>GNSS-Based State Estimation:</strong> Developed an integration for Mcity Octane via Socket.IO to stream global positioning data. Implemented a dual-beacon configuration to accurately compute the shuttle's absolute heading and real-time coordinates.</li>
+    <li><strong>LiDAR Obstacles:</strong> Open3D RANSAC removes the ground, DBSCAN clusters what is left, and each cluster is sent as a 2D convex hull in the vehicle frame through <code>TF2</code>.</li>
+    <li><strong>GNSS State:</strong> A Socket.IO client streams Mcity's RTK GNSS feed. Two antennas on the roof give both the position and the heading.</li>
   </ul>
 </div>
 <div id="tpl-impl-navigation" class="pipeline-tpl">
   <ul>
-    <li><strong>Decision Logic & Safety Layer:</strong> Implemented a sensor fusion strategy to synthesize LiDAR and GNSS data, enabling real-time decision-making for path progression and autonomous Emergency Stop (E-Stop) protocols.</li>
-    <li><strong>Global Routing & Waypoint Generation:</strong> Engineered a central orchestration node utilizing <strong>Lanelet2</strong> HD maps to compute navigable trajectories. Implemented a 3-phase routing strategy (Bezier curve entry, graph search, and exit) to smoothly transition the vehicle between unconstrained off-road poses and structured road networks while strictly adhering to Ackermann kinematic constraints.</li>
-    <li><strong>Path Tracking & Velocity Control:</strong> Developed a Pure Pursuit controller integrated with Cross-Track Error (CTE) compensation to ensure high-fidelity waypoint following and stable velocity management.</li>
+    <li><strong>Routing:</strong> A route planner searches a <strong>Lanelet2</strong> HD map, then joins the route to the shuttle and the goal with Bezier curves that respect the Ackermann turning radius.</li>
+    <li><strong>Path Tracking:</strong> Pure Pursuit steers, with cross-track error (CTE) feedback and speed scaling in curves.</li>
+    <li><strong>Safety Filters:</strong> A kinematic Control Barrier Function and a potential field slow the shuttle or stop it near LiDAR obstacles.</li>
   </ul>
 </div>
 <div id="tpl-impl-actuation" class="pipeline-tpl">
   <ul>
-    <li><strong>CAN Bus Integration:</strong> Utilized <code>ros2_socketcan</code> to interface with the vehicle's control bus. I performed frame decoding using proprietary DBC files to map raw bus signals, including throttle, brake, gear, and steering.</li>
-    <li><strong>By-Wire Controller:</strong> Developed a controller node to bridge high-level ROS 2 <code>Twist</code> commands with low-level CAN frames. This included implementing a Finite State Machine (FSM) and ADRC controller to translate target velocities and steering angles into precise actuator setpoints.</li>
+    <li><strong>CAN Bus:</strong> <code>ros2_socketcan</code> connects to the vehicle bus. I decoded the vendor DBC file to map throttle, brake, gear, and steering signals.</li>
+    <li><strong>By-Wire Control:</strong> An ADRC speed controller and a mode state machine turn target speed and steering into CAN frames for the shuttle's ECU.</li>
   </ul>
 </div>
 <div id="tpl-impl-simulation" class="pipeline-tpl">
   <ul>
-    <li><strong>Environment Mirroring:</strong> Engineered a digital twin of the NiFT shuttle and Mcity depot within Gazebo and Rviz2, ensuring accurate physical modeling and sensor data replication.</li>
-    <li><strong>Parity Testing:</strong> Structured the simulation nodes to be "plug-and-play" with the physical hardware nodes. This meant the exact same Planner and CAN nodes were used in both sim and reality, significantly reducing deployment bugs.</li>
+    <li><strong>Digital Twin:</strong> A Gazebo model of the shuttle and the Mcity depot, with RViz 2 for live diagnostics.</li>
+    <li><strong>Same Nodes, Sim or Real:</strong> The planner and CAN nodes run unchanged in simulation and on the shuttle, which cut down on bugs at deployment.</li>
   </ul>
   <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-top: 1rem;">
     <video width="100%" autoplay loop muted playsinline>
@@ -170,7 +121,7 @@ I architected the ROS 2 workspace to achieve the **Sense-Think-Act pipeline** fo
     </video>
   </div>
   <p class="text-center" style="font-size: 0.85em; color: #888; margin-top: 0.5rem;">
-    <em>RViz2 Telemetry: Adaptive Pure Pursuit tracking the generated Bezier trajectory.</em>
+    <em>RViz 2: Pure Pursuit tracking the Bezier route.</em>
   </p>
 </div>
 
@@ -194,7 +145,7 @@ I architected the ROS 2 workspace to achieve the **Sense-Think-Act pipeline** fo
       <div class="stage-chips">
         <span>Lanelet2 HD Maps</span>
         <span>Pure Pursuit</span>
-        <span>Bezier Routing</span>
+        <span>Safety Filters</span>
       </div>
     </div>
     <div class="pipeline-arrow"></div>
@@ -268,14 +219,79 @@ function pipelineClose() {
 }
 </script>
 
+### Fall 2026: Groundwork for a VLA Driver
+This semester the team set a bigger goal: let a **vision-language-action (VLA)** model, NVIDIA's Alpamayo, drive the shuttle from camera images. A learned driver still needs a stack under it that knows where the shuttle is, follows the path it is given, and stops safely when something fails. My part is that stack. I rebuilt the simulation and localization so that what we test in sim is what happens on the road, and the VLA can plug in on top without changing anything below it.
+
+<video class="project-img" style="max-width: 100%;" autoplay loop muted playsinline>
+  <source src="/my-site/assets/videos/nift_real_vs_sim.mp4" type="video/mp4">
+</video>
+<span class="project-caption">One waypoint run on the real shuttle (top) replayed in the kinematic sim and in CARLA (bottom). All three land within 0.02 m in mean cross-track error.</span>
+
+<details class="project-accordion">
+  <summary>
+    <div class="summary-container">
+      <div class="project-title">Simulation That Drives Like the Shuttle</div>
+      <div class="summary-tags">
+        <span class="lang-tag">CARLA</span>
+        <span class="topic-tag">Mcity Digital Twin</span>
+        <span class="topic-tag">Vehicle Modeling</span>
+      </div>
+    </div>
+  </summary>
+  <div class="project-content">
+    <ul>
+      <li><strong>CARLA World:</strong> Moved the simulation from Gazebo to CARLA on the public Mcity Digital Twin, with the shuttle as a native CARLA vehicle and a Lanelet2 map regenerated from the twin's OpenDRIVE file.</li>
+      <li><strong>Swap Only the Hardware:</strong> The sim stands in for the GNSS server, the LiDAR, and the drive-by-wire ECU, so every node under test is the node that drives the shuttle. A kinematic backend runs the same stack for teammates without a GPU.</li>
+      <li><strong>Measure the Real Vehicle:</strong> Garage tests showed the steering pulls about 2.2° right, the wheels turn only 70% of the command, there is about 0.45 s of dead time, and our steering sign was reversed. I fed these numbers back into both simulators.</li>
+    </ul>
+    <!-- TODO(agent): here we can have a quick vid of CARLA sim iwth mcity digital twin -->
+  </div>
+</details>
+
+<details class="project-accordion">
+  <summary>
+    <div class="summary-container">
+      <div class="project-title">Localization That Survives GNSS Dropouts</div>
+      <div class="summary-tags">
+        <span class="lang-tag">Python</span>
+        <span class="topic-tag">EKF</span>
+        <span class="topic-tag">Fault Injection</span>
+      </div>
+    </div>
+  </summary>
+  <div class="project-content">
+    <ul>
+      <li><strong>The Problem:</strong> The real GNSS feed repeats about 40% of its fixes and drops out for a second or more about once a minute. The winter stack stopped the shuttle about twice per minute of driving.</li>
+      <li><strong>Feed Checks:</strong> Catch fixes that arrive out of order, repeat, jump, or put the two antennas the wrong distance apart, so silent failures become clean stops.</li>
+      <li><strong>EKF:</strong> The shuttle reports no wheel speed, so the filter predicts from the speed and steering we command through the measured vehicle model, then corrects with GNSS. It bridges gaps of up to 1.5 s.</li>
+      <li><strong>Results:</strong> In simulation on a realistic feed, stops dropped from 1.09 to 0.35 per minute, and the fault bench went from 2 to 21 of 34 scenarios passed. On the real shuttle, the filter plus steering compensation cut the steady sideways offset from 0.53 m to 0.13 m.</li>
+    </ul>
+    <video class="project-img" style="max-width: 100%;" autoplay loop muted playsinline>
+      <source src="/my-site/assets/videos/nift_filter_runs.mp4" type="video/mp4">
+    </video>
+    <span class="project-caption">Four real waypoint runs on the Mcity garage pad, from no filter to filter plus steering compensation.</span>
+  </div>
+</details>
+
+**Web Playground.** To let anyone try the stack, I put it in a web page. The [playground](https://kane-weng.github.io/nift_playground/) runs our own ROS 2 Python nodes in the browser through Pyodide, on a small fake ROS, with nothing to install. Set a goal, start the shuttle, then cut its GNSS and watch the real controller react.
+
+<video class="project-img" style="max-width: 100%;" autoplay loop muted playsinline>
+  <source src="/my-site/assets/videos/nift_playground.mp4" type="video/mp4">
+</video>
+<span class="project-caption">The shuttle driving a route in the web playground, over the 3D Mcity twin.</span>
+
+Next, the team will close the loop with the VLA in CARLA and then run inference on the shuttle. I also used the same platform for my [ROB 498 project](/my-site/projects/rob498/) on open-vocabulary navigation.
+<!-- TODO(Kane): update this paragraph once the VLA runs closed-loop (CARLA demo video, on-vehicle results). -->
+
 <!-- project hurdles -->
 <h2 class="section-header learn">Challenges</h2>
-### CAN Bus & Hardware
-Coming into the project with no prior CAN experience, the learning curve for low-level vehicle communication was steep.
-* **CAN Frame:** I moved beyond high-level code to understand the bit-level details of the DBC file. I had to learn how to manually manipulate bytes to input meaningful velocity and steering data into CAN frames.
-* **Linux Networking:** A major hurdle was configuring the Linux Kernel to recognize our Kvaser interface. I spent significant time troubleshooting the bridge between `can-utils` and the hardware, eventually successfully masking our laptop as a native node on the vehicle's bus.
 
-### Software & API
-The L4 aspect of NiFT shuttle relies on external data, which introduced unique software integration challenges.
-* **Real-time External Comms:** I had to implement a Socket.io client within our ROS 2 stack to communicate with the Mcity Octane API. Ensuring that infrastructure-based routing data reached our planner with minimal latency was critical for safe operation.
-* **ROS 2 Ecosystem:** Beyond just writing nodes, I had to master managing complex Parameter files, launch configurations, and package dependencies to ensure the system was modular and reproducible for the rest of the team.
+### CAN Bus & Hardware
+I came into the project with no CAN experience.
+* **CAN Frames:** I had to work at the bit level of the DBC file, packing bytes by hand to send meaningful speed and steering commands.
+* **Linux Networking:** Getting the Linux kernel to recognize our Kvaser interface took a lot of troubleshooting with `can-utils`, until the laptop showed up as a native node on the vehicle bus.
+
+### The Shuttle Is Not the Model
+The fall testing taught me to trust measurements over assumptions.
+* **Unreliable Sensors:** I first treated GNSS as ground truth. Logging the real feed showed repeats, gaps, and late bursts, so the stack had to expect a bad feed instead of stopping on every hiccup.
+* **Hidden Vehicle Behavior:** Steering bias, dead time, and a flipped sign all looked like controller bugs in the logs. Measuring the vehicle first, then fixing the model, saved far more time than tuning gains.

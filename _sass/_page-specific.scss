@@ -25,6 +25,9 @@
 // 5. .layout--single #page-title a
 //    Disables click/hover behavior on the Experiences page title so it
 //    doesn't look like a navigable link.
+//
+// 6. .media-placeholder
+//    Dashed 16:9 box marking a TODO figure/video slot on project pages.
 // =============================================================================
 
 /* --- HOME PAGE (OVERLAY VERSION) --- */
@@ -145,4 +148,31 @@ table.table-centered {
   display: table;
   width: auto;
   margin: 0 auto 1.5rem;
+}
+
+/* --- MEDIA PLACEHOLDER (TODO slots for figures/videos on project pages) --- */
+.media-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  margin: 1.5rem auto 0.5rem;
+  padding: 1rem;
+  border: 2px dashed $border-light;
+  border-radius: 8px;
+  background: $surface-1;
+  color: $text-muted;
+  font-size: 0.85em;
+  text-align: center;
+
+  i { font-size: 1.8em; }
+
+  .dark-theme & {
+    border-color: $dark-border;
+    background: $dark-surface-0;
+    color: $dark-text-muted;
+  }
 }

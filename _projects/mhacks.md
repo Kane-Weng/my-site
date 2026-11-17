@@ -12,6 +12,11 @@ order: 4
 <span class="topic-tag">Hackathon</span>
 <span class="topic-tag">Redbull</span>
 
+<div class="project-links">
+  <a class="repo-link" href="https://github.com/Blank-FS/mhacks-team-up"><i class="fab fa-github"></i> mhacks-team-up</a>
+  <a class="repo-link" href="https://devpost.com/software/teamup-ltzvam"><i class="fas fa-trophy"></i> Devpost</a>
+</div>
+
 <div class="terminal-window">
   <div class="terminal-header">
     <span class="terminal-title">kane@umich:~/projects/mhacks</span>
@@ -36,25 +41,60 @@ order: 4
 
 <!-- project abstract -->
 <h2 class="section-header build">Mission</h2>
-The **"Team Up"** project was born out of a common hackathon frustration: the chaotic struggle of finding the right teammates in a sea of hundreds of participants. We wanted to move away from messy Slack channels and create a dedicated, centralized platform where hackers could discover each other based on complementary skill sets and project interests.
+At a big hackathon, finding the right teammates usually means scrolling through crowded Slack channels. **TeamUp** gives hackers one place to find each other by skills and project interests, then browse profiles, send invites, and form a team. The goal was to help solo hackers spend less time networking and more time building.
 
-Our goal was to build an intuitive match-making experience that lowered the barrier to entry for solo hackers. By providing a structured way to browse profiles, manage invites, and form teams, we aimed to help participants spend less time networking and more time actually building. In the team, I led the frontend development, focusing on the user experience and visual identity.
+In our team of four, I led the frontend: the user experience and the visual identity of the site.
+
+<div class="project-carousel" id="mhacks-carousel">
+  <div class="carousel-inner">
+    <div class="carousel-track" id="mhacks-track">
+      <div class="carousel-slide" data-caption="The TeamUp landing page.">
+        <img src="/my-site/assets/images/mhacks_teamup_hero.jpg" alt="TeamUp landing page hero section">
+      </div>
+      <div class="carousel-slide" data-caption="Feature and how-it-works sections on the landing page.">
+        <img src="/my-site/assets/images/mhacks_teamup_features.jpg" alt="TeamUp feature and how-it-works sections">
+      </div>
+    </div>
+    <button class="carousel-btn carousel-prev" onclick="carouselStep('mhacks', -1)" aria-label="Previous">&#8249;</button>
+    <button class="carousel-btn carousel-next" onclick="carouselStep('mhacks', 1)" aria-label="Next">&#8250;</button>
+  </div>
+  <div class="carousel-dots" id="mhacks-dots">
+    <span class="carousel-dot active" onclick="carouselGoTo('mhacks', 0)"></span>
+    <span class="carousel-dot" onclick="carouselGoTo('mhacks', 1)"></span>
+  </div>
+  <span class="project-caption">The TeamUp landing page.</span>
+</div>
 
 <!-- project details -->
 <h2 class="section-header teach">Implementation</h2>
+I built the frontend in Next.js and TypeScript, taking the user from the landing page through onboarding to the dashboard. My teammates built the backend with Auth0 sign-in and a Prisma and MongoDB database.
 
-### Platform Architecture
-I developed the frontend using Next.js and TypeScript, utilizing the App Router to organize the site into a cohesive flow from the landing page to the onboarding process. TypeScript was essential for maintaining a clean codebase across our 4-person team, ensuring that our components and props remained consistent as we integrated different parts of the application.
-
-### Rapid UI Prototyping & Styling
-* **Tailwind CSS:** Allowed for rapid, utility-first styling directly in the markup, which was crucial for fine-tuning the layout of the `Hero Section` and `Image Carousel` on the fly.
-* **Shadcn UI:** I integrated pre-built, accessible components like buttons, cards, and navigation menus. This allowed me to focus on the custom user experience and layout without having to rebuild basic UI elements from scratch.
+<details class="project-accordion">
+  <summary>
+    <div class="summary-container">
+      <div class="project-title">Frontend Stack</div>
+      <div class="summary-tags">
+        <span class="lang-tag">TypeScript</span>
+        <span class="topic-tag">Next.js</span>
+        <span class="topic-tag">Tailwind CSS</span>
+        <span class="topic-tag">Shadcn UI</span>
+      </div>
+    </div>
+  </summary>
+  <div class="project-content">
+    <ul>
+      <li><strong>Next.js App Router:</strong> Organized the site into one flow: landing page, onboarding, and dashboard. TypeScript kept components and props consistent as four people merged their work.</li>
+      <li><strong>Tailwind CSS:</strong> Utility classes in the markup made it fast to fine-tune the hero section and image carousel during the event.</li>
+      <li><strong>Shadcn UI:</strong> Accessible buttons, cards, and menus out of the box, so I could spend the time on layout and user flow instead of basic components.</li>
+    </ul>
+  </div>
+</details>
 
 <!-- project hurdles -->
 <h2 class="section-header learn">Challenges</h2>
 
 ### Onboarding
-This was my first deep dive into the Next.js App Router and Shadcn UI. Navigating a new framework and component library while under a strict 24-hour deadline propels me to quickly pick up how to bridge the gap between static design and dynamic React components, ensuring the landing page wasn't just pretty, but also functional and responsive.
+This was my first time with the Next.js App Router and Shadcn UI. Learning both under a 24-hour deadline pushed me to turn static designs into working, responsive React components quickly.
 
 ### Coordination
-Since the backend and database were being built simultaneously by my teammates, I had to design the Dashboard and Onboarding UI without live data. This required me to build robust frontend mocks that could be easily plugged into the real API later, requiring constant communication and good Git control to ensure my UI components matched the data structures my teammates were creating in Prisma.
+The backend and database were built at the same time as my UI, so I designed the dashboard and onboarding pages without live data. I built frontend mocks that matched the Prisma data structures my teammates were writing, which took constant communication and careful Git work to plug in the real API later.
