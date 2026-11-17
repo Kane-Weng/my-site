@@ -5,7 +5,8 @@ header:
   teaser: ./assets/images/umich_eecs.jpeg
 date: 2026-04-01
 categories: coursework
-order: 2
+order: 4
+use_math: true
 ---
 
 <span class="lang-tag">Graduate</span>

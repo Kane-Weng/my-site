@@ -43,26 +43,26 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
     </div>
   </div>
 
-  <!-- Hidden showcases -->
-  <!-- <div class="showcase-block">
-    <div class="showcase-text">
-      <h3>3D Dynamic Parabolic Control Barrier Functions - 3D Extension</h3>
-      <span class="role-date">Distributed Autonomous Systems and Control Lab</span>
-      <p>Assisting research on building up the concept of Dynamic Parabolic Control Barrier Functions to 3D formulation.</p>
-    </div>
+  <div class="showcase-block">
     <div class="showcase-img">
-      <img src="..." alt="3D DPCBF simulation">  
+      <img src="./assets/images/dpcbf_all_models.png" alt="Safety-critical control research at the DASC Lab">
     </div>
-  </div> -->
+    <div class="showcase-text">
+      <h3>Safety-Critical Control with CBFs</h3>
+      <span class="role-date">Distributed Autonomous Systems and Control Lab</span>
+      <p>Extending Dynamic Parabolic Control Barrier Functions from 2D to 3D for navigation in dense environments, and deploying Policy Library CBFs on a DJI RoboMaster tracked by Vicon.</p>
+    </div>
+  </div>
 
+  <!-- Hidden showcase: SURE ended Jul 2026, kept here in case it comes back -->
   <!-- <div class="showcase-block">
     <div class="showcase-text">
-      <h3>Visual Physical Dataset</h3>
-      <span class="role-date">Distributed Autonomous Systems and Control Lab</span>
-      <p>Transforming existing 3D models into an annotated dataset usable for physics-based simulators to support broader research.</p>
+      <h3>Visual Physics Dataset</h3>
+      <span class="role-date">Corso Group, SURE 2026</span>
+      <p>Packing 7 large-scale 3D datasets into one cluster-ready HDF5 source and benchmarking VLM/LLM mass estimation for physically grounded AI.</p>
     </div>
     <div class="showcase-img">
-      <img src="..." alt="SURE program">  
+      <img src="..." alt="Visual Physics Dataset">
     </div>
   </div> -->
 </div>
@@ -72,20 +72,20 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 
 <div class="exp-container">
   <div class="exp-card">
-    <img src="./assets/images/ros.jpg" class="exp-banner-img" alt="ROS">
+    <img src="./assets/images/eecs445_nn.jpeg" class="exp-banner-img" alt="EECS 445">
     <div class="exp-card-content">
-      <span class="role-date">U-M Robotics | 2026 – Now</span>
-      <h3>ROB 320 Instructional Aid</h3>
-      <p>Helping lab sections, holding office hours, creating exam and grading on topics of Linux IPC, developing Robot Interprocess eXchange (RIX), and kinematics & transforms.</p>
+      <span class="role-date">U-M CSE | Fall 2026 – Now</span>
+      <h3>EECS 445 Instructional Aide</h3>
+      <p>Leading weekly discussion sections and office hours for 250+ students in Introduction to Machine Learning, and building and checking projects against reference solutions so the autograder catches edge cases.</p>
     </div>
   </div>
 
   <div class="exp-card">
-    <img src="./assets/images/calculus.jpeg" class="exp-banner-img" alt="Calculus">
+    <img src="./assets/images/ros.jpg" class="exp-banner-img" alt="ROS">
     <div class="exp-card-content">
-      <span class="role-date">U-M Math | 2025 – 2026</span>
-      <h3>Math 115/116/215 Tutor</h3>
-      <p>Delivering 10 hrs per week of drop-in and group tutoring for Calculus I-III at Math Learning Center, supporting 20–30 students with structured problem sets.</p>
+      <span class="role-date">U-M Robotics | 2026 – Now</span>
+      <h3>ROB 320 Instructional Aide</h3>
+      <p>Leading lab sections, holding office hours, and writing exams on Linux IPC, the Robot Interprocess eXchange (RIX) middleware, and kinematics and transforms.</p>
     </div>
   </div>
 </div>
@@ -93,42 +93,53 @@ Beyond the code, I’m passionate about distilling complex concepts into intuiti
 <!-- current course -->
 <h2 class="section-header learn">What I’m mastering</h2>
 
+<!-- Fall 2026 courses. Tags come from the course descriptions below -->
+
+<!-- Feedback control design/analysis for robotics applications, including mobile robots, actuators, and flexible joints. Classical and modern control topics include state space representations, linearization, time response, stability, block diagrams, transfer functions, poles/zeros, root locus, frequency response, Bode plots, gain/phase margins, and lead/lag/PID control.
+ -->
 <div class="course-grid">
   <div class="course-card">
-    <span class="course-number">EECS 445</span>
-    <h4>Introduction to Machine Learning</h4>
-    <div class="lang-tag">Python</div>
-    <div class="topic-tag">Classification</div>
-    <div class="topic-tag">Regression</div>
-    <div class="topic-tag">Trees/Boosting</div>
-    <div class="topic-tag">CNN/RNN</div>
-    <div class="topic-tag">Transformers</div>
-    <div class="topic-tag">Clustering/GMMs</div>
-    <div class="topic-tag">Reinforcement Learning</div>
+    <span class="course-number">ROB 314</span>
+    <h4>Introduction to Robot Controls</h4>
+    <div class="lang-tag">MATLAB</div>
+    <div class="topic-tag">Feedback Control</div>
+    <div class="topic-tag">Linear/Nonlinear Systems</div>
+    <div class="topic-tag">State Space</div>
+    <div class="topic-tag">Root Locus</div>
+    <div class="topic-tag">Bode Plots & Margins</div>
+    <div class="topic-tag">Lead/Lag & PID</div>
   </div>
 
+  <!-- Development of full-stack autonomous navigation and mapping for mobile robots. Topics include dead reckoning from odometry, sensor modeling of LIDAR and cameras, visual odometry, path planning, and simultaneous localization and mapping (SLAM). Course topics will be implemented in hardware. -->
   <div class="course-card">
-    <span class="course-number">EECS 504</span>
-    <h4>Foundations of Computer Vision</h4>
+    <span class="course-number">ROB 330</span>
+    <h4>Localization, Mapping, and Navigation</h4>
+    <div class="lang-tag">C++</div>
     <div class="lang-tag">Python</div>
-    <div class="topic-tag">Filtering</div> 
-    <div class="topic-tag">Convolutions</div>
-    <div class="topic-tag">Feature Detection/Matching</div>
-    <div class="topic-tag">Image Segmentation</div>
-    <div class="topic-tag">Motion & Tracking</div>
-    <div class="topic-tag">Deep Learning</div>
+    <div class="topic-tag">Odometry</div>
+    <div class="topic-tag">LiDAR & Camera Models</div>
+    <div class="topic-tag">Visual Odometry</div>
+    <div class="topic-tag">Path Planning</div>
+    <div class="topic-tag">SLAM</div>
+    <div class="topic-tag">Hardware</div>
   </div>
 
+<!-- By the end of the course you can
+Choose a 3D representation from the downstream task, collision checking, grasp synthesis, navigation, rendering, and justify the memory, latency, and accuracy tradeoff.
+Compose and calibrate a multi-sensor 3D perception stack, and reason about pose and its uncertainty on SE(3).
+Build a metric-semantic map and a queryable 3D scene graph from a posed RGB-D sequence using open-vocabulary 2D foundation models.
+Explain what a world model predicts, what it is conditioned on, and why visual fidelity is a poor proxy for usefulness in closed-loop control.
+Read, present, and critique a current research paper, and reproduce a published result well enough to know where it breaks. -->
   <div class="course-card">
-    <span class="course-number">EECS 370</span>
-    <h4>Introduction to Computer Organization</h4>
-    <div class="lang-tag">C</div>
-    <div class="topic-tag">Assembly</div>
-    <div class="topic-tag">LC2K & ARM</div>
-    <div class="topic-tag">Multi-Cycle Processor</div>
-    <div class="topic-tag">Pipeline</div>
-    <div class="topic-tag">Cache</div>
-    <div class="topic-tag">Virtual Memory</div>
+    <span class="course-number">ROB 498</span>
+    <h4>3D Robot Perception</h4>
+    <div class="lang-tag">Python</div>
+    <div class="topic-tag">3D Representations</div>
+    <div class="topic-tag">Multi-Sensor Calibration</div>
+    <div class="topic-tag">Pose on SE(3)</div>
+    <div class="topic-tag">Metric-Semantic Maps</div>
+    <div class="topic-tag">3D Scene Graphs</div>
+    <div class="topic-tag">World Models</div>
   </div>
 </div>
 

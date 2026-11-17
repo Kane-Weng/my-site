@@ -6,7 +6,7 @@ header:
 date: 2026-04-13
 use_math: true
 categories: coursework
-order: 5
+order: 7
 ---
 
 <span class="lang-tag">Undergraduate</span>

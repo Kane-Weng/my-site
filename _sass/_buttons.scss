@@ -41,6 +41,52 @@
   }
 }
 
+// ─── 2. Project Repo / Link Button ───────────────────────────────────────────
+// Drop-in link spot for project pages. Swap href + icon + label for a GitHub
+// repo (fab fa-github) or live site (fas fa-globe); defaults to a private repo.
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  text-decoration: none;
+  border-radius: 6px;
+  color: $um-blue;
+  background: $surface-1;
+  border: 1px solid $border-light;
+  transition: all 0.25s ease;
+
+  i { font-size: 0.95rem; }
+
+  &:hover {
+    background: $um-blue;
+    color: #fff;
+    border-color: $um-blue;
+  }
+
+  .dark-theme & {
+    color: $dark-text-secondary;
+    background: $dark-surface-1;
+    border-color: $dark-border-soft;
+
+    &:hover {
+      background: $dark-accent;
+      color: $dark-bg;
+      border-color: $dark-accent;
+    }
+  }
+}
+
 //
 /* --- Tech Stack Grid --- */
 .stack-grid {

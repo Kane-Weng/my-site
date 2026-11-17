@@ -3,7 +3,7 @@
 kane:
   name: "Kane Weng"
   bio: |
-    Robotics & CS @ U-M • Software Engineering • Instructional Aid
+    Robotics & CS @ U-M • Software Engineering • Instructional Aide
     <div class="cv-button-container">
       <a href="/my-site/assets/docs/Kane_Weng_Resume.pdf" class="btn-cv">
         <i class="fas fa-file-download"></i> Download CV
@@ -18,5 +18,5 @@ kane:
       url: "https://github.com/Kane-Weng"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/kai-chi-weng/"
+      url: "https://www.linkedin.com/in/kane-weng/"
 
